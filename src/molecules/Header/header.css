@@ -1,0 +1,8 @@
+header {
+  width: 100%;
+  min-height: 60px;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

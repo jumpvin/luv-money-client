@@ -1,0 +1,24 @@
+footer {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+}
+
+footer a {
+  text-decoration: none;
+  color: blue;
+  margin: 1rem;
+  width: 45px;
+}
+
+footer img {
+  width: 45px;
+}
+
+footer a:nth-child(3) img{
+  width: 55px;
+  margin-bottom: 1rem;
+  position: absolute;
+  margin: auto;
+  top: -5px;
+}
