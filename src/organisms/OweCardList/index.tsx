@@ -1,25 +1,33 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { triggerGetOweCard } from '../../ducks/getOweCard/getOweCardActions';
+import { useEffect } from 'react';
 import './owe-card-list.css';
-import UserFavicon from '../../atoms/UserFavicon';
-import OweInfo from '../../atoms/OweInfo';
-import PaymentLogo from '../../molecules/PaymentLogo';
 import OweCard from '../../molecules/OweCard';
 
-const OweCardList = () => (
-  <div className='owe-card-list'>
-    <OweCard 
-      path='https://avatars3.githubusercontent.com/u/31024648?s=460&v=4'
-      who='James'
-      amount={3}
-      what='Netflix'
-    />
-    <OweCard 
-      path='https://avatars3.githubusercontent.com/u/47696364?s=460&v=4'
-      who='Briana'
-      amount={-14}
-      what='Food'
-    />
-  </div>
-);
+const OweCardList = () => {
+  const dispatch = useDispatch();
+  const oweCards = useSelector( state => state.recieveOweCard.oweCards);
+  console.log(oweCards);
+  useEffect(() => {
+    dispatch(triggerGetOweCard());
+  }, [])
+
+  return (
+    <div className='owe-card-list'>
+      {
+      oweCards.map((oweCard, index) => (
+        <OweCard 
+          key={index}
+          path={oweCard.path}
+          who={oweCard.who}
+          amount={oweCard.amount}
+          what={oweCard.what}
+        />
+      ))
+      }
+    </div>
+  )
+};
 
 export default OweCardList;
