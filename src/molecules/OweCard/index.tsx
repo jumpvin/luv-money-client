@@ -4,6 +4,7 @@ import './owe-card.css';
 import UserFavicon from '../../atoms/UserFavicon';
 import OweInfo from '../../atoms/OweInfo';
 import PaymentLogo from '../../molecules/PaymentLogo';
+import Card from '../Card';
 
 interface OweCardParams { 
   path: string;
@@ -13,11 +14,11 @@ interface OweCardParams {
 }
 
 const OweCard = ({ path, who, amount, what}: RouteComponentProps<OweCardParams>) => (
-  <div className='owe-card'>
+  <Card addClass='owe' >
     <UserFavicon path={path} />
     <OweInfo who={who} amount={amount} what={what} />
     <PaymentLogo />
-  </div>
+  </Card>
 );
 
 export default OweCard;
