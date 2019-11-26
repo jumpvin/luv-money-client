@@ -1,7 +1,4 @@
 
-import firebase from 'firebase/app';
-import 'firebase/auth';
-
 const firebaseConfig = {
   apiKey: 'AIzaSyDSfWwYue4k3YdjYOVYBdn-cPHVYMKvAeQ',
   authDomain: 'luv-money.firebaseapp.com',
@@ -12,4 +9,5 @@ const firebaseConfig = {
   appId: '1:658462223541:web:3a212804ca79afb0d622fc',
   measurementId: 'G-1728C6HPF6',
 };
-export default firebase.initializeApp(firebaseConfig);
+
+export default firebaseConfig;
