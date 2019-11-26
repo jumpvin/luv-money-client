@@ -7,15 +7,22 @@ import OweCard from '../../molecules/OweCard';
 
 const OweCardList = () => {
   const dispatch = useDispatch();
-  const oweCards = useSelector( state => state.recieveOweCard.oweCards);
-  console.log(oweCards);
+  const { oweCards, isLoading, allState } = 
+    useSelector( state => ({ 
+      oweCards: state.recieveOweCard.oweCards,
+      isLoading: state.recieveOweCard.isLoading,
+      allState: state,
+    })
+  );
+
   useEffect(() => {
     dispatch(triggerGetOweCard());
   }, [])
-
+console.log(allState);
   return (
     <div className='owe-card-list'>
       {
+        isLoading ? 'Please Wait':
       oweCards.map((oweCard, index) => (
         <OweCard 
           key={index}
