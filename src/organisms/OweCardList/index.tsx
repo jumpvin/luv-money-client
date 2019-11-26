@@ -19,7 +19,7 @@ const OweCardList = () => {
   }, [])
 
   return (
-    <div className='owe-card-list'>
+    <div className='owe-card-list hold-column'>
       {
         isLoading ? 'Please Wait':
       oweCards.map((oweCard, index) => (
