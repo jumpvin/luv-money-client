@@ -1,10 +1,16 @@
 import axios from 'axios';
+import token from './auth';
 
-const api = async (type, url, args, headers) => {
-  const res = await axios[type](`http://localhost:3001${url}`, args, headers);
+const api = async (type, url, args) => {
+  const userToken = await token();
+  const res = await axios[type](`http://localhost:3001${url}`, {
+    params: args,
+    headers: {
+      authToken: `Bearer ${userToken}`,
+    },
+  });
   return res.data;
 };
-
 
 const oweMock = [
   {
@@ -27,7 +33,7 @@ const setExamples = () => api('post', '/example');
 
 const getOweCards = () => oweMock;
 
-const getPool = (args, headers) => api('get', '/pool', args, headers);
+const getPool = (args) => api('get', '/pool', args);
 
 const getUsers = (args) => api('get', '/users', args);
 
