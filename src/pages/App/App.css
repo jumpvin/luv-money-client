@@ -11,3 +11,14 @@ width: 100%;
   align-items: center;
 }
 
+svg {
+  fill: red;
+}
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height:100vh;
+  width: 50vw;
+}
