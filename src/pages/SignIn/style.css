@@ -1,8 +1,7 @@
 .signup{
   width:100vw;
   height:100vh;
-  background: rgb(97,120,240);
-background: radial-gradient(circle, rgba(97,120,240,1) 0%, rgba(219,41,41,1) 100%);
+  background: #fff
 }
 
 .logo{
