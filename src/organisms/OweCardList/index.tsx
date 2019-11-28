@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { firstName } from '../../services/helpers';
 import './owe-card-list.css';
 import OweCard from '../../molecules/OweCard';
 
@@ -27,9 +28,8 @@ const OweCardList = () => {
        <OweCard 
           key={index}
           path={user.photourl}
-          who={user.name}
+          who={firstName(user.name)}
           amount={userBalance(user.id)}
-          what='Netflix'
         />
       ))
       }

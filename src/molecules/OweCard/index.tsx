@@ -10,13 +10,12 @@ interface OweCardParams {
   path: string;
   who: string; 
   amount: number; 
-  what:string
 }
 
-const OweCard = ({ path, who, amount, what}: RouteComponentProps<OweCardParams>) => (
+const OweCard = ({ path, who, amount }: RouteComponentProps<OweCardParams>) => (
   <Card addClass='owe' >
     <UserFavicon path={path} />
-    <OweInfo who={who} amount={amount} what={what} />
+    <OweInfo who={who} amount={amount} />
     <PaymentLogo />
   </Card>
 );

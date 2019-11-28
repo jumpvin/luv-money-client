@@ -4,7 +4,8 @@
   align-items: center;
 }
 .owe-who, .owe-what {
-  font-size: 18px;
+  font-size: 20px;
+  margin-bottom: .25rem;
 }
 
 .owe-amount {
