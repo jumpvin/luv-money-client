@@ -1,0 +1,20 @@
+
+.settingsGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.settingsTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  padding-right: 9px;
+  font-weight: 600;
+}
+
+.settingsItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
