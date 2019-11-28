@@ -29,9 +29,9 @@ const App = () => {
       console.log(user);
       if (user) {
         getUser();
-        return setUser(user)
+        setUser(user)
       } else {
-        return setUser({})
+        setUser({})
       }
     });
     
@@ -48,7 +48,7 @@ const App = () => {
       {/* {loading ? <Spinner className="spinner"/> : */}
         {Object.keys(user).length > 0
             ? <Main /> : <SignIn />}
-      /
+      
     </div>
   );
 };
