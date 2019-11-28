@@ -14,8 +14,21 @@ const App = () => {
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
+<<<<<<< HEAD
       if (user) dispatch(triggerGetPool({ user_id: 2 }));
     });  
+=======
+      setLoading(false)
+      console.log(user);
+      if (user) {
+        getUser();
+        setUser(user)
+      } else {
+        setUser({})
+      }
+    });
+    
+>>>>>>> 439055a93af8b0431ca58578d96bd79c1ceb35b4
   },[]);
 
 {/* <Spinner className="spinner" /> */}
@@ -25,6 +38,10 @@ const App = () => {
       {/* {loading ? <Spinner className="spinner"/> : */}
         {Object.keys(pool).length > 0
             ? <Main /> : <SignIn />}
+<<<<<<< HEAD
+=======
+      
+>>>>>>> 439055a93af8b0431ca58578d96bd79c1ceb35b4
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import React from 'react';
+import AddExpense from '../../organisms/AddExpense/index';
 
 const Payment = () => (
   <div>
-    Payment
+    <AddExpense/>
   </div>
 );
 
