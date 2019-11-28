@@ -1,34 +1,34 @@
-const TRIGGER_EXAMPLE = 'TRIGGER_EXAMPLE';
-const EXAMPLE_LOADING = 'EXAMPLE_LOADING';
-const EXAMPLE_SUCCESS = 'EXAMPLE_SUCCESS';
-const EXAMPLE_FAIL = 'EXAMPLE_FAIL';
+const TRIGGER_POOLSETTINGS = 'TRIGGER_EXAMPLE';
+const POOLSETTINGS_LOADING = 'EXAMPLE_LOADING';
+const POOLSETTINGS_SUCCESS = 'POOLSETTINGS_SUCCESS';
+const POOLSETTINGS_FAIL = 'POOLSETTINGS_FAIL';
 
-const triggerExample = () => ({
-  type: TRIGGER_EXAMPLE,
+const triggerPoolSettings = () => ({
+  type: TRIGGER_POOL,
 });
 
-const exampleLoading = (isLoading) => ({
-  type: EXAMPLE_LOADING,
+const poolSettingsLoading = (isLoading) => ({
+  type: poolSettings_LOADING,
   isLoading,
 });
 
-const exampleSuccess = (examples) => ({
-  type: EXAMPLE_SUCCESS,
-  examples,
+const poolSettingsSuccess = (poolSettings) => ({
+  type: POOLSETTINGS_SUCCESS,
+  poolSettings,
 });
 
-const exampleFail = (err) => ({
-  type: EXAMPLE_FAIL,
+const poolSettingsFail = (err) => ({
+  type: POOLSETTINGS_FAIL,
   err,
 });
 
 export {
-  TRIGGER_EXAMPLE,
-  EXAMPLE_LOADING,
-  EXAMPLE_SUCCESS,
-  EXAMPLE_FAIL,
-  triggerExample,
-  exampleLoading,
-  exampleSuccess,
-  exampleFail,
+  TRIGGER_POOLSETTINGS,
+  POOLSETTINGS_LOADING,
+  POOLSETTINGS_SUCCESS,
+  POOLSETTINGS_FAIL,
+  triggerPoolSettings,
+  poolSettingsLoading,
+  poolSettingsSuccess,
+  poolSettingsFail,
 };
