@@ -10,5 +10,7 @@
 
 .balance-container {
   display: flex;
-  align-items: center;
+}
+.statement-card {
+  display: flex
 }
