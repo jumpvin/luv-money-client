@@ -12,7 +12,7 @@ const Main = () => (
     <Router>
       <Route exact path='/' component={Dashboard} />
       <Route path='/expense-details' component={ExpsenseDetails} />
-      <Route path='/payment' component={Payment} />
+      <Route path='/payment' render = {Payment}/>
       <Route path='/settings' component={Settings} />
       <Route path='/pool-settings' component={PoolSettings} />
       <Footer />
