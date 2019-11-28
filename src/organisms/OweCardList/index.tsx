@@ -1,34 +1,35 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { triggerGetOweCard } from '../../ducks/getOweCard/getOweCardActions';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import './owe-card-list.css';
 import OweCard from '../../molecules/OweCard';
 
 const OweCardList = () => {
-  const dispatch = useDispatch();
-  const { oweCards, isLoading } = 
+  const { isLoading, userInfo, balanceInfo } = 
     useSelector( state => ({ 
-      oweCards: state.recieveOweCard.oweCards,
-      isLoading: state.recieveOweCard.isLoading,
+      isLoading: state.getPool.isLoading,
+      userInfo: state.getPool.pool.userInfo,
+      balanceInfo: state.getPool.pool.balanceInfo,
     })
   );
 
-  useEffect(() => {
-    dispatch(triggerGetOweCard());
-  }, [])
+  const userBalance = (userId) => {
+    for(let i = 0; i< balanceInfo.length; i++) {
+      if ( userId === balanceInfo[i][0]) return balanceInfo[i][1];
+    }
+  };
 
   return (
     <div className='owe-card-list hold-column'>
       {
         isLoading ? 'Please Wait':
-      oweCards.map((oweCard, index) => (
-        <OweCard 
+      userInfo.map((user, index) => (
+       index === 0 ?'' : 
+       <OweCard 
           key={index}
-          path={oweCard.path}
-          who={oweCard.who}
-          amount={oweCard.amount}
-          what={oweCard.what}
+          path={user.photourl}
+          who={user.name}
+          amount={userBalance(user.id)}
+          what='Netflix'
         />
       ))
       }

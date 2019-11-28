@@ -1,0 +1,14 @@
+.statement-info-img-container {
+  width: 150px;
+  height: 120px;
+}
+
+.statement-info-img-container img {
+  width: 100%;
+  height: auto;
+}
+
+.balance-container {
+  display: flex;
+  align-items: center;
+}

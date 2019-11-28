@@ -1,23 +1,5 @@
-'use strict';
+import firebase from 'firebase';
 
-const axios = require('axios');
-const {auth} = require('./firebase-service');
+const token = async () => firebase.auth().currentUser.getIdToken();
 
-
-exports.createUserAccount = (data) => {
-  return axios.post('http://localhost:3001/auth/signup', data)
-    .then(res => res.data)
-}
-
-exports.loginUser = (email, password) => {
-  return auth().signInWithEmailAndPassword(email, password);
-}
-
-exports.getSomething = () => {
-  const token = await auth.currentUser.getIdToken();
-
-  return axios.get('http://localhost:3001/pool', {headers:  
-    { authorization: `Bearer ${token}` }})
-    .then(res => res.data);
-}
-
+export default token;
