@@ -4,11 +4,12 @@ import './owe-card-list.css';
 import OweCard from '../../molecules/OweCard';
 
 const OweCardList = () => {
-  const { isLoading, userInfo, balanceInfo } = 
+  const { isLoading, userInfo, balanceInfo,poolInfo } = 
     useSelector( state => ({ 
       isLoading: state.getPool.isLoading,
       userInfo: state.getPool.pool.userInfo,
       balanceInfo: state.getPool.pool.balanceInfo,
+      poolInfo: state.getPool.pool
     })
   );
 
@@ -17,7 +18,7 @@ const OweCardList = () => {
       if ( userId === balanceInfo[i][0]) return balanceInfo[i][1];
     }
   };
-
+  console.log(poolInfo)
   return (
     <div className='owe-card-list hold-column'>
       {

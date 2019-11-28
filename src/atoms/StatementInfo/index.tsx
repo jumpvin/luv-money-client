@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, Link } from 'react-router-dom';
 import './statement-info.css';
 
 interface StatementInfoParams { 
@@ -16,12 +16,10 @@ const StatementInfo = ({ pool, amount }: RouteComponentProps<StatementInfoParams
         </div>
         <div className='balance-info'>
           {amount}
-          {/* {pool} */}
           <h5>Current Balance</h5>
         </div>
       </div>
       <div className='payment-container'>
-        <button>Pay {pool}</button>
       </div>
   </div>
 );
