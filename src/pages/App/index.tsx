@@ -13,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
-      if (user) dispatch(triggerGetPool({ user_id: 2 }));
+      if (user) dispatch(triggerGetPool({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
     });  
   },[]);
 
