@@ -3,12 +3,18 @@ import Header from '../../molecules/Header';
 import firebase from 'firebase';
 import { ReactComponent as Default_user_img } from '../../assests/images/default_user.svg';
 import './style.css';
+import {useDispatch,useSelector} from 'react-redux';
+import { getPoolSuccess } from '../../ducks/getPool/getPoolActions';
 
 const Settings = () => {
-  let user = firebase.auth().currentUser;
-  const url: string = user!.photoURL || '';
+
+  const pool = useSelector(state => state.getPool.pool.userInfo[0]);
+  const url = pool.photourl;
+
+  const dispatch = useDispatch();
 
   const handleSignOut = async () => {
+    await dispatch(getPoolSuccess({}))
     await firebase.auth().signOut()
   }
 

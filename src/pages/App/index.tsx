@@ -15,8 +15,8 @@ const App = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) dispatch(triggerGetPool({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
     });  
-  },[]);
-
+  }, []);
+  
 {/* <Spinner className="spinner" /> */}
   return (
     // {loading ? <Spinner className="spinner" />}

@@ -8,17 +8,17 @@ const triggerGetPool = (userId) => ({
   userId,
 });
 
-const getPoolCardLoading = (isLoading) => ({
+const getPoolLoading = (isLoading) => ({
   type: GET_POOL_LOADING,
   isLoading,
 });
 
-const getPoolCardSuccess = (oweCards) => ({
+const getPoolSuccess = (pool) => ({
   type: GET_POOL_SUCCESS,
-  oweCards,
+  pool,
 });
 
-const getPoolCardFail = (err) => ({
+const getPoolFail = (err) => ({
   type: GET_POOL_FAIL,
   err,
 });
@@ -29,7 +29,7 @@ export {
   GET_POOL_SUCCESS,
   GET_POOL_FAIL,
   triggerGetPool,
-  getPoolCardLoading,
-  getPoolCardSuccess,
-  getPoolCardFail,
+  getPoolLoading,
+  getPoolSuccess,
+  getPoolFail,
 };
