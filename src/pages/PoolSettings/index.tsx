@@ -1,19 +1,25 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+// import { triggerPopUp } from '../../ducks/newRule/newRuleActions';
 import Header from '../../molecules/Header';
 import Card from '../../molecules/Card';
 import './pool-settings.css'
 import AddButton from '../../atoms/AddButton';
 import moment from 'moment';
+import AddRule from '../../organisms/AddRule';
 
 
 const PoolSettings = () => {
-  const {poolSettingsInfo, userInfo, poolRuleSettingsInfo, statementInfo} = 
+
+  const dispatch = useDispatch();
+
+  const {poolSettingsInfo, userInfo, poolRuleSettingsInfo, statementInfo, newRules} = 
     useSelector (state => ({
       poolSettingsInfo: state.getPool.pool.poolSettingsInfo,
       userInfo: state.getPool.pool.userInfo,
       poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo,
-      statementInfo: state.getPool.pool.statementInfo
+      statementInfo: state.getPool.pool.statementInfo,
+      newRules: state.newRule.newRules
     })
   );
   
@@ -45,12 +51,25 @@ const PoolSettings = () => {
       </div>
     </div>
     </Card>
+    <AddRule/>
     <Card addClass='settingsGroup'>
     <div className='left'>
       <div className='settingsTitle'>
         <div>Your Expense Rules</div>
+        <button>
         <AddButton/>
+        </button>
       </div>
+      
+      {newRules
+        ?newRules.map((rule) => (
+          <div className='settingsItem'>
+           <div>{rule.name}</div>
+            <div>Edit</div>
+          </div>
+        ))
+        :''
+      }
       {poolRuleSettingsInfo.map((rule) => (
       <div className='settingsItem'>
         <div>{rule.name}</div>
