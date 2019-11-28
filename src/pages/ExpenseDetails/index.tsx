@@ -1,14 +1,24 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { arrayOfCatNames } from '../../services/helpers';
 import './expense-details.css';
 import Header from '../../molecules/Header';
 import ExpenseCategory from '../../organisms/ExpenseCategory';
 
 const ExpsenseDetails = () => {
   const categories = useSelector( state => state.getPool.pool.poolInfo);
-  const categoryNames = arrayOfCatNames(categories);
+  const pool = useSelector( state => state.getPool.pool);
 
+  const arrayOfCatNames = () => {
+    const allCats: object[] = [];
+    categories.forEach(
+      (cat) => {
+        if (!allCats.includes(cat.category)) allCats.push(cat.category);
+      },
+    );
+  
+    return allCats;
+  };
+console.log(pool)
   const catExpenses = (category) => {
     const expenses: object[] = [];
     categories.forEach( (expense) => {
@@ -24,7 +34,7 @@ const ExpsenseDetails = () => {
       </Header>
  
        {
-         categoryNames.map( (name, index) => (
+         arrayOfCatNames().map( (name, index) => (
            <ExpenseCategory 
            key={index}
            category={name} 

@@ -13,9 +13,9 @@ interface ExpenseItemParams {
 const ExpenseItem = ({ path, name, date, amount }: RouteComponentProps<ExpenseItemParams>) => (
   <div className='expense-item'>
         <UserFavicon path={path} />
-        <div>{name}</div>
-        <div>{date}</div>
-        <div>${amount}</div>
+        <div className='expense-username'>{name}</div>
+        <div className='expense-date'>{date}</div>
+        <div className='expense-amount'>${amount}</div>
       </div>
 );
 
