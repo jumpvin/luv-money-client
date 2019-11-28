@@ -1,0 +1,12 @@
+.expense-category .expense {
+  flex-flow: column;
+}
+
+.expense-category .expense .user-favicon {
+  height: 25px;
+}
+
+.expense-category .expense .user-favicon img {
+  width: 25px;
+  height: 25px;
+}

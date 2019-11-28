@@ -1,28 +1,35 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './expense-category.css';
 import Card from '../../molecules/Card';
 import ExpenseItem from '../../molecules/ExpenseItem';
 
-const ExpsenseCategory = () => (
-  <div className='expense-category hold-row'>
-    <Card addClass ='expense'>
-      <h2>Groceries</h2>
-      <ExpenseItem 
-       path='https://avatars3.githubusercontent.com/u/47696364?s=460&v=4'
-       name='Consume'
-       date='12/5/19'
-       expense='$27.09'
-       owed='$27.09'
-      />
-      <ExpenseItem 
-        path='https://avatars3.githubusercontent.com/u/31024648?s=460&v=4'
-        name='Netflix'
-        date='12/5/19'
-        expense='$7.09'
-        owed='$7.09'
-      />
-    </Card>
-  </div>
-);
+interface ExpenseCategoryParams {
+  category: string;
+  expenses: object[];
+}
+
+const ExpsenseCategory = ({ category, expenses }: RouteComponentProps<ExpenseCategoryParams>) => {
+  const categories = useSelector( state => state.getPool.pool.poolInfo);
+console.log(category, expenses);
+  return (
+    <div className='expense-category hold-row'>
+      <Card addClass ='expense'>
+        <h2>{ category }</h2>
+        {
+          expenses.map( (expense, index) => (
+            <ExpenseItem
+              key={index}
+              path='https://avatars3.githubusercontent.com/u/31024648?s=460&v=4'
+              name={expense.expense}
+              amount={expense.amount}
+            />
+          ))
+        }
+      </Card>
+    </div>
+  )
+};
 
 export default ExpsenseCategory;

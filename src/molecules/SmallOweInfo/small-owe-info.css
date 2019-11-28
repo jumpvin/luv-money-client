@@ -1,18 +1,17 @@
-.owe-info {
+.small-owe-info {
   display: flex;
   flex-flow: column;
   align-items: center;
 }
-.owe-who, .owe-what {
-  font-size: 20px;
-  margin-bottom: .25rem;
+.small-owe-who, .owe-what {
+  font-size: 18px;
 }
 
-.owe-amount {
+.small-owe-amount {
   font-size: 30px;
   color: red;
 }
 
-.owe-positive {
+.small-owe-positive {
   color: green;
 }

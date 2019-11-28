@@ -1,6 +1,6 @@
 .card {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 95%;
   max-width: 500px;
@@ -10,3 +10,9 @@
   border-radius: 5px;
   margin-top: 1rem;
  }
+
+ @media (min-width: 600px) {
+  .card {
+    padding: 1rem 2rem;
+  }
+}
