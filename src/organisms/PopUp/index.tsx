@@ -5,6 +5,7 @@ import { popUpState } from '../../ducks/popUpState/popUpActions';
 import './pop-up.css';
 import Card from '../../molecules/Card';
 import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
+import MakePayment from '../../pages/MakePayment'
 
 interface PopUpParams {
   parent: string; 
@@ -16,7 +17,7 @@ const PopUp = ({ parent }: RouteComponentProps<PopUpParams>) => {
   
   const allStates = {
     expense: <LuvMoneyLogo />,
-    payment: 'Payment',
+    payment: <MakePayment/>,
     rule: 'Rule',
     message: 'Message',
     none: 'None',
