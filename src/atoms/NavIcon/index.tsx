@@ -5,12 +5,12 @@ import './nav-icon.css';
 
 interface NavIconParams {
   path: string; 
-  src: string;
+  children: any;
 }
 
-const NavIcon = ({ path, src }: RouteComponentProps<NavIconParams>) => (
+const NavIcon = ({ path, children }: RouteComponentProps<NavIconParams>) => (
   <NavLink exact={true} to={path} >
-    <img src={src} alt='Nav Icon' /> 
+    {children}
   </NavLink>
 );
 

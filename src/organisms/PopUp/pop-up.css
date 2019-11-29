@@ -8,6 +8,7 @@
   background-color: white;
   justify-content: flex-start;
   animation: 1s ease-out 0s 1 fadeIn;
+  overflow: hidden;
 }
 
 @keyframes fadeIn {

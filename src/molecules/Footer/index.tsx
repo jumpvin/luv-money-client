@@ -1,14 +1,25 @@
 import React from 'react';
 import './footer.css';
 import NavIcon from '../../atoms/NavIcon';
+import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
 
 const Footer = () => (
     <footer>
-      <NavIcon path='/' src='/icons/dashboard.png' />
-      <NavIcon path='/expense-details' src='/icons/pool.png' />
-      <NavIcon path='/payment' src='/logo192.png' />
-      <NavIcon path='/settings' src='/icons/profile.png' />
-      <NavIcon path='/pool-settings' src='/icons/info.png' />
+      <NavIcon path='/' >
+        <LuvMoneyLogo />
+      </NavIcon>
+      <NavIcon path='/expense-details'>
+        <LuvMoneyLogo />
+      </NavIcon>
+      <NavIcon path='/payment' >
+        <LuvMoneyLogo />
+      </NavIcon>
+      <NavIcon path='/settings' >
+        <LuvMoneyLogo />
+      </NavIcon>
+      <NavIcon path='/pool-settings' >
+        <LuvMoneyLogo />
+      </NavIcon>
     </footer>
 );
 
