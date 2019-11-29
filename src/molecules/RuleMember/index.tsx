@@ -8,12 +8,13 @@ import { userInfo } from 'os';
 interface RuleMemberParams {
   name: string,
   value: number,
-  photo: string
+  photo: string,
+  id: string
 }
 
 
 
-const RuleMember = ({ photo, name, handle }: RouteComponentProps<RuleMemberParams>) => {
+const RuleMember = ({ photo, name, handle, id }: RouteComponentProps<RuleMemberParams>) => {
   
   const [percent, setPercent] = useState("");
 
@@ -26,7 +27,7 @@ const RuleMember = ({ photo, name, handle }: RouteComponentProps<RuleMemberParam
   <Card className='ruleCard'>
     <UserFavicon path={photo}/>
     {name}
-    <input type='number' name={name} value={percent} onChange={handleChange}/>
+    <input type='number' id={id} value={percent} onChange={handleChange}/>
   </Card>
 )};
 

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 import './pop-up.css';
 import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
+import AddRule from '../AddRule'
 
 interface PopUpParams {
   parent: string; 
@@ -14,7 +15,7 @@ const PopUp = ({ parent }: RouteComponentProps<PopUpParams>) => {
   const allStates = {
     expense: <LuvMoneyLogo />,
     payment: 'Payment',
-    rule: 'Rule',
+    rule: <AddRule/>,
     message: 'Message',
     none: 'None',
   }

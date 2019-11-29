@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { triggerPopUp } from '../../ducks/newRule/newRuleActions';
 import Header from '../../molecules/Header';
 import Card from '../../molecules/Card';
 import './pool-settings.css'
 import AddButton from '../../atoms/AddButton';
 import moment from 'moment';
 import AddRule from '../../organisms/AddRule';
+import {popUpState} from '../../ducks/popUpState/popUpActions'
 
 
 const PoolSettings = () => {
@@ -51,12 +51,11 @@ const PoolSettings = () => {
       </div>
     </div>
     </Card>
-    <AddRule/>
     <Card addClass='settingsGroup'>
     <div className='left'>
       <div className='settingsTitle'>
         <div>Your Expense Rules</div>
-        <button>
+        <button onClick={ () => dispatch(popUpState('rule'))}>
         <AddButton/>
         </button>
       </div>
