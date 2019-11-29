@@ -14,11 +14,23 @@ interface ExpenseCategoryParams {
 
 const ExpsenseCategory = ({ category, expenses }: RouteComponentProps<ExpenseCategoryParams>) => {
   const userInfo = useSelector( state => state.getPool.pool.userInfo);
+  
+  const amountTotal = () => {
+    let total = 0;
+    expenses.forEach( (expense) => total+= expense.amount);
+
+    return total;
+  };
 
   return (
     <div className='expense-category hold-row'>
       <Card addClass ='expense'>
-        <h2 className='category-header'>{ category }</h2>
+        <div className='category-header'>
+          <div className='category-title'>{ category }</div>
+          <div className='category-total'>
+            Total: <span className='expense-amount'>${amountTotal()}</span>
+          </div>
+        </div>
         {
           expenses.map( (expense, index) => (
             <ExpenseItem

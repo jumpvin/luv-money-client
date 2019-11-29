@@ -5,7 +5,9 @@ import Header from '../../molecules/Header';
 import ExpenseCategory from '../../organisms/ExpenseCategory';
 
 const ExpsenseDetails = () => {
-  const categories = useSelector( state => state.getPool.pool.poolInfo);
+  const { categories, poolName } = useSelector( state => ({ 
+    categories: state.getPool.pool.poolInfo,
+    poolName: state.getPool.pool.poolSettingsInfo[0].name, }));
 
   const arrayOfCatNames = () => {
     const allCats: object[] = [];
@@ -29,7 +31,7 @@ const ExpsenseDetails = () => {
   return (
     <div className='expense-details hold-column'>
       <Header>
-        All Roomie Pool Expenses
+        {poolName} Expenses
       </Header>
  
        {

@@ -3,19 +3,23 @@
 }
 
 .expense-category .category-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-end;
+  margin-bottom: .75rem;
+}
+
+.expense-category .category-title {
   margin-top: 0;
-  margin-bottom: .5rem;
-  border-bottom: solid #2c3c77;
+  border-bottom: solid #2c3c77 2px;
   padding: 0rem .25rem;
+  font-size: 22px;;
 }
 
-.expense-category .expense .user-favicon {
-  height: 25px;
-}
-
-.expense-category .expense .user-favicon img {
-  width: 25px;
-  height: 25px;
+.category-total {
+  border-bottom: solid #2c3c77 2px;
+  font-size: 18px;
 }
 
 .expense-amount {
