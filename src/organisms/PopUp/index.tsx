@@ -1,7 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
+import { popUpState } from '../../ducks/popUpState/popUpActions';
 import './pop-up.css';
+import Card from '../../molecules/Card';
 import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
 import AddRule from '../AddRule'
 
@@ -10,6 +12,7 @@ interface PopUpParams {
 }
 
 const PopUp = ({ parent }: RouteComponentProps<PopUpParams>) => {
+  const dispatch = useDispatch();
   const popUp = useSelector(state => state.popUpState.popUp);
   
   const allStates = {
@@ -19,11 +22,12 @@ const PopUp = ({ parent }: RouteComponentProps<PopUpParams>) => {
     message: 'Message',
     none: 'None',
   }
-
+  
   return (
-    <div className='pop-up'>
+    <Card addClass='pop-up'>
+      <div className='close' onClick={() => dispatch(popUpState('none'))}>X</div>
       { parent? allStates[parent] : allStates[popUp] }
-    </div>
+    </Card>
   );
 };
 

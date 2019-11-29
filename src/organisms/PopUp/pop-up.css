@@ -3,7 +3,27 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 95% !important;
-  max-width: 500px;
-  min-height: 500px;
+  min-height: 300px;
+  flex-flow: column;
+  background-color: white;
+  justify-content: flex-start;
+}
+
+.close {
+  align-self: flex-end;
+  font-size: 25px;
+  background-color: #ea6666;
+  border-radius: 50%;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.close:hover {
+  cursor: pointer;
+  opacity: .75;
 }

@@ -27,7 +27,7 @@ const ExpsenseDetails = () => {
   };
 
   return (
-    <div className='expense-details'>
+    <div className='expense-details hold-column'>
       <Header>
         All Roomie Pool Expenses
       </Header>

@@ -15,7 +15,7 @@ const Dashboard = () => {
 );
 
   return (
-    <div>
+    <div className='dashboard hold-column'>
       <Header>
         <WelcomeHeader 
           name={firstName(name)}

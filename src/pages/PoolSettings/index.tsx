@@ -24,7 +24,7 @@ const PoolSettings = () => {
   );
   
   return (
-  <div>
+  <div className='hold-column'>
     <Header>
     {poolSettingsInfo[0].name} Settings
     </Header>
