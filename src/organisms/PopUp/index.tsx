@@ -8,10 +8,11 @@ import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
 import MakePayment from '../../pages/MakePayment'
 
 interface PopUpParams {
-  parent: string; 
+  parent: string;
+  handleClose: string;
 }
 
-const PopUp = ({ parent }: RouteComponentProps<PopUpParams>) => {
+const PopUp = ({ parent, handleClose }: RouteComponentProps<PopUpParams>) => {
   const dispatch = useDispatch();
   const popUp = useSelector(state => state.popUpState.popUp);
   
@@ -25,7 +26,12 @@ const PopUp = ({ parent }: RouteComponentProps<PopUpParams>) => {
   
   return (
     <Card addClass='pop-up'>
-      <div className='close' onClick={() => dispatch(popUpState('none'))}>X</div>
+      <div 
+        className='close' 
+        onClick={() => parent? handleClose() : dispatch(popUpState('none'))}
+      >
+        X
+      </div>
       { parent? allStates[parent] : allStates[popUp] }
     </Card>
   );
