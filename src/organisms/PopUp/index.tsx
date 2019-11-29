@@ -11,10 +11,11 @@ import MakePayment from '../../pages/MakePayment';
 import EditRule from '../EditRule';
 
 interface PopUpParams {
-  parent: string; 
+  parent: string;
+  handleClose: string;
 }
 
-const PopUp = ({ parent }: RouteComponentProps<PopUpParams>) => {
+const PopUp = ({ parent, handleClose }: RouteComponentProps<PopUpParams>) => {
   const dispatch = useDispatch();
   const popUp = useSelector(state => state.popUpState.popUp);
   const popUpData = useSelector(state => state.popUpState.data);
@@ -30,8 +31,13 @@ const PopUp = ({ parent }: RouteComponentProps<PopUpParams>) => {
   }
   
   return (
-    <Card addClass='pop-up'>
-      <div className='close' onClick={() => dispatch(popUpState('none'))}>X</div>
+    <Card addClass='pop-up fade'>
+      <div 
+        className='close' 
+        onClick={() => parent? handleClose() : dispatch(popUpState('none'))}
+      >
+        X
+      </div>
       { parent? allStates[parent] : allStates[popUp] }
     </Card>
   );

@@ -7,6 +7,17 @@
   flex-flow: column;
   background-color: white;
   justify-content: flex-start;
+  animation: 1s ease-out 0s 1 fadeIn;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translate(-50%, -110%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
 }
 
 .close {
