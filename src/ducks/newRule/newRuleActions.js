@@ -4,9 +4,9 @@ const NEW_RULE_SUCCESS = 'NEW_RULE_SUCCESS';
 const NEW_RULE_FAIL = 'NEW_RULE_FAIL';
 const UPDATE_RULES_STATE = 'UPDATE_RULES_STATE'
 
-const triggerNewRule = (pool) => ({
+const triggerNewRule = (updatedRule) => ({
   type: TRIGGER_NEW_RULE,
-  pool
+  updatedRule
 });
 
 const newRuleLoading = (isLoading) => ({

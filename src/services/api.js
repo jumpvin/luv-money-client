@@ -20,7 +20,7 @@ const getPool = (args) => api('get', '/pool', args);
 
 const statementFetch = (args) => api('get', '/statement', args);
 
-// ------POST REQUESTS------//
+//------POST REQUESTS------//
 
 const newRule = (payload) => api('post', '/rule', { uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
 

@@ -16,13 +16,12 @@ const PoolSettings = () => {
 
   const dispatch = useDispatch();
 
-  const {poolSettingsInfo, userInfo, poolRuleSettingsInfo, statementInfo, newRules} = 
+  const {poolSettingsInfo, userInfo, poolRuleSettingsInfo, statementInfo} = 
     useSelector (state => ({
       poolSettingsInfo: state.getPool.pool.poolSettingsInfo,
       userInfo: state.getPool.pool.userInfo,
       poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo,
-      statementInfo: state.getPool.pool.statementInfo,
-      newRules: state.newRule.newRules
+      statementInfo: state.getPool.pool.statementInfo
     })
   );
   
@@ -67,16 +66,6 @@ const PoolSettings = () => {
         <AddButton/>
         </button>
       </div>
-      
-      {/* {newRules
-        ?newRules.map((rule) => (
-          <div className='settingsItem'>
-           <div>{rule.name}</div>
-            <button onClick={ () => dispatch(popUpState('editRule'))}>Edit</button>
-          </div>
-        ))
-        :''
-      } */}
       {poolRuleSettingsInfo.map((rule) => (
       <div className='settingsItem'>
         <div>{rule.name}</div>
