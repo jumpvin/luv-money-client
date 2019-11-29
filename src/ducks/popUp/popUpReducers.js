@@ -1,4 +1,4 @@
-import { GET_POOL_SUCCESS, GET_POOL_LOADING } from './getPoolActions';
+import { GET_POOL_SUCCESS, GET_POOL_LOADING } from './popUpActions';
 
 const getPool = (state = { pool: {}, isLoading: true }, action) => {
   switch (action.type) {

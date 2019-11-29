@@ -5,7 +5,7 @@ const GET_POOL_FAIL = 'GET_POOL_FAIL';
 
 const triggerPopUp = (type) => ({
   type: TRIGGER_POPUP,
-  type
+  type,
 });
 
 // const getPoolLoading = (isLoading) => ({
@@ -25,8 +25,8 @@ const triggerPopUp = (type) => ({
 
 export {
   TRIGGER_POPUP,
-  // GET_POOL_LOADING,
-  // GET_POOL_SUCCESS,
+  GET_POOL_LOADING,
+  GET_POOL_SUCCESS,
   // GET_POOL_FAIL,
   triggerPopUp,
   // getPoolLoading,
