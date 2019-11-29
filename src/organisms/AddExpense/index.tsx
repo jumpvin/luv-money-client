@@ -36,7 +36,9 @@ const AddExpense = () => {
   };
 
   const handleRuleChange = event => {
-    event.target.value = 'new' ? dispatch(popUpState('newRule')):
+    console.log(event.target.value);
+    
+    event.target.value === 'new' ? dispatch(popUpState('newRule')):
     setRule(event.target.value);
   };
   
@@ -84,10 +86,9 @@ const AddExpense = () => {
           onChange={handleRuleChange}
             >
               {poolRuleSettingsInfo.map(rule => 
-                <MenuItem value={rule.id}>{rule.name}</MenuItem>
+                <MenuItem value={rule.name}>{rule.name}</MenuItem>
               )}
-          {/* <MenuItem value='equal' > Split Equally</MenuItem> */}
-          <Button style={{backgroundColor:'orange'}} >+<MenuItem value='new' >Add New Rule</MenuItem></Button>
+          <Button value='new' style={{backgroundColor:'orange'}} >+<MenuItem >Add New Rule</MenuItem></Button>
         </Select>
       </FormControl>
         </div>

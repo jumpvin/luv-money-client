@@ -25,6 +25,10 @@ const Settings = () => {
         <div className='user-img'>
           <img src={url}/>
         </div>
+        <label className="switch">
+          <input type="checkbox"></input>
+          <span className="slider round"></span>
+        </label>
         <button type='button' className='sign-out' onClick = {handleSignOut}>Sign-Out</button>
     </div>
   )

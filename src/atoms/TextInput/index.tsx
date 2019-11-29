@@ -14,5 +14,4 @@ const TextInput = ({ type,name,value}: RouteComponentProps<TextInputParams>)=>{
   )
 }
 
-
 export default TextInput;
