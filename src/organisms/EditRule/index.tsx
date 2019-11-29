@@ -6,12 +6,10 @@ import RuleMember from '../../molecules/RuleMember';
 import {popUpState} from '../../ducks/popUpState/popUpActions'
 
 
-const AddRule = () => {
+const EditRule = (data) => {
 
-  const {userInfo, pool, poolRuleSettingsInfo} = useSelector(state => ({
-    userInfo: state.getPool.pool.userInfo,
-    pool: state.getPool.pool,
-    poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo
+  const {userInfo} = useSelector(state => ({
+    userInfo: state.getPool.pool.userInfo
   }))
 
   const [rule, setRule] = useState('');
@@ -28,9 +26,7 @@ const AddRule = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // dispatch(triggerNewRule({name:rule, amounts:tempVal}));
-    const updatedRule={id:'',pool_id:'',name:rule,rule:tempVal};
-    dispatch({type:'ADD_RULE', updatedRule});
+    dispatch(triggerNewRule({name:rule, amounts:tempVal}));
     setRule('');
   }
 
@@ -39,7 +35,7 @@ const AddRule = () => {
   return (
     <div>
       <form onSubmit = {handleSubmit}>
-      <h1>Create a new rule</h1>
+      <h1>EDIT AN EXISTING RULE</h1>
       Name <input onChange={handleChange} value={rule} type='text'></input>
       {userInfo.map((user) => (
         <RuleMember 
@@ -48,6 +44,10 @@ const AddRule = () => {
           photo={user.photourl}
           handle={handleFormInputs}
           />
+        // <div>
+        //   <div>{user.name}</div>
+        //   <input type='number' name={user.name} value={rule} onChange={handleChange}></input>%
+        // </div>
       ))}
       <button type='submit' onClick={() => setTimeout(()=>dispatch(popUpState('none')),10)}>Submit</button>
       </form>
@@ -56,4 +56,4 @@ const AddRule = () => {
     )
   }
   
-export default AddRule;
+export default EditRule;

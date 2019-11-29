@@ -10,7 +10,7 @@ const StatementCard = ({data}) => {
 
   return (
     <div>
-      <h1>Statement for {get(data, '[0].statement_date','loading')} </h1>
+      <h1>This is where the statement data goes for statement # {get(data, '[0].id','loading')} </h1>
 
     </div>
     )
