@@ -6,7 +6,7 @@ import './pool-settings.css'
 import AddButton from '../../atoms/AddButton';
 import moment from 'moment';
 import AddRule from '../../organisms/AddRule';
-import {popUpState} from '../../ducks/popUpState/popUpActions'
+import {popUpState, triggerPopUpFetch} from '../../ducks/popUpState/popUpActions'
 
 
 const PoolSettings = () => {
@@ -55,7 +55,7 @@ const PoolSettings = () => {
     <div className='left'>
       <div className='settingsTitle'>
         <div>Your Expense Rules</div>
-        <button onClick={ () => dispatch(popUpState('rule'))}>
+        <button onClick={ () => dispatch(popUpState('newRule'))}>
         <AddButton/>
         </button>
       </div>
@@ -64,7 +64,7 @@ const PoolSettings = () => {
         ?newRules.map((rule) => (
           <div className='settingsItem'>
            <div>{rule.name}</div>
-            <div>Edit</div>
+            <button onClick={ () => dispatch(popUpState('editRule'))}>Edit</button>
           </div>
         ))
         :''
@@ -72,7 +72,7 @@ const PoolSettings = () => {
       {poolRuleSettingsInfo.map((rule) => (
       <div className='settingsItem'>
         <div>{rule.name}</div>
-        <div>Edit</div>
+        <button onClick={ () => dispatch(popUpState('editRule'))}>Edit</button>
       </div>
       ))}
     </div>
@@ -83,7 +83,10 @@ const PoolSettings = () => {
       {statementInfo.map((statement) => (
       <div className='settingsItem'>
         <div>{moment(statement.statement_date).format("MMM Do YYYY")}</div>
-        <div>View</div>
+        <button onClick={ () => {
+          dispatch(triggerPopUpFetch({id:userInfo[0].id,statement_id:statement.id}));
+          dispatch(popUpState('statement'))
+          }}>View</button>
       </div>
       ))}
     </div>

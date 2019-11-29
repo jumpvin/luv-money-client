@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { triggerNewRule } from '../../ducks/newRule/newRuleActions';
 import './style.css';
 import RuleMember from '../../molecules/RuleMember';
+import {popUpState} from '../../ducks/popUpState/popUpActions'
 
 
 const AddRule = () => {
@@ -48,7 +49,7 @@ const AddRule = () => {
         //   <input type='number' name={user.name} value={rule} onChange={handleChange}></input>%
         // </div>
       ))}
-      <button type='submit'>Submit</button>
+      <button type='submit' onClick={() => setTimeout(()=>dispatch(popUpState('none')),10)}>Submit</button>
       </form>
       
     </div>
