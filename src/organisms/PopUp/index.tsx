@@ -30,7 +30,7 @@ const PopUp = ({ parent, handleClose }: RouteComponentProps<PopUpParams>) => {
   }
   
   return (
-    <Card addClass='pop-up'>
+    <Card addClass='pop-up fade'>
       <div 
         className='close' 
         onClick={() => parent? handleClose() : dispatch(popUpState('none'))}
