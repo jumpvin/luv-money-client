@@ -5,3 +5,12 @@
   width: 100%;
   margin: .25rem;
 }
+
+.expense-item .user-favicon {
+  height: 25px;
+}
+
+.expense-item .user-favicon img {
+  width: 25px;
+  height: 25px;
+}
