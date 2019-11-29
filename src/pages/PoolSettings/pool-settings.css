@@ -4,6 +4,11 @@
   flex-direction: column;
 }
 
+.settingsHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
 .settingsTitle {
   display: flex;
   flex-direction: row;
