@@ -5,6 +5,8 @@ import { popUpState } from '../../ducks/popUpState/popUpActions';
 import './pop-up.css';
 import Card from '../../molecules/Card';
 import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
+import AddRule from '../AddRule';
+import StatementCard from '../StatementCard';
 import MakePayment from '../../pages/MakePayment'
 
 interface PopUpParams {
@@ -14,11 +16,14 @@ interface PopUpParams {
 const PopUp = ({ parent }: RouteComponentProps<PopUpParams>) => {
   const dispatch = useDispatch();
   const popUp = useSelector(state => state.popUpState.popUp);
+  const popUpData = useSelector(state => state.popUpState.data);
   
   const allStates = {
     expense: <LuvMoneyLogo />,
+    newRule: <AddRule/>,
+    editRule: <AddRule/>,
+    statement: <StatementCard data={popUpData}/>,
     payment: <MakePayment/>,
-    rule: 'Rule',
     message: 'Message',
     none: 'None',
   }

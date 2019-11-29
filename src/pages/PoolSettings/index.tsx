@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { triggerPopUp } from '../../ducks/newRule/newRuleActions';
 import Header from '../../molecules/Header';
 import Card from '../../molecules/Card';
 import './pool-settings.css'
 import AddButton from '../../atoms/AddButton';
 import moment from 'moment';
 import AddRule from '../../organisms/AddRule';
+import {popUpState, triggerPopUpFetch} from '../../ducks/popUpState/popUpActions'
 
 
 const PoolSettings = () => {
@@ -51,12 +51,11 @@ const PoolSettings = () => {
       </div>
     </div>
     </Card>
-    <AddRule/>
     <Card addClass='settingsGroup'>
     <div className='left'>
       <div className='settingsTitle'>
         <div>Your Expense Rules</div>
-        <button>
+        <button onClick={ () => dispatch(popUpState('newRule'))}>
         <AddButton/>
         </button>
       </div>
@@ -65,7 +64,7 @@ const PoolSettings = () => {
         ?newRules.map((rule) => (
           <div className='settingsItem'>
            <div>{rule.name}</div>
-            <div>Edit</div>
+            <button onClick={ () => dispatch(popUpState('editRule'))}>Edit</button>
           </div>
         ))
         :''
@@ -73,7 +72,7 @@ const PoolSettings = () => {
       {poolRuleSettingsInfo.map((rule) => (
       <div className='settingsItem'>
         <div>{rule.name}</div>
-        <div>Edit</div>
+        <button onClick={ () => dispatch(popUpState('editRule'))}>Edit</button>
       </div>
       ))}
     </div>
@@ -84,7 +83,10 @@ const PoolSettings = () => {
       {statementInfo.map((statement) => (
       <div className='settingsItem'>
         <div>{moment(statement.statement_date).format("MMM Do YYYY")}</div>
-        <div>View</div>
+        <button onClick={ () => {
+          dispatch(triggerPopUpFetch({id:userInfo[0].id,statement_id:statement.id}));
+          dispatch(popUpState('statement'))
+          }}>View</button>
       </div>
       ))}
     </div>

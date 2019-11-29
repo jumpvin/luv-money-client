@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { triggerNewRule } from '../../ducks/newRule/newRuleActions';
 import './style.css';
 import RuleMember from '../../molecules/RuleMember';
+import {popUpState} from '../../ducks/popUpState/popUpActions'
 
 
 const AddRule = () => {
@@ -14,19 +15,9 @@ const AddRule = () => {
   const [rule, setRule] = useState('');
   const [tempVal, setTempVal] = useState({});
   
-
-  const saveTempValues = ({values}) => {
-
-  }
-
   const handleFormInputs = (e) => {
-    console.log(e.target);
-    const updated = Object.assign(tempVal, {[e.target.name]: e.target.value,});
-    setTempVal(updated);
-    /*    setTempVal({...tempVal,
-      [e.target.name]: e.target.value,
-    }) */
-    
+    const updated = Object.assign(tempVal, {[e.target.id]: e.target.value});
+    setTempVal(updated);    
   }
 
   const handleChange = ({target}) => {
@@ -35,14 +26,11 @@ const AddRule = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(tempVal)
-    dispatch(triggerNewRule({name:rule}));
+    dispatch(triggerNewRule({name:rule, amounts:tempVal}));
     setRule('');
   }
 
-
   const dispatch = useDispatch();
-
 
   return (
     <div>
@@ -52,8 +40,8 @@ const AddRule = () => {
       {userInfo.map((user) => (
         <RuleMember 
           name={user.name}
+          id={user.id}
           photo={user.photourl}
-          save={saveTempValues}
           handle={handleFormInputs}
           />
         // <div>
@@ -61,7 +49,7 @@ const AddRule = () => {
         //   <input type='number' name={user.name} value={rule} onChange={handleChange}></input>%
         // </div>
       ))}
-      <button type='submit'>Submit</button>
+      <button type='submit' onClick={() => setTimeout(()=>dispatch(popUpState('none')),10)}>Submit</button>
       </form>
       
     </div>
