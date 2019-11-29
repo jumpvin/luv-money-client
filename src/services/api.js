@@ -22,7 +22,10 @@ const statementFetch = (args) => api('get', '/statement', args);
 
 //------POST REQUESTS------//
 
-const newRule = (payload) => api('post', '/rule', {uid:'y4Ac7s3VPddxkAnUOo5HA977d7x4'}, payload);
+const newRule = (payload) => {
+  console.log(payload);
+  api('post', '/rule', {pool_id:'y4Ac7s3VPddxkAnUOo5HA977d7x4'}, payload);
+}
 
 
 export {
