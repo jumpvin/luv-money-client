@@ -1,12 +1,13 @@
-import { EXAMPLE_SUCCESS } from './exampleActions';
+import { POOLSETTINGS_SUCCESS } from './settingsActions';
 
-const example = (state = { example: [] }, action) => {
+const poolSettings = (state = { poolSettings: [] }, action) => {
   switch (action.type) {
-    case EXAMPLE_SUCCESS:
-      return { ...state, examples: action.examples };
+    case POOLSETTINGS_SUCCESS:
+      return { ...state, poolSettings: action.poolSettings };
     default:
       return state;
   }
 };
 
-export default example;
+export default poolSettings;
+

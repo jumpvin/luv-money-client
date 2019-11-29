@@ -1,18 +1,14 @@
 import React from 'react';
 import AddExpense from '../../organisms/AddExpense/index';
-import StatementCard from '../../molecules/StatementCard';
 import { useState, useEffect } from 'react';
 import { getPool } from '../../services/api'
+import StatementBlock from '../../organisms/StatementBlock'
 
 
 
 const Payment = () => {
-  // const [pool, setPool] = useState([]);
-  // useEffect(() => {
-  //   getPool()
-  // }, []);
-
   return (
+<<<<<<< HEAD
   <div className='hold-column'>
     <AddExpense/>
     Payment
@@ -20,6 +16,12 @@ const Payment = () => {
       pool={"LuvMoneyPool"}
       amount="Balance Connection"
     ></StatementCard>
+=======
+  <div>
+    {/* <AddExpense/>
+    Payment */}
+    <StatementBlock/>
+>>>>>>> development
   </div>
   )
 };

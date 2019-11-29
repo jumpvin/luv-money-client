@@ -1,7 +1,7 @@
 .user-img{
   display: flex;
   justify-content: center;
-  border-radius: 2rem;
+  border-radius: 50%;
   overflow:hidden;
   margin-top:10vh;
 }

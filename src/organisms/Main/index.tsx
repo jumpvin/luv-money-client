@@ -8,6 +8,7 @@ import ExpsenseDetails from '../../pages/ExpenseDetails';
 import Payment from '../../pages/Payment';
 import Settings from '../../pages/Settings';
 import PoolSettings from '../../pages/PoolSettings';
+import MakePayment from '../../pages/MakePayment';
 import PopUp from '../PopUp';
 
 const Main = () => {
@@ -18,9 +19,11 @@ const Main = () => {
        {popUp === 'none' ? '' :<PopUp />}
       <Route exact path='/' component={Dashboard} />
       <Route path='/expense-details' component={ExpsenseDetails} />
-      <Route path='/payment' render = {Payment}/>
+      <Route path='/payment' component = {Payment}/>
       <Route path='/settings' component={Settings} />
       <Route path='/pool-settings' component={PoolSettings} />
+      <Route path='/makePayment' component={MakePayment} />
+
       <Footer />
     </Router>
   )
