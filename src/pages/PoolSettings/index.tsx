@@ -8,10 +8,6 @@ import AddButton from '../../atoms/AddButton';
 import moment from 'moment';
 import AddRule from '../../organisms/AddRule';
 
-<<<<<<< HEAD
-const PoolSettings = () => (
-  <div className='hold-column'>
-=======
 
 const PoolSettings = () => {
 
@@ -28,8 +24,7 @@ const PoolSettings = () => {
   );
   
   return (
-  <div>
->>>>>>> development
+  <div className='hold-column'>
     <Header>
     {poolSettingsInfo[0].name} Settings
     </Header>
