@@ -19,7 +19,7 @@ const Settings = () => {
   }
 
     return (
-      < div >
+      <div className='hold-column'>
       <Header>
         <h1>Settings</h1>
       </Header>

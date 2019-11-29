@@ -6,7 +6,6 @@ import ExpenseCategory from '../../organisms/ExpenseCategory';
 
 const ExpsenseDetails = () => {
   const categories = useSelector( state => state.getPool.pool.poolInfo);
-  const pool = useSelector( state => state.getPool.pool);
 
   const arrayOfCatNames = () => {
     const allCats: object[] = [];
@@ -18,7 +17,7 @@ const ExpsenseDetails = () => {
   
     return allCats;
   };
-console.log(pool)
+
   const catExpenses = (category) => {
     const expenses: object[] = [];
     categories.forEach( (expense) => {
@@ -28,7 +27,7 @@ console.log(pool)
   };
 
   return (
-    <div className='expense-details'>
+    <div className='expense-details hold-column'>
       <Header>
         All Roomie Pool Expenses
       </Header>
