@@ -1,12 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { popUpState } from '../../ducks/popUpState/popUpActions'
 
 import './statement-block.css';
 import StatementCard from '../../molecules/StatementCard';
 import SmallOweInfo from '../../molecules/SmallOweInfo';
 
 const StatementCardList = () => {
+  const dispatch = useDispatch();
+
   const { isLoading, userInfo, balanceInfo,poolInfo } = 
     useSelector( state => ({ 
       isLoading: state.getPool.isLoading,
@@ -53,9 +56,9 @@ const StatementCardList = () => {
         ))
         }
       </div>
-      <Link to={'/makePayment'}>
-          <button>Pay</button>
-      </Link>
+      {/* <Link to={'/makePayment'}> */}
+          <button onClick={()=>dispatch(popUpState('payment'))}>Pay</button>
+      {/* </Link> */}
         
     </div>
   )

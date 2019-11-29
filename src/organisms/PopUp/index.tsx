@@ -7,6 +7,7 @@ import Card from '../../molecules/Card';
 import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
 import AddRule from '../AddRule';
 import StatementCard from '../StatementCard';
+import MakePayment from '../../pages/MakePayment'
 
 interface PopUpParams {
   parent: string; 
@@ -19,10 +20,10 @@ const PopUp = ({ parent }: RouteComponentProps<PopUpParams>) => {
   
   const allStates = {
     expense: <LuvMoneyLogo />,
-    payment: 'Payment',
     newRule: <AddRule/>,
     editRule: <AddRule/>,
     statement: <StatementCard data={popUpData}/>,
+    payment: <MakePayment/>,
     message: 'Message',
     none: 'None',
   }
