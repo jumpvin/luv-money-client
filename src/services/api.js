@@ -13,7 +13,7 @@ const api = async (type, url, args, payload) => {
   return res.data;
 };
 
-//------GET REQUESTS------//
+// ------GET REQUESTS------//
 const getExamples = () => api('get', '/examples');
 
 const getPool = (args) => api('get', '/pool', args);
@@ -22,8 +22,7 @@ const statementFetch = (args) => api('get', '/statement', args);
 
 //------POST REQUESTS------//
 
-const newRule = (payload) => api('post', '/rule', {uid:'y4Ac7s3VPddxkAnUOo5HA977d7x4'}, payload);
-
+const newRule = (payload) => api('post', '/rule', { uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
 
 export {
   getExamples,

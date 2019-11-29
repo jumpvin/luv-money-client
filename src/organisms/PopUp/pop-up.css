@@ -23,12 +23,12 @@
 
 .close {
   align-self: flex-end;
-  font-size: 25px;
+  font-size: 22px;
   background-color: #ea6666;
   border-radius: 50%;
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;

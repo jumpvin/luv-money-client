@@ -8,11 +8,11 @@ import {
   NEW_RULE_FAIL,
 } from './newRuleActions';
 
-function* sagaNewRule({ruleInfo}) {
+function* sagaNewRule({updatedRule}) {
   try {
     let isLoading = true;
     yield put({ type: NEW_RULE_LOADING, isLoading });
-    const rule = yield call(newRule, ruleInfo);
+    const rule = yield call(newRule, updatedRule);
     yield put({ type: NEW_RULE_SUCCESS, rule });
     isLoading = false;
     yield put({ type: NEW_RULE_LOADING, isLoading });
