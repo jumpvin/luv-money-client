@@ -21,7 +21,6 @@ const MakePaymentBlock = () => {
       if ( userId === balanceInfo[i][0]) return balanceInfo[i][1];
     }
   };
-  console.log(poolInfo)
   return (
     <div>
       <div className='statement-card'>
