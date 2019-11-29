@@ -9,9 +9,8 @@ import StatementBlock from '../../organisms/StatementBlock'
 const Payment = () => {
   return (
   <div>
-    {/* <AddExpense/>
-    Payment */}
-    <StatementBlock/>
+    <AddExpense/>
+    {/* <StatementBlock/> */}
   </div>
   )
 };
