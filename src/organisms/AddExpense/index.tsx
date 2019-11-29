@@ -17,16 +17,17 @@ import { useSelector } from 'react-redux';
 
 const AddExpense = () => {
 
-  const { userInfo, balanceInfo,poolInfo } = 
+  const { userInfo, balanceInfo,poolInfo, poolRuleSettingsInfo } = 
     useSelector( state => ({ 
       userInfo: state.getPool.pool.userInfo,
       balanceInfo: state.getPool.pool.balanceInfo,
-      poolInfo: state.getPool.pool
+      poolInfo: state.getPool.pool,
+      poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo
     })
   );
+  
 
   const dispatch = useDispatch();
-
   const [selectedDate, setSelectedDate] = useState(null);
   const [rule, setRule] = useState('equal');
 
@@ -35,9 +36,12 @@ const AddExpense = () => {
   };
 
   const handleRuleChange = event => {
-    event.target.value = 'new' ? dispatch(popUpState('rule')):
+    event.target.value = 'new' ? dispatch(popUpState('newRule')):
     setRule(event.target.value);
   };
+  
+  console.log(poolRuleSettingsInfo);
+   ;
   
   return (
     <div className='form'>
@@ -78,9 +82,12 @@ const AddExpense = () => {
         <Select
           value={rule}
           onChange={handleRuleChange}
-        >
-          <MenuItem value='equal' > Split Equally</MenuItem>
-          <Button style={{backgroundColor:'red'}} >+<MenuItem value='new' >Add New Rule</MenuItem></Button>
+            >
+              {poolRuleSettingsInfo.map(rule => 
+                <MenuItem value={rule.id}>{rule.name}</MenuItem>
+              )}
+          {/* <MenuItem value='equal' > Split Equally</MenuItem> */}
+          <Button style={{backgroundColor:'orange'}} >+<MenuItem value='new' >Add New Rule</MenuItem></Button>
         </Select>
       </FormControl>
         </div>
