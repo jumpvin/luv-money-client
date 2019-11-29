@@ -34,7 +34,12 @@ const PoolSettings = () => {
 
     <Card addClass='settingsGroup'>
       <div className='left'>
-        <div className='settingsTitle'>Your Pool</div>
+        <div className='settingsHeader'>
+          <div className='settingsTitle'>Your Pool</div>
+          <div>
+            <button onClick={ () => dispatch(popUpState('invite'))}>Invite</button>
+          </div>
+        </div>
         <div className='settingsItem'>
           <div>Members</div>
           <div>{userInfo.length}</div>
