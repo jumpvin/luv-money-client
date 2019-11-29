@@ -1,19 +1,31 @@
 import React, { useState, useEffect }from 'react';
 import './style.css';
-import TextInput from '../../atoms/TextInput';
 import TextField from '@material-ui/core/TextField';
 import { KeyboardDatePicker, MuiPickersUtilsProvider, } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import { useDispatch } from 'react-redux';
+import { popUpState } from '../../ducks/popUpState/popUpActions';
+import { useSelector } from 'react-redux';
+
 
 
 
 const AddExpense = () => {
+
+  const { userInfo, balanceInfo,poolInfo } = 
+    useSelector( state => ({ 
+      userInfo: state.getPool.pool.userInfo,
+      balanceInfo: state.getPool.pool.balanceInfo,
+      poolInfo: state.getPool.pool
+    })
+  );
+
+  const dispatch = useDispatch();
 
   const [selectedDate, setSelectedDate] = useState(null);
   const [rule, setRule] = useState('equal');
@@ -23,15 +35,9 @@ const AddExpense = () => {
   };
 
   const handleRuleChange = event => {
-
-    
+    event.target.value = 'new' ? dispatch(popUpState('rule')):
     setRule(event.target.value);
   };
-
-  // useEffect(() => { 
-  // console.log(rule);
-  
-  // }, [rule])
   
   return (
     <div className='form'>
@@ -74,7 +80,7 @@ const AddExpense = () => {
           onChange={handleRuleChange}
         >
           <MenuItem value='equal' > Split Equally</MenuItem>
-          <MenuItem value='new' >Add New Rule</MenuItem>
+          <Button style={{backgroundColor:'red'}} >+<MenuItem value='new' >Add New Rule</MenuItem></Button>
         </Select>
       </FormControl>
         </div>
