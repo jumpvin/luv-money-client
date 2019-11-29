@@ -14,10 +14,10 @@ const Footer = () => (
       <NavIcon path='/payment' >
         <LuvMoneyLogo />
       </NavIcon>
-      <NavIcon path='/settings' >
+      <NavIcon path='/pool-settings' >
         <LuvMoneyLogo />
       </NavIcon>
-      <NavIcon path='/pool-settings' >
+      <NavIcon path='/settings' >
         <LuvMoneyLogo />
       </NavIcon>
     </footer>

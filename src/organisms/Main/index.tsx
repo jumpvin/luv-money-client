@@ -19,9 +19,9 @@ const Main = () => {
        {popUp === 'none' ? '' :<PopUp />}
       <Route exact path='/' component={Dashboard} />
       <Route path='/expense-details' component={ExpsenseDetails} />
-      <Route path='/payment' component = {Payment}/>
-      <Route path='/settings' component={Settings} />
+      <Route path='/payment' component={Payment} />
       <Route path='/pool-settings' component={PoolSettings} />
+      <Route path='/settings' component={Settings} />
       <Route path='/makePayment' component={MakePayment} />
 
       <Footer />

@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../../molecules/Header';
 import firebase from 'firebase';
-import { ReactComponent as Default_user_img } from '../../assests/images/default_user.svg';
 import './style.css';
 import {useDispatch,useSelector} from 'react-redux';
 import { getPoolSuccess } from '../../ducks/getPool/getPoolActions';
@@ -25,7 +24,6 @@ const Settings = () => {
       </Header>
         <div className='user-img'>
           <img src={url}/>
-          {/* <Default_user_img/> */}
         </div>
         <button type='button' className='sign-out' onClick = {handleSignOut}>Sign-Out</button>
     </div>
