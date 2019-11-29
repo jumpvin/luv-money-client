@@ -6,7 +6,7 @@ import {
   GET_POOL_SUCCESS,
   GET_POOL_LOADING,
   GET_POOL_FAIL,
-} from './getPoolActions';
+} from '../getPool/getPoolActions';
 
 function* sagaGetPool({ userId }) {
   try {
