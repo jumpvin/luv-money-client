@@ -4,13 +4,6 @@ justify-content: center;
 width: 100%;
 }
 
-.app > div {
-  width: 100%;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-}
-
 svg {
   fill: red;
 }

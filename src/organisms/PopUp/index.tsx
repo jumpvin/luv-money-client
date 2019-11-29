@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 import './pop-up.css';
+import Card from '../../molecules/Card';
 import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
 
 interface PopUpParams {
@@ -20,9 +21,9 @@ const PopUp = ({ parent }: RouteComponentProps<PopUpParams>) => {
   }
 
   return (
-    <div className='pop-up'>
+    <Card addClass='pop-up'>
       { parent? allStates[parent] : allStates[popUp] }
-    </div>
+    </Card>
   );
 };
 

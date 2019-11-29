@@ -13,7 +13,7 @@ const Payment = () => {
   // }, []);
 
   return (
-  <div>
+  <div className='hold-column'>
     <AddExpense/>
     Payment
     <StatementCard

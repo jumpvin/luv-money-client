@@ -5,7 +5,7 @@ import './pool-settings.css'
 import AddButton from '../../atoms/AddButton';
 
 const PoolSettings = () => (
-  <div>
+  <div className='hold-column'>
     <Header>
       LuvMoney Settings
     </Header>
