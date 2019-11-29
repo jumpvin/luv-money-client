@@ -9,6 +9,9 @@ import AddRule from '../../organisms/AddRule';
 import {popUpState, triggerPopUpFetch} from '../../ducks/popUpState/popUpActions'
 
 
+
+
+
 const PoolSettings = () => {
 
   const dispatch = useDispatch();
@@ -60,7 +63,7 @@ const PoolSettings = () => {
         </button>
       </div>
       
-      {newRules
+      {/* {newRules
         ?newRules.map((rule) => (
           <div className='settingsItem'>
            <div>{rule.name}</div>
@@ -68,7 +71,7 @@ const PoolSettings = () => {
           </div>
         ))
         :''
-      }
+      } */}
       {poolRuleSettingsInfo.map((rule) => (
       <div className='settingsItem'>
         <div>{rule.name}</div>

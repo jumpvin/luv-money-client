@@ -2,10 +2,11 @@ const TRIGGER_NEW_RULE = 'TRIGGER_NEW_RULE';
 const NEW_RULE_LOADING = 'NEW_RULE_LOADING';
 const NEW_RULE_SUCCESS = 'NEW_RULE_SUCCESS';
 const NEW_RULE_FAIL = 'NEW_RULE_FAIL';
+const UPDATE_RULES_STATE = 'UPDATE_RULES_STATE'
 
-const triggerNewRule = (ruleInfo) => ({
+const triggerNewRule = (pool) => ({
   type: TRIGGER_NEW_RULE,
-  ruleInfo
+  pool
 });
 
 const newRuleLoading = (isLoading) => ({
@@ -23,13 +24,20 @@ const newRuleFail = (err) => ({
   err,
 });
 
+const updateRulesState = (state) => ({
+  type: UPDATE_RULES_STATE,
+  state,
+});
+
 export {
   TRIGGER_NEW_RULE,
   NEW_RULE_LOADING,
   NEW_RULE_SUCCESS,
   NEW_RULE_FAIL,
+  UPDATE_RULES_STATE,
   triggerNewRule,
   newRuleLoading,
   newRuleSuccess,
   newRuleFail,
+  updateRulesState
 };
