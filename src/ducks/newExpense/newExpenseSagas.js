@@ -16,6 +16,7 @@ import {
 function* sagaNewExpense({expense}) {
   try {
     const pool = yield call(newExpense, expense);
+    return pool;
     // yield put({ type: GET_POOL_SUCCESS, pool });
     // isLoading = false;
     // yield put({ type: NEW_RULE_LOADING, isLoading });

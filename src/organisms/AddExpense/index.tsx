@@ -52,7 +52,7 @@ const AddExpense = () => {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const expense={id:'1',pool_expense_id:'1', user_id:'1', name:expenseName, date:selectedDate, amount:amount};
+    const expense={id:'1',pool_expense_id:rule, user_id:'1', name:expenseName, date:selectedDate, amount:amount};
     await dispatch(triggerNewExpense(expense));
     await dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
   }
@@ -103,7 +103,7 @@ const AddExpense = () => {
           onChange={handleRuleChange}
             >
               {poolRuleSettingsInfo.map(rule => 
-                <MenuItem value={rule.name}>{rule.name}</MenuItem>
+                <MenuItem value={rule.id}>{rule.name}</MenuItem>
               )}
           <Button value='new' style={{backgroundColor:'orange'}} >+<MenuItem >Add New Rule</MenuItem></Button>
         </Select>
