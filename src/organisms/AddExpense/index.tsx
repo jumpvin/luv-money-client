@@ -11,8 +11,8 @@ import Button from '@material-ui/core/Button';
 import { useDispatch } from 'react-redux';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
 import { useSelector } from 'react-redux';
-
-
+import { triggerNewExpense } from '../../ducks/newExpense/newExpenseActions'
+import { triggerGetBE } from '../../ducks/getPool/getPoolActions'
 
 
 const AddExpense = () => {
@@ -29,25 +29,38 @@ const AddExpense = () => {
 
   const dispatch = useDispatch();
   const [selectedDate, setSelectedDate] = useState(null);
-  const [rule, setRule] = useState('equal');
+  const [rule, setRule] = useState('');
+  const [expenseName, setExpenseName] = useState('');
+  const [amount, setAmount] = useState('');
 
   const handleDateChange = date => {
     setSelectedDate(date);
   };
 
+  const handleExpenseNameChange = ({target}) => {
+    setExpenseName(target.value);
+  };
+
+  const handleAmountChange = ({target}) => {
+    setAmount(target.value);
+  };
+
   const handleRuleChange = event => {
-    console.log(event.target.value);
-    
     event.target.value === 'new' ? dispatch(popUpState('newRule')):
     setRule(event.target.value);
   };
-  
-  console.log(poolRuleSettingsInfo);
-   ;
-  
+ 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const expense={id:'1',pool_expense_id:'1', user_id:'1', name:expenseName, date:selectedDate, amount:amount};
+    await dispatch(triggerNewExpense(expense));
+    await dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
+  }
+
+
   return (
     <div className='form'>
-      <form >
+      <form>
         <div>
           <h1>Add Expense</h1>
         </div>
@@ -58,6 +71,8 @@ const AddExpense = () => {
           margin='normal'
           name='title'
           type='string'
+          value={expenseName}
+          onChange={handleExpenseNameChange}
           />
         </div>
         <div>
@@ -67,6 +82,8 @@ const AddExpense = () => {
           margin='normal'
           name='amount'
           type='number'
+          value={amount}
+          onChange={handleAmountChange}
           />
         </div>
         <div>
@@ -93,7 +110,7 @@ const AddExpense = () => {
       </FormControl>
         </div>
         <div>
-        <Button variant="contained">Submit</Button>
+        <Button onClick = {handleSubmit}variant="contained">Submit</Button>
         </div>
       </form>
       
