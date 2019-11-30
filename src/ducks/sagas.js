@@ -4,6 +4,8 @@ import watchGetPool from './getPool/getPoolSagas';
 import watchNewRule from './newRule/newRuleSagas';
 import watchPopUpFetch from './popUpState/popUpSagas';
 import watchNewExpense from './newExpense/newExpenseSagas';
+import watchInvite from './invite/inviteSagas';
+
 
 export default function* startForman() {
   yield all([
@@ -11,6 +13,7 @@ export default function* startForman() {
     watchGetPool(),
     watchNewExpense(),
     watchNewRule(),
-    watchPopUpFetch()
+    watchPopUpFetch(),
+    watchInvite(),
   ]);
 }

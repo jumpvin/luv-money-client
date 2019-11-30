@@ -22,7 +22,7 @@ const getBE = (args) => api('get', '/poolBE', args);
 
 const statementFetch = (args) => api('get', '/statement', args);
 
-//------POST REQUESTS------//
+// ------POST REQUESTS------//
 
 const newRule = (payload) => {
   console.log(payload);
@@ -35,11 +35,17 @@ const newExpense = (payload) => {
 }
 
 
+const sendInvite = async (args) => {
+  const res = await axios.get('https://us-central1-sendinvite-b6bba.cloudfunctions.net/sendMail', { params: args });
+  return res.data;
+};
+
 export {
   getExamples,
   statementFetch,
   getBE,
   newRule,
   getPool,
-  newExpense
+  newExpense,
+  sendInvite,
 };

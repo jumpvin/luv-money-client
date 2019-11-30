@@ -1,10 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { triggerInvite } from '../../ducks/invite/inviteActions';
+import { popUpState } from '../../ducks/popUpState/popUpActions';
 
 const Invite = () => {
+  const dispatch = useDispatch();
+  const status = useSelector(state => state.invite);
+  const [ name, setName ] = useState('');
+  const [ email, setEmail ] = useState('');
+
+  useEffect(() => {
+    if(status.res === 'Sent') {
+      setName('');
+      setEmail('');
+      dispatch(popUpState('none'));
+    }
+  }, [status])
+
+  const onSubmit = () => {
+    dispatch(triggerInvite({ dest:email, name }));
+  }
+
+  
   return (
     <div className='invite'>
-      <input type='email' />
-      <button>Invite</button>
+      <div>
+        <label>Name</label>
+        <input type='text' value={name} onChange={(e) => setName(e.target.value)} />
+      </div>
+      <div>
+        <label>Email</label>
+        <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+      </div>
+      <button onClick={ onSubmit }>Invite</button>
+      <div>
+        {status.res && status.res !== 'Sent' ? status.res: ''}
+      </div>
     </div>
   );
 };
