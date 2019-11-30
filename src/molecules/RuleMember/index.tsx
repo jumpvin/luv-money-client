@@ -23,11 +23,17 @@ const RuleMember = ({ photo, name, handle, id }: RouteComponentProps<RuleMemberP
     handle(e);
   }
 
+  const handleinput = (e) => {
+    if (e.target.value > 100 || e.target.value < 0) {
+      e.target.value = 0;
+      alert("Enter valid percentage");
+    }
+  }
   return (
   <Card className='ruleCard'>
     <UserFavicon path={photo}/>
     {name}
-    <input type='number' id={id} value={percent} onChange={handleChange} />
+    <input type='number' min='0' max='100' id={id} value={percent} onChange={handleChange} onKeyUp={handleinput} />
   </Card>
 )};
 

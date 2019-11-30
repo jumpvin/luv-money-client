@@ -5,3 +5,7 @@
   width: 100%;
   margin: .25rem;
 }
+
+input:invalid {
+  border: 5px solid #d80d0d;
+}
