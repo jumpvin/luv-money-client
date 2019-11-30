@@ -42,8 +42,6 @@ const sendInvite = async (args) => {
 
 // ------POST REQUESTS------//
 
-const newRule = (payload) => api('post', '/rule', { uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
-
 const postUser = (payload) => api('post', '/auth/signup', '', payload);
 
 export {
