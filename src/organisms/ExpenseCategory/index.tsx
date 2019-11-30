@@ -28,7 +28,7 @@ const ExpsenseCategory = ({ category, expenses }: RouteComponentProps<ExpenseCat
         <div className='category-header'>
           <div className='category-title'>{ category }</div>
           <div className='category-total'>
-            Total: <span className='expense-amount'>${amountTotal()}</span>
+            Total: <span className='total-amount'>${amountTotal()}</span>
           </div>
         </div>
         {

@@ -10,9 +10,10 @@
 
 .owe-amount {
   font-size: 30px;
-  color: red;
+  color: #ea6666;
+  font-weight: bold;
 }
 
 .owe-positive {
-  color: green;
+  color: #97bb4f;
 }

@@ -7,22 +7,26 @@
   justify-content: space-between;
   width: 100%;
   align-items: flex-end;
-  margin-bottom: .75rem;
+  margin-bottom: 1rem;
 }
 
 .expense-category .category-title {
   margin-top: 0;
-  border-bottom: solid #2c3c77 2px;
+  border-bottom: solid #f0d863 2px;
   padding: 0rem .25rem;
-  font-size: 22px;;
+  font-size: 22px;
+  color: #2c3c77;
+  font-weight: bold;
 }
 
 .category-total {
-  border-bottom: solid #2c3c77 2px;
   font-size: 18px;
+  padding: .25rem .75rem;
+  background-color: rgba(234, 102, 102, .75);
+  border-radius: 5px;
+  color: white;
 }
 
-.expense-amount {
-  color: #ea6666;
+.total-amount {
   font-weight: bold;
 }
