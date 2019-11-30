@@ -19,18 +19,25 @@ const Settings = () => {
 
     return (
       <div className='hold-column'>
-      <Header>
-        <h1>Settings</h1>
-      </Header>
+        <Header>
+          <h1>Settings</h1>
+        </Header>
         <div className='user-img'>
           <img src={url}/>
         </div>
-        <label className="switch">
-          <input type="checkbox"></input>
-          <span className="slider round"></span>
-        </label>
+        <div className='not'>
+          <div>Notifications</div>
+          <div>
+            <label className="switch">
+              <input type="checkbox"></input>
+              <span className="slider round"></span>
+             </label>
+          </div>
+        </div>
+        <div>
+        </div>
         <button type='button' className='sign-out' onClick = {handleSignOut}>Sign-Out</button>
-    </div>
+      </div>
   )
 };
 

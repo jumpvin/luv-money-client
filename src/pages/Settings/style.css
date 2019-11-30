@@ -19,6 +19,11 @@
   margin-top:10vh;
 }
 
+.not{
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
 
 /* The switch - the box around the slider */
 .switch {
