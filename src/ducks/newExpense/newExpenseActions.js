@@ -1,5 +1,5 @@
 const TRIGGER_NEW_EXPENSE = 'TRIGGER_NEW_EXPENSE';
-// const NEW_RULE_SUCCESS = 'NEW_RULE_SUCCESS';
+const NEW_EXPENSE_SUCCESS = 'NEW_EXPENSE_SUCCESS';
 // const NEW_RULE_FAIL = 'NEW_RULE_FAIL';
 
 const triggerNewExpense = (expense) => ({
@@ -7,10 +7,10 @@ const triggerNewExpense = (expense) => ({
   expense
 });
 
-// const newRuleSuccess = (rule) => ({
-//   type: NEW_RULE_SUCCESS,
-//   rule,
-// });
+const newExpenseSuccess = (expense) => ({
+  type: NEW_EXPENSE_SUCCESS,
+  expense,
+});
 
 // const newRuleFail = (err) => ({
 //   type: NEW_RULE_FAIL,
@@ -19,9 +19,9 @@ const triggerNewExpense = (expense) => ({
 
 export {
   TRIGGER_NEW_EXPENSE,
-  // NEW_RULE_SUCCESS,
+  NEW_EXPENSE_SUCCESS,
   // NEW_RULE_FAIL,
   triggerNewExpense,
-  // newRuleSuccess,
+  newExpenseSuccess,
   // newRuleFail,
 };

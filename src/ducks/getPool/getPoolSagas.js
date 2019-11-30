@@ -26,6 +26,7 @@ function* sagaGetPool({ userId }) {
 function* sagaGetBE({ userId }) {
   try {
     const pool = yield call(getBE, userId);
+    console.log('WORKKS');
     yield put({ type: GET_BE_SUCCESS, pool });
   } catch (err) {
     put({ type: GET_BE_FAIL, err });
@@ -34,7 +35,10 @@ function* sagaGetBE({ userId }) {
 
 function* watchGetPool() {
   yield takeLatest(TRIGGER_GET_POOL, sagaGetPool);
+  // yield takeLatest(TRIGGER_GET_BE, sagaGetBE);
+}
+function* watchGetBE() {
   yield takeLatest(TRIGGER_GET_BE, sagaGetBE);
 }
 
-export default watchGetPool;
+export {watchGetPool, watchGetBE};

@@ -6,10 +6,12 @@ import newRule from './newRule/newRuleReducers';
 import popUpState from './popUpState/popUpReducers';
 import invite from './invite/inviteReducers';
 import addUser from './addUser/addUserReducers';
+import newExpense from './newExpense/newExpenseReducers'
 
 const reducers = combineReducers({
   example,
   userToken,
+  newExpense,
   newRule,
   getPool,
   popUpState,

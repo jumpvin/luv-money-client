@@ -17,12 +17,13 @@ import { triggerGetBE } from '../../ducks/getPool/getPoolActions'
 
 const AddExpense = () => {
 
-  const { userInfo, balanceInfo,poolInfo, poolRuleSettingsInfo } = 
+  const { userInfo, balanceInfo,poolInfo, poolRuleSettingsInfo, newExpenses } = 
     useSelector( state => ({ 
       userInfo: state.getPool.pool.userInfo,
       balanceInfo: state.getPool.pool.balanceInfo,
       poolInfo: state.getPool.pool,
-      poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo
+      poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo,
+      newExpenses: state.newExpense.expense
     })
   );
   
@@ -54,8 +55,10 @@ const AddExpense = () => {
     e.preventDefault();
     const expense={id:'1',pool_expense_id:rule, user_id:'1', name:expenseName, date:selectedDate, amount:amount};
     await dispatch(triggerNewExpense(expense));
-    await dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
+    // await dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
   }
+
+  useEffect(()=>{console.log('dispatch is working?');dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[newExpenses]);
 
 
   return (
