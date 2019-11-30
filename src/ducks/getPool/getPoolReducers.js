@@ -1,4 +1,4 @@
-import { GET_POOL_SUCCESS, GET_POOL_LOADING, ADD_RULE } from './getPoolActions';
+import { GET_POOL_SUCCESS, GET_POOL_LOADING, ADD_RULE, GET_BE_SUCCESS } from './getPoolActions';
 
 const getPool = (state = { pool: {}, isLoading: true }, action) => {
   switch (action.type) {
@@ -6,6 +6,10 @@ const getPool = (state = { pool: {}, isLoading: true }, action) => {
       return { ...state, pool: action.pool };
     case GET_POOL_LOADING:
       return { ...state, isLoading: action.isLoading };
+    case GET_BE_SUCCESS:
+      return { ...state, pool: {
+        ...state.pool, balanceInfo: action.pool.balanceInfo, poolInfo: action.pool.poolInfo 
+      }};
     case ADD_RULE:
       return {...state, pool: { ...state.pool, poolRuleSettingsInfo: [action.updatedRule, ...state.pool.poolRuleSettingsInfo ]}}
     default:
