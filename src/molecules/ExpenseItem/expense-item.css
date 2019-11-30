@@ -6,6 +6,11 @@
   margin: .25rem;
 }
 
+.expense-amount {
+  color: #ea6666;
+  font-weight: bold;
+}
+
 .expense-item .user-favicon {
   height: 25px;
 }
