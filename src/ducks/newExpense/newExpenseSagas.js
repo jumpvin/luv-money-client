@@ -3,7 +3,7 @@ import { newExpense } from '../../services/api';
 
 import {
   TRIGGER_NEW_EXPENSE,
-  // NEW_RULE_SUCCESS,
+  NEW_EXPENSE_SUCCESS,
   // NEW_RULE_FAIL,
 } from './newExpenseActions';
 
@@ -16,7 +16,7 @@ import {
 function* sagaNewExpense({expense}) {
   try {
     const pool = yield call(newExpense, expense);
-    // yield put({ type: GET_POOL_SUCCESS, pool });
+    yield put({ type: NEW_EXPENSE_SUCCESS, expense });
     // isLoading = false;
     // yield put({ type: NEW_RULE_LOADING, isLoading });
   } catch (err) {

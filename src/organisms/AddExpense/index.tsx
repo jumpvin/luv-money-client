@@ -17,12 +17,13 @@ import { triggerGetBE } from '../../ducks/getPool/getPoolActions'
 
 const AddExpense = () => {
 
-  const { userInfo, balanceInfo,poolInfo, poolRuleSettingsInfo } = 
+  const { userInfo, balanceInfo,poolInfo, poolRuleSettingsInfo, newExpenses } = 
     useSelector( state => ({ 
       userInfo: state.getPool.pool.userInfo,
       balanceInfo: state.getPool.pool.balanceInfo,
       poolInfo: state.getPool.pool,
-      poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo
+      poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo,
+      newExpenses: state.newExpense.expense
     })
   );
   
@@ -52,10 +53,12 @@ const AddExpense = () => {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const expense={id:'1',pool_expense_id:'1', user_id:'1', name:expenseName, date:selectedDate, amount:amount};
+    const expense={id:'1',pool_expense_id:rule, user_id:'1', name:expenseName, date:selectedDate, amount:amount};
     await dispatch(triggerNewExpense(expense));
-    await dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
+    // await dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
   }
+
+  useEffect(()=>{console.log('dispatch is working?');dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[newExpenses]);
 
 
   return (
@@ -103,7 +106,7 @@ const AddExpense = () => {
           onChange={handleRuleChange}
             >
               {poolRuleSettingsInfo.map(rule => 
-                <MenuItem value={rule.name}>{rule.name}</MenuItem>
+                <MenuItem value={rule.id}>{rule.name}</MenuItem>
               )}
           <Button value='new' style={{backgroundColor:'orange'}} >+<MenuItem >Add New Rule</MenuItem></Button>
         </Select>

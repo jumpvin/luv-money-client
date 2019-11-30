@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { triggerGetPool } from '../../ducks/getPool/getPoolActions';
+import { triggerAddUser } from '../../ducks/addUser/addUserActions';
 import './App.css';
 import firebase from 'firebase';
 import SignIn from '../SignIn/index'
@@ -13,9 +14,21 @@ const App = () => {
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
-      if (user) dispatch(triggerGetPool({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
-    });  
+      if (user){
+        //Once everything is set up uncoment dispatch below and delete current dispatch
+        //dispatch(triggerGetPool({ uid: user.uid }));
+        dispatch(triggerGetPool({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))
+      };
+    }); 
   }, []);
+
+  useEffect(() => {
+    const user = firebase.auth().currentUser;
+    if(user && user!.metadata!.lastSignInTime === user!.metadata!.creationTime && !pool) {
+      //A pool will need to be created here as well. Otherwise It'll never login in
+      dispatch(triggerAddUser({uid: user!.uid, name: user!.displayName, email: user!.email, photourl: user!.photoURL}));
+    };
+  }, [pool])
   
 {/* <Spinner className="spinner" /> */}
   return (
