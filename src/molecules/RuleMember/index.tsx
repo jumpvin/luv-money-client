@@ -27,7 +27,7 @@ const RuleMember = ({ photo, name, handle, id }: RouteComponentProps<RuleMemberP
   <Card className='ruleCard'>
     <UserFavicon path={photo}/>
     {name}
-    <input type='number' id={id} value={percent} onChange={handleChange}/>
+    <input type='number' id={id} value={percent} onChange={handleChange} />
   </Card>
 )};
 

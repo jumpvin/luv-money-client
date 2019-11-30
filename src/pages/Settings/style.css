@@ -3,26 +3,50 @@
   justify-content: center;
   border-radius: 50%;
   overflow:hidden;
-  margin-top:10vh;
+  margin-top:5vh;
+  width:15vh;
+  height:15vh;
+  object-fit: cover;
 }
 
 .sign-out{
-  background-color: #F64343; /* Green */
+  text-align: center;
+}
+
+.sign-out-btn{
+  color:white;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: #F64343;
   border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   border-radius:1.5rem;
-  margin-top:10vh;
+  margin-top:5vh;
+}
+
+.payment-methods{
+  display: flex;
+  flex-direction: column;
+  text-align: center
+;}
+
+.settings{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  overflow: scroll;
 }
 
 .not{
   display: flex;
   flex-direction: row;
-  align-content: space-between;
+  justify-content: space-between;
+  margin-top:5vh;
+  width:95%;
+  max-width: 500px;
 }
 
 /* The switch - the box around the slider */
