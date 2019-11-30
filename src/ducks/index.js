@@ -4,6 +4,7 @@ import userToken from './auth/authReducers';
 import getPool from './getPool/getPoolReducers';
 import newRule from './newRule/newRuleReducers';
 import popUpState from './popUpState/popUpReducers';
+import invite from './invite/inviteReducers';
 
 const reducers = combineReducers({
   example,
@@ -11,6 +12,7 @@ const reducers = combineReducers({
   newRule,
   getPool,
   popUpState,
+  invite,
 });
 
 export default reducers;

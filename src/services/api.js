@@ -20,13 +20,19 @@ const getPool = (args) => api('get', '/pool', args);
 
 const statementFetch = (args) => api('get', '/statement', args);
 
-//------POST REQUESTS------//
+// ------POST REQUESTS------//
 
 const newRule = (payload) => api('post', '/rule', { uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
+
+const sendInvite = async (args) => {
+  const res = await axios.get('https://us-central1-sendinvite-b6bba.cloudfunctions.net/sendMail', { params: args });
+  return res.data;
+};
 
 export {
   getExamples,
   statementFetch,
   newRule,
   getPool,
+  sendInvite,
 };
