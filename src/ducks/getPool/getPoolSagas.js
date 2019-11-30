@@ -1,5 +1,6 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 import { getPool, getBE } from '../../services/api';
+import {NEW_EXPENSE_SUCCESS} from '../newExpense/newExpenseActions'
 
 import {
   TRIGGER_GET_POOL,
@@ -35,7 +36,7 @@ function* sagaGetBE({ userId }) {
 
 function* watchGetPool() {
   yield takeLatest(TRIGGER_GET_POOL, sagaGetPool);
-  // yield takeLatest(TRIGGER_GET_BE, sagaGetBE);
+  yield takeLatest(NEW_EXPENSE_SUCCESS, sagaGetBE);
 }
 function* watchGetBE() {
   yield takeLatest(TRIGGER_GET_BE, sagaGetBE);
