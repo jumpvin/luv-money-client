@@ -31,7 +31,7 @@ const newRule = (payload) => {
 
 const newExpense = (payload) => {
   console.log(payload);
-  api('post', '/expense', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
+  return api('post', '/expense', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
 };
 
 
