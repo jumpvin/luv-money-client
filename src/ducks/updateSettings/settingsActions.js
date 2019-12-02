@@ -2,13 +2,14 @@ const TRIGGER_POOLSETTINGS = 'TRIGGER_EXAMPLE';
 const POOLSETTINGS_LOADING = 'EXAMPLE_LOADING';
 const POOLSETTINGS_SUCCESS = 'POOLSETTINGS_SUCCESS';
 const POOLSETTINGS_FAIL = 'POOLSETTINGS_FAIL';
+const TRIGGER_POOL = 'TRIGGER_POOL';
 
 const triggerPoolSettings = () => ({
   type: TRIGGER_POOL,
 });
 
 const poolSettingsLoading = (isLoading) => ({
-  type: poolSettings_LOADING,
+  type: POOLSETTINGS_LOADING,
   isLoading,
 });
 

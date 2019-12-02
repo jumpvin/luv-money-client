@@ -5,6 +5,7 @@ import watchNewRule from './newRule/newRuleSagas';
 import watchPopUpFetch from './popUpState/popUpSagas';
 import watchNewExpense from './newExpense/newExpenseSagas';
 import watchInvite from './invite/inviteSagas';
+import watchSubmitPayment from './submitPayment/submitPaymentSagas';
 
 
 export default function* startForman() {
@@ -15,5 +16,6 @@ export default function* startForman() {
     watchNewRule(),
     watchPopUpFetch(),
     watchInvite(),
+    watchSubmitPayment(),
   ]);
 }

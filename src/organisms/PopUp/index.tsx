@@ -27,6 +27,7 @@ const PopUp = ({ parent, handleClose }: RouteComponentProps<PopUpParams>) => {
     editRule: <EditRule data={popUpData}/>,
     statement: <StatementCard data={popUpData}/>,
     payment: <MakePayment/>,
+    newPayment:'',
     message: 'Message',
     invite: <Invite />,
     none: 'None',

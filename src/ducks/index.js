@@ -5,6 +5,7 @@ import getPool from './getPool/getPoolReducers';
 import newRule from './newRule/newRuleReducers';
 import popUpState from './popUpState/popUpReducers';
 import invite from './invite/inviteReducers';
+import submitPayment from './submitPayment/submitPaymentReducers';
 
 const reducers = combineReducers({
   example,
@@ -13,6 +14,7 @@ const reducers = combineReducers({
   getPool,
   popUpState,
   invite,
+  submitPayment,
 });
 
 export default reducers;

@@ -22,7 +22,6 @@ const Main = () => {
       <Route path='/payment' component={Payment} />
       <Route path='/pool-settings' component={PoolSettings} />
       <Route path='/settings' component={Settings} />
-      <Route path='/makePayment' component={MakePayment} />
 
       <Footer />
     </Router>
