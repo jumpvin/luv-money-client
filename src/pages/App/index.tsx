@@ -27,8 +27,10 @@ const App = () => {
     const user = firebase.auth().currentUser;
     if(user && user!.metadata!.lastSignInTime === user!.metadata!.creationTime && !pool) {
       //A pool will need to be created here as well. Otherwise It'll never login in
-      //dispatch(triggerAddUser({uid: user!.uid, name: user!.displayName, email: user!.email, photourl: user!.photoURL}));
-      dispatch(triggerAddPool({ 
+      dispatch(triggerAddUser({uid: user!.uid, name: user!.displayName, email: user!.email, photourl: user!.photoURL}));
+
+      dispatch(triggerAddPool({
+        admin_id: user!.uid, 
         name: 'New Pool',
         frequency:'Monthly',
         statement_date: '12-15-19 12:00:00',
@@ -36,6 +38,7 @@ const App = () => {
         grace_period: '5 days' 
         })
       );
+      dispatch(triggerGetPool({ uid: user.uid }));
     };
   }, [pool])
   
