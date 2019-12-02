@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import firebase from 'firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { triggerInvite } from '../../ducks/invite/inviteActions';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
@@ -18,8 +19,15 @@ const Invite = () => {
   }, [status])
 
   const onSubmit = () => {
-    dispatch(triggerInvite({ dest:email, name }));
-  }
+    firebase.auth().fetchSignInMethodsForEmail(email)
+   .then(providers => {
+    if (providers.length === 0) {
+      dispatch(triggerInvite({ dest:email, name }));
+    } else {
+      // Send the user a message.
+    }
+  });
+}
 
   
   return (

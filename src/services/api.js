@@ -26,7 +26,7 @@ const statementFetch = (args) => api('get', '/statement', args);
 
 const newRule = (payload) => {
   console.log(payload);
-  api('post', '/rule', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
+  return api('post', '/rule', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
 };
 
 const newExpense = (payload) => {
