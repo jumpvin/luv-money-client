@@ -29,7 +29,6 @@ const newRule = (payload) => {
 };
 
 const editRule = (payload) => {
-  console.log(payload);
   return api('put', '/rule', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
 };
 

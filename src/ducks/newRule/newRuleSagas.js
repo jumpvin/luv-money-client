@@ -10,6 +10,7 @@ import {
 
 function* sagaNewRule({updatedRule}) {
   try {
+    console.log(updatedRule);
     let isLoading = true;
     yield put({ type: NEW_RULE_LOADING, isLoading });
     const rule = yield call(newRule, updatedRule);

@@ -29,7 +29,9 @@ const AddRule = () => {
     e.preventDefault();
     const updatedRule={id:'',pool_id:poolRuleSettingsInfo[0].pool_id,name:rule,rule:tempVal};
     await dispatch(triggerNewRule(updatedRule));
+    console.log('BEFORE', updatedRule);
     dispatch({type:'ADD_RULE', updatedRule});
+    console.log('After', updatedRule);
     setRule('');
   }
 
