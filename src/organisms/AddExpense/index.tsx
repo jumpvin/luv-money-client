@@ -56,7 +56,7 @@ const AddExpense = () => {
     const expense={id:'1',pool_expense_id:rule, user_id:'1', name:expenseName, date:selectedDate, amount:amount};
     await dispatch(triggerNewExpense(expense));
     // await dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
-  }
+  };
 
   useEffect(()=>{console.log('dispatch is working?');dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[newExpenses]);
 
