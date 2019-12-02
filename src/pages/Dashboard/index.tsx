@@ -18,8 +18,6 @@ const Dashboard = () => {
 let amount =-user;
 members.forEach(el=>amount+=el[1]);
 
-console.log('DASHHHH------',members);
-
   return (
     <div className='dashboard hold-column'>
       <Header>

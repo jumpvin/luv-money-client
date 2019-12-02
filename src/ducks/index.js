@@ -8,6 +8,7 @@ import invite from './invite/inviteReducers';
 import addUser from './addUser/addUserReducers';
 import newExpense from './newExpense/newExpenseReducers';
 import submitPayment from './submitPayment/submitPaymentReducers';
+import addPool from './addPool/addPoolReducers';
 
 const reducers = combineReducers({
   example,
@@ -19,6 +20,7 @@ const reducers = combineReducers({
   invite,
   addUser,
   submitPayment,
+  addPool,
 });
 
 export default reducers;
