@@ -17,7 +17,9 @@ const AddRule = () => {
   const [tempVal, setTempVal] = useState({});
   
   const handleFormInputs = (e) => {
-    const updated = Object.assign(tempVal, {[e.target.id]: e.target.value});
+    const updated = Object.assign(tempVal, { [e.target.id]: e.target.value });
+    // const sum = (Object.values(updated).reduce((a, b) => Number(a) + Number(b)));
+    // sum >100 ? alert('sum is more than 100') :
     setTempVal(updated);    
   }
 
@@ -27,19 +29,32 @@ const AddRule = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedRule={id:'',pool_id:poolRuleSettingsInfo[0].pool_id,name:rule,rule:tempVal};
-    await dispatch(triggerNewRule(updatedRule));
-    dispatch({type:'ADD_RULE', updatedRule});
-    setRule('');
+    const updatedRule = { id: '', pool_id: poolRuleSettingsInfo[0].pool_id, name: rule, rule: tempVal };
+    const sum: Number = Number(Object.values(tempVal).reduce((a, b) => { return Number(a) + Number(b) },0));
+
+    if (rule == '') {
+      alert ('please provide a rule name')
+    } else if (rule == 'new') {
+      alert ('rule name cannot be new')
+    } else if (sum !== 100) {
+      alert('sum should be equal to 100')
+  
+    } else if ( sum == 100) {
+      await dispatch(triggerNewRule(updatedRule));
+      dispatch({ type: 'ADD_RULE', updatedRule });
+      setRule('');
+      setTimeout(()=>dispatch(popUpState('none')),10)
+    }
+
   }
 
   const dispatch = useDispatch();
 
   return (
     <div>
-      <form onSubmit = {handleSubmit}>
+      <form >
       <h1>Create a new rule</h1>
-      Name <input onChange={handleChange} value={rule} type='text'></input>
+      Name <input required onChange={handleChange} value={rule} type='text'></input>
       {userInfo.map((user) => (
         <RuleMember 
           name={user.name}
@@ -48,7 +63,10 @@ const AddRule = () => {
           handle={handleFormInputs}
           />
       ))}
-      <button type='submit' onClick={() => setTimeout(()=>dispatch(popUpState('none')),10)}>Submit</button>
+      <button type='submit' 
+      onClick={handleSubmit}
+      
+      >Submit</button>
       </form>
       
     </div>
