@@ -20,17 +20,20 @@ const getPool = (args) => api('get', '/pool', args);
 
 const getBE = (args) => api('get', '/poolBE', args);
 
-const statementFetch = (args) => api('get', '/statement', args);
+const popUpFetch = (args) => api('get', '/popup', args);
 
 // ------POST REQUESTS------//
 
 const newRule = (payload) => {
-  console.log(payload);
   return api('post', '/rule', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
 };
 
-const newExpense = (payload) => {
+const editRule = (payload) => {
   console.log(payload);
+  return api('put', '/rule', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
+};
+
+const newExpense = (payload) => {
   return api('post', '/expense', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
 };
 
@@ -50,9 +53,10 @@ const postPool = (payload) => api('post', '/pool','', payload);
 
 export {
   getExamples,
-  statementFetch,
+  popUpFetch,
   getBE,
   newRule,
+  editRule,
   getPool,
   postPool,
   newExpense,

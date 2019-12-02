@@ -13,7 +13,6 @@ const getPool = (state = { pool: {}, isLoading: true }, action) => {
     case GET_POOL_LOADING:
       return { ...state, isLoading: action.isLoading };
     case GET_BE_SUCCESS:
-      console.log('GET_BE_SUCCESS, new state: ', { ...state.pool, ...action.pool });
       return {
         ...state,
         pool: { ...state.pool, ...action.pool },
