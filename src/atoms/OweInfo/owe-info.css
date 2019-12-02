@@ -3,9 +3,10 @@
   flex-flow: column;
   align-items: center;
 }
-.owe-who, .owe-what {
+.owe-who {
   font-size: 20px;
-  margin-bottom: .25rem;
+  margin-bottom: .5rem;
+  color: #2c3c77;
 }
 
 .owe-amount {

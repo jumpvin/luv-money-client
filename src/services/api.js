@@ -40,9 +40,9 @@ const sendInvite = async (args) => {
   return res.data;
 };
 
-// ------POST REQUESTS------//
-
 const postUser = (payload) => api('post', '/auth/signup', '', payload);
+
+const postPool = (payload) => api('post', '/pool','', payload);
 
 export {
   getExamples,
@@ -50,6 +50,7 @@ export {
   getBE,
   newRule,
   getPool,
+  postPool,
   newExpense,
   sendInvite,
   postUser,
