@@ -17,7 +17,10 @@ const Footer = () => {
       <NavIcon path='/expense-details'>
         <LuvMoneyLogo />
       </NavIcon>
-      <PaymentIcon/>
+      {/* <PaymentIcon> */}
+      <NavIcon path='expense'>
+      <LuvMoneyLogo />
+      </NavIcon>
       <NavIcon path='/pool-settings' >
         <LuvMoneyLogo />
       </NavIcon>

@@ -34,8 +34,8 @@ const AddExpense = () => {
   const [expenseName, setExpenseName] = useState('');
   const [amount, setAmount] = useState('');
 
-  const handleDateChange = date => {
-    setSelectedDate(date);
+  const handleDateChange = e => {
+    setSelectedDate(e.target.value);
   };
 
   const handleExpenseNameChange = ({target}) => {
@@ -54,8 +54,12 @@ const AddExpense = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const expense={id:'1',pool_expense_id:rule, user_id:'1', name:expenseName, date:selectedDate, amount:amount};
-    await dispatch(triggerNewExpense(expense));
+    const expense = { id: '1', pool_expense_id: rule, user_id: '1', name: expenseName, date: selectedDate, amount: amount };
+    if (expenseName == '' || amount == '' || selectedDate == '') {
+      alert('Please fill all details')
+    } else {
+      await dispatch(triggerNewExpense(expense));
+    }
   }
 
   useEffect(()=>{dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[newExpenses]);
@@ -79,7 +83,7 @@ const AddExpense = () => {
         <div>
         <select value={rule} onChange={handleRuleChange}>
               {poolRuleSettingsInfo.map(rule => 
-                <option value={rule.id}>{rule.name}</option>
+                <option key={rule.id} value={rule.id}>{rule.name}</option>
               )}
             <option value="new" >+Add new rule</option>
         </select>
