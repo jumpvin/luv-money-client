@@ -43,6 +43,10 @@ const sendInvite = async (args) => {
 // ------POST REQUESTS------//
 
 const postUser = (payload) => api('post', '/auth/signup', '', payload);
+const newPayment = (payload) => {
+  console.log(payload);
+  api('post', '/payment', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
+};
 
 export {
   getExamples,
@@ -53,4 +57,5 @@ export {
   newExpense,
   sendInvite,
   postUser,
+  newPayment,
 };

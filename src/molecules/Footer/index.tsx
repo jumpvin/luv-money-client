@@ -2,8 +2,14 @@ import React from 'react';
 import './footer.css';
 import NavIcon from '../../atoms/NavIcon';
 import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
+import { useDispatch } from 'react-redux';
+import { popUpState } from '../../ducks/popUpState/popUpActions'
+import PaymentIcon from '../../atoms/PaymentIcon/Index';
 
-const Footer = () => (
+const Footer = () => {
+  
+  return(
+
     <footer>
       <NavIcon path='/' >
         <LuvMoneyLogo />
@@ -11,9 +17,7 @@ const Footer = () => (
       <NavIcon path='/expense-details'>
         <LuvMoneyLogo />
       </NavIcon>
-      <NavIcon path='/payment' >
-        <LuvMoneyLogo />
-      </NavIcon>
+      <PaymentIcon/>
       <NavIcon path='/pool-settings' >
         <LuvMoneyLogo />
       </NavIcon>
@@ -21,6 +25,8 @@ const Footer = () => (
         <LuvMoneyLogo />
       </NavIcon>
     </footer>
-);
+  )
+  };
 
 export default Footer;
+
