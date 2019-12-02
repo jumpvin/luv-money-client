@@ -43,7 +43,6 @@ const App = () => {
   }, [pool])
   
 {/* <Spinner className="spinner" /> */}
-console.log(pool);
 
   return (
     // {loading ? <Spinner className="spinner" />}

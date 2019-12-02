@@ -24,19 +24,15 @@ const getOnePool = (args) => api('get', '/one-pool', args);
 
 const getBE = (args) => api('get', '/poolBE', args);
 
-const statementFetch = (args) => api('get', '/statement', args);
+const popUpFetch = (args) => api('get', '/popup', args);
 
 // ------POST REQUESTS------//
 
-const newRule = (payload) => {
-  console.log(payload);
-  return api('post', '/rule', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
-};
+const newRule = (payload) => api('post', '/rule', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
 
-const newExpense = (payload) => {
-  console.log(payload);
-  return api('post', '/expense', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
-};
+const editRule = (payload) => api('put', '/rule', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
+
+const newExpense = (payload) => api('post', '/expense', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
 
 
 const sendInvite = async (args) => {
@@ -56,10 +52,11 @@ const postUserPool = (payload) => api('post', '/user-pool', '', payload);
 
 export {
   getExamples,
-  statementFetch,
+  popUpFetch,
   getBE,
   newRule,
   getUser,
+  editRule,
   getPool,
   getOnePool,
   postPool,

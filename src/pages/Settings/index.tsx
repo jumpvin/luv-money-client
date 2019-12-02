@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import './style.css';
 import {useDispatch,useSelector} from 'react-redux';
 import { getPoolSuccess } from '../../ducks/getPool/getPoolActions';
+import Card  from '../../molecules/Card/index';
 
 const Settings = () => {
 
@@ -17,26 +18,39 @@ const Settings = () => {
     await firebase.auth().signOut()
   }
 
+  const handlePaymentMethod = () => {
+    
+  }
+
     return (
       <div className='hold-column'>
         <Header>
           <h1>Settings</h1>
         </Header>
-        <div className='user-img'>
-          <img src={url}/>
-        </div>
-        <div className='not'>
-          <div>Notifications</div>
-          <div>
-            <label className="switch">
+        <div className='settings'>
+          <div className='user-img'>
+            <img src={url}/>
+          </div>
+          <div className='not'>
+            <div>
+              <h4>Notifications</h4>
+            </div>
+            <div>
+              <label className="switch">
               <input type="checkbox"></input>
               <span className="slider round"></span>
-             </label>
+              </label>
+            </div>
           </div>
+            <Card addClass='payment-methods'>
+              <h4>Payment Methods</h4>
+              <p>Paypal</p>
+              <button type='button' onClick={handlePaymentMethod}>Add Payment Method</button>
+            </Card>
+          <div className='sign-out'>
+            <button type='button' className='sign-out-btn' onClick={handleSignOut}>Sign-Out</button>
+          </div>   
         </div>
-        <div>
-        </div>
-        <button type='button' className='sign-out' onClick = {handleSignOut}>Sign-Out</button>
       </div>
   )
 };
