@@ -28,7 +28,6 @@ function* sagaGetPool({ userId }) {
 function* sagaGetBE({ userId }) {
   try {
     const pool = yield call(getBE, userId);
-    console.log('WORKKS');
     yield put({ type: GET_BE_SUCCESS, pool });
   } catch (err) {
     put({ type: GET_BE_FAIL, err });

@@ -58,7 +58,7 @@ const AddExpense = () => {
     // await dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
   };
 
-  useEffect(()=>{console.log('dispatch is working?');dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[newExpenses]);
+  useEffect(()=>{dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[newExpenses]);
 
 
   return (

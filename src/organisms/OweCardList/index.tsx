@@ -19,7 +19,6 @@ const OweCardList = () => {
       if ( userId === balanceInfo[i][0]) return balanceInfo[i][1];
     }
   };
-  console.log(poolInfo)
   return (
     <div className='owe-card-list hold-column'>
       {
