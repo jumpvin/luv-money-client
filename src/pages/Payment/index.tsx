@@ -34,7 +34,7 @@ const Payment = () => {
         isLoading ? 'Please Wait':
       userInfo.map((user, index) => (
       index === 0 ? 
-        <Card> {/*maybe refactor thats causing the console log issue */}
+        <Card> 
           <StatementInfo 
             key= {user.id} 
             amount={balanceInfo[0][1]} />
@@ -56,7 +56,7 @@ const Payment = () => {
       ))
       }
     </div>
-        <button onClick={()=>dispatch(popUpState('payment'))}>Pay</button>       
+        <button onClick={()=>dispatch(popUpState('makePayment'))}>Pay</button>       
   </div>
   )
 };
