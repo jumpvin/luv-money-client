@@ -13,7 +13,7 @@ import {
   // NEW_RULE_FAIL,
 } from '../getPool/getPoolActions';
 
-function* sagaNewExpense({expense}) {
+function* sagaNewExpense({ expense }) {
   try {
     const pool = yield call(newExpense, expense);
     yield put({ type: NEW_EXPENSE_SUCCESS, expense });

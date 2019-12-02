@@ -16,7 +16,11 @@ const api = async (type, url, args, payload) => {
 // ------GET REQUESTS------//
 const getExamples = () => api('get', '/examples');
 
+const getUser = (args) => api('get', '/user', args);
+
 const getPool = (args) => api('get', '/pool', args);
+
+const getOnePool = (args) => api('get', '/one-pool', args);
 
 const getBE = (args) => api('get', '/poolBE', args);
 
@@ -41,22 +45,27 @@ const sendInvite = async (args) => {
 };
 
 const postUser = (payload) => api('post', '/auth/signup', '', payload);
+
 const newPayment = (payload) => {
   console.log(payload);
-  api('post', '/payment', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
+  return api('post', '/payment', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
 };
 
-const postPool = (payload) => api('post', '/pool','', payload);
+const postPool = (payload) => api('post', '/pool', '', payload);
+const postUserPool = (payload) => api('post', '/user-pool', '', payload);
 
 export {
   getExamples,
   statementFetch,
   getBE,
   newRule,
+  getUser,
   getPool,
+  getOnePool,
   postPool,
   newExpense,
   sendInvite,
   postUser,
+  postUserPool,
   newPayment,
 };
