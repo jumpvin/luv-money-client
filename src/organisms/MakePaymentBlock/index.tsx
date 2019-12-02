@@ -28,11 +28,7 @@ const MakePaymentBlock = () => {
           isLoading ? 'Please Wait':
         userInfo.map((user, index) => (
         index === 0 ? 
-        <MakePaymentCard 
-            key={index}
-            who={user.name}
-            amount={userPoolBalance(user.id)}
-          />
+        <MakePaymentCard/>
           : null
           ))
         }

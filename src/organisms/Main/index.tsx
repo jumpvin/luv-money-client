@@ -8,7 +8,6 @@ import ExpsenseDetails from '../../pages/ExpenseDetails';
 import Payment from '../../pages/Payment';
 import Settings from '../../pages/Settings';
 import PoolSettings from '../../pages/PoolSettings';
-import MakePayment from '../../pages/MakePayment';
 import PopUp from '../PopUp';
 
 const Main = () => {
@@ -22,7 +21,6 @@ const Main = () => {
       <Route path='/payment' component={Payment} />
       <Route path='/pool-settings' component={PoolSettings} />
       <Route path='/settings' component={Settings} />
-      <Route path='/makePayment' component={MakePayment} />
 
       <Footer />
     </Router>

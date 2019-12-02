@@ -2,8 +2,9 @@ import {
   GET_POOL_SUCCESS,
   GET_POOL_LOADING,
   ADD_RULE,
-  GET_BE_SUCCESS
-} from "./getPoolActions";
+  GET_BE_SUCCESS,
+  ADD_PAYMENT,
+} from './getPoolActions';
 
 const getPool = (state = { pool: {}, isLoading: true }, action) => {
   switch (action.type) {
@@ -14,18 +15,27 @@ const getPool = (state = { pool: {}, isLoading: true }, action) => {
     case GET_BE_SUCCESS:
       return {
         ...state,
-        pool: { ...state.pool, ...action.pool }
+        pool: { ...state.pool, ...action.pool },
       };
     case ADD_RULE:
+      return {
+        ...state,
+        pool: {
+          ...state.pool, balanceInfo: action.pool.balanceInfo, poolInfo: action.pool.poolInfo,
+        },
+      };
+    case ADD_PAYMENT:
       return {
         ...state,
         pool: {
           ...state.pool,
           poolRuleSettingsInfo: [
             action.updatedRule,
-            ...state.pool.poolRuleSettingsInfo
-          ]
-        }
+            ...state.pool.poolRuleSettingsInfo,
+          ],
+        },
+        balanceInfo:
+      [action.updatedPayment, ...state.pool.balanceInfo],
       };
     default:
       return state;

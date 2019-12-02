@@ -3,11 +3,10 @@ import { RouteComponentProps, Link } from 'react-router-dom';
 import './statement-info.css';
 
 interface StatementInfoParams { 
-  pool: string; 
   amount: number; 
 }
 
-const StatementInfo = ({ pool, amount }: RouteComponentProps<StatementInfoParams>) => (
+const StatementInfo = ({ amount }: RouteComponentProps<StatementInfoParams>) => (
   <div className='statement-info-container'>
       <h1>Settle Up Luver</h1>
       <div className= 'balance-container'>
