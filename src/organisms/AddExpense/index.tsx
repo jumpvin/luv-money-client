@@ -29,7 +29,7 @@ const AddExpense = () => {
   
 
   const dispatch = useDispatch();
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState('');
   const [rule, setRule] = useState('');
   const [expenseName, setExpenseName] = useState('');
   const [amount, setAmount] = useState('');
@@ -47,10 +47,11 @@ const AddExpense = () => {
   };
 
   const handleRuleChange = event => {
-    event.target.value === 'new' ? dispatch(popUpState('newRule')):
-    setRule(event.target.value);
+    event.target.value === 'new' ? dispatch(popUpState('newRule')) :
+      setRule(event.target.value);
   };
  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const expense={id:'1',pool_expense_id:rule, user_id:'1', name:expenseName, date:selectedDate, amount:amount};
@@ -68,55 +69,26 @@ const AddExpense = () => {
           <h1>Add Expense</h1>
         </div>
         <div>
-          <TextField
-          required
-          label='Title'
-          margin='normal'
-          name='title'
-          type='string'
-          value={expenseName}
-          onChange={handleExpenseNameChange}
-          />
+         Title: <input required  name='title' type='string' value={expenseName} onChange={handleExpenseNameChange} />
         </div>
         <div>
-          <TextField
-          required
-          label='Amount'
-          margin='normal'
-          name='amount'
-          type='number'
-          value={amount}
-          onChange={handleAmountChange}
-          />
+        Amount: <input required name='amount' type='number' value={amount} onChange={handleAmountChange} />
         </div>
         <div>
-          <MuiPickersUtilsProvider utils={DateFnsUtils} >
-            <KeyboardDatePicker
-              label = 'Pick a Date'
-              value={selectedDate}
-              onChange={handleDateChange}
-            />
-          </MuiPickersUtilsProvider>
+        Pick a date:<input type='date' value={selectedDate} onChange={handleDateChange} />
         </div>
         <div>
-        <FormControl style={{minWidth:150}} required>
-        <InputLabel>Rule</InputLabel>
-        <Select
-          value={rule}
-          onChange={handleRuleChange}
-            >
+        <select value={rule} onChange={handleRuleChange}>
               {poolRuleSettingsInfo.map(rule => 
-                <MenuItem value={rule.id}>{rule.name}</MenuItem>
+                <option value={rule.id}>{rule.name}</option>
               )}
-          <Button value='new' style={{backgroundColor:'orange'}} >+<MenuItem >Add New Rule</MenuItem></Button>
-        </Select>
-      </FormControl>
+            <option value="new" >+Add new rule</option>
+        </select>
         </div>
         <div>
-        <Button onClick = {handleSubmit}variant="contained">Submit</Button>
+        <button onClick = {handleSubmit}>Submit</button>
         </div>
       </form>
-      
     </div>
     )
   }
