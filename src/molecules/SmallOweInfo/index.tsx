@@ -7,17 +7,18 @@ import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
 
 interface SmallOweInfoParams { 
   amount: number; 
-  path: string
+  path: string;
+  onClick: any;
 }
 
-const SmallOweInfo = ({amount, path }: RouteComponentProps<SmallOweInfoParams>) => (
+const SmallOweInfo = ({amount, path, onClick }: RouteComponentProps<SmallOweInfoParams>) => (
   <div className='small-owe-info'>
       <div className={amount < 0 ? `small-owe-amount`: `small-owe-amount small-owe-positive`}>
         {`$${Math.abs(amount)}`}
       </div>
       <UserFavicon path={path} />
       <div className='actions'>
-        <LuvMoneyLogo></LuvMoneyLogo>
+        <button onClick={onClick}>Send a Message</button>
       </div>
 
 
