@@ -57,6 +57,8 @@ const AddExpense = () => {
     const expense = { id: '1', pool_expense_id: rule, user_id: '1', name: expenseName, date: selectedDate, amount: amount };
     if (expenseName == '' || amount == '' || selectedDate == '') {
       alert('Please fill all details')
+    } else if (amount < '0') {
+      alert ('please enter a positive amount')
     } else {
       await dispatch(triggerNewExpense(expense));
     }

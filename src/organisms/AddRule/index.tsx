@@ -18,8 +18,6 @@ const AddRule = () => {
   
   const handleFormInputs = (e) => {
     const updated = Object.assign(tempVal, { [e.target.id]: e.target.value });
-    // const sum = (Object.values(updated).reduce((a, b) => Number(a) + Number(b)));
-    // sum >100 ? alert('sum is more than 100') :
     setTempVal(updated);    
   }
 
