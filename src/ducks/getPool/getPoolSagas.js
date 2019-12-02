@@ -1,6 +1,6 @@
-import { put, call, takeLatest } from 'redux-saga/effects';
-import { getPool, getBE } from '../../services/api';
-import {NEW_EXPENSE_SUCCESS} from '../newExpense/newExpenseActions'
+import { put, call, takeLatest } from "redux-saga/effects";
+import { getPool, getBE } from "../../services/api";
+import { NEW_EXPENSE_SUCCESS } from "../newExpense/newExpenseActions";
 
 import {
   TRIGGER_GET_POOL,
@@ -10,7 +10,7 @@ import {
   TRIGGER_GET_BE,
   GET_BE_SUCCESS,
   GET_BE_FAIL
-} from './getPoolActions';
+} from "./getPoolActions";
 
 function* sagaGetPool({ userId }) {
   try {
@@ -27,7 +27,6 @@ function* sagaGetPool({ userId }) {
 function* sagaGetBE({ userId }) {
   try {
     const pool = yield call(getBE, userId);
-    console.log('WORKKS');
     yield put({ type: GET_BE_SUCCESS, pool });
   } catch (err) {
     put({ type: GET_BE_FAIL, err });
@@ -42,4 +41,4 @@ function* watchGetBE() {
   yield takeLatest(TRIGGER_GET_BE, sagaGetBE);
 }
 
-export {watchGetPool, watchGetBE};
+export { watchGetPool, watchGetBE };

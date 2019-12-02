@@ -20,6 +20,7 @@ const PopUp = ({ parent, handleClose }: RouteComponentProps<PopUpParams>) => {
   const dispatch = useDispatch();
   const popUp = useSelector(state => state.popUpState.popUp);
   const popUpData = useSelector(state => state.popUpState.data);
+  console.log(popUpData);
   
   const allStates = {
     expense: <LuvMoneyLogo />,
