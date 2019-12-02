@@ -7,9 +7,10 @@ import Card from '../../molecules/Card';
 import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
 import AddRule from '../AddRule';
 import StatementCard from '../StatementCard';
-import MakePayment from '../../pages/MakePayment';
+import Payment from '../../pages/Payment';
 import EditRule from '../EditRule';
 import Invite from '../../organisms/Invite';
+import MakePaymentBlock from '../MakePaymentBlock';
 
 interface PopUpParams {
   parent: string;
@@ -20,13 +21,16 @@ const PopUp = ({ parent, handleClose }: RouteComponentProps<PopUpParams>) => {
   const dispatch = useDispatch();
   const popUp = useSelector(state => state.popUpState.popUp);
   const popUpData = useSelector(state => state.popUpState.data);
+  console.log(popUpData);
   
   const allStates = {
     expense: <LuvMoneyLogo />,
     newRule: <AddRule/>,
     editRule: <EditRule data={popUpData}/>,
     statement: <StatementCard data={popUpData}/>,
-    payment: <MakePayment/>,
+    payment: <Payment/>,
+    makePayment: <MakePaymentBlock/>,
+    newPayment:'',
     message: 'Message',
     invite: <Invite />,
     none: 'None',

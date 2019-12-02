@@ -5,7 +5,8 @@ const GET_POOL_SUCCESS = 'GET_POOL_SUCCESS';
 const GET_POOL_FAIL = 'GET_POOL_FAIL';
 const ADD_RULE = 'ADD_RULE';
 const GET_BE_SUCCESS = 'GET_BE_SUCCESS';
-const GET_BE_FAIL = 'GET_BE_FAIL'
+const GET_BE_FAIL = 'GET_BE_FAIL';
+const ADD_PAYMENT = 'ADD_PAYMENT';
 
 const triggerGetPool = (userId) => ({
   type: TRIGGER_GET_POOL,
@@ -44,8 +45,14 @@ const getPoolFail = (err) => ({
 
 const addRule = (updatedRule) => ({
   type: ADD_RULE,
-  updatedRule
-})
+  updatedRule,
+});
+
+const addPayment = (newPayment) => ({
+  type: ADD_PAYMENT,
+  newPayment,
+});
+
 
 export {
   TRIGGER_GET_POOL,
@@ -56,6 +63,8 @@ export {
   GET_BE_SUCCESS,
   GET_BE_FAIL,
   ADD_RULE,
+  ADD_PAYMENT,
+  addPayment,
   addRule,
   triggerGetPool,
   triggerGetBE,
@@ -63,5 +72,5 @@ export {
   getPoolSuccess,
   getPoolFail,
   getBESuccess,
-  getBEFail
+  getBEFail,
 };

@@ -3,7 +3,7 @@ const EDIT_RULE_LOADING = 'EDIT_RULE_LOADING';
 const EDIT_RULE_SUCCESS = 'EDIT_RULE_SUCCESS';
 const EDIT_RULE_FAIL = 'EDIT_RULE_FAIL';
 
-const triggerEDITRule = (ruleInfo) => ({
+const triggerEditRule = (ruleInfo) => ({
   type: TRIGGER_EDIT_RULE,
   ruleInfo
 });
@@ -28,8 +28,5 @@ export {
   EDIT_RULE_LOADING,
   EDIT_RULE_SUCCESS,
   EDIT_RULE_FAIL,
-  triggerEditRule,
-  EditRuleLoading,
-  EditRuleSuccess,
-  EditRuleFail,
+  triggerEditRule
 };

@@ -69,7 +69,13 @@ const PoolSettings = () => {
       {poolRuleSettingsInfo.map((rule) => (
       <div className='settingsItem'>
         <div>{rule.name}</div>
-        <button onClick={ () => dispatch(popUpState('editRule'))}>Edit</button>
+        <button 
+          onClick={ () => {
+              dispatch(triggerPopUpFetch({id:userInfo[0].id,rule_id:rule.id,
+              type: 'rule'}));
+              dispatch(popUpState('editRule'))
+            }}
+        >Edit</button>
       </div>
       ))}
     </div>
@@ -81,7 +87,8 @@ const PoolSettings = () => {
       <div className='settingsItem'>
         <div>{moment(statement.statement_date).format("MMM Do YYYY")}</div>
         <button onClick={ () => {
-          dispatch(triggerPopUpFetch({id:userInfo[0].id,statement_id:statement.id}));
+          dispatch(triggerPopUpFetch({id:userInfo[0].id,statement_id:statement.id,
+          type: 'statement'}));
           dispatch(popUpState('statement'))
           }}>View</button>
       </div>

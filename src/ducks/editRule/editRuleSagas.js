@@ -10,6 +10,7 @@ import {
 
 function* sagaEditRule({ruleInfo}) {
   try {
+    console.log('editing rule', ruleInfo);
     let isLoading = true;
     yield put({ type: EDIT_RULE_LOADING, isLoading });
     const rule = yield call(editRule, ruleInfo);
@@ -21,8 +22,8 @@ function* sagaEditRule({ruleInfo}) {
   }
 }
 
-function* watchNewRule() {
+function* watchEditRule() {
   yield takeLatest(TRIGGER_EDIT_RULE, sagaEditRule);
 }
 
-export default watchNewRule;
+export default watchEditRule;
