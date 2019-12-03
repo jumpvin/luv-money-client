@@ -1,0 +1,19 @@
+.statementReady {
+  background-color: black;
+  color: white;
+}
+
+.statementEarly {
+  background-color: white;
+  color: black;
+}
+
+.statementSettled {
+  background-color: green;
+  color: white;
+}
+
+.statementOverdue {
+  background-color: red;
+  color: black;
+}
