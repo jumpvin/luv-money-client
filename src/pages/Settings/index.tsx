@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPoolSuccess } from '../../ducks/getPool/getPoolActions';
+import { triggerUserPool } from '../../ducks/addUserPool/userPoolActions';
 import Card from '../../molecules/Card/index';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
 
@@ -52,10 +53,10 @@ console.log(pool);
             <button type='button' className='sign-out-btn' onClick={handleSignOut}>Sign-Out</button>
           </div>
           {
-            match.params ? 
+            Object.keys(match.params).length  ? 
               <div className='add-pool'>
                 <button
-                 onClick={() => dispatch({ userId: pool.id, poolId: match.params }) }
+                 onClick={() => dispatch(triggerUserPool({ userId: pool.id, poolId: match.params.id })) }
                 > Join Pool </button>
               </div>
             :''

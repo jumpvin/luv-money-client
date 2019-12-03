@@ -9,7 +9,9 @@ import {
 
 function* sagaUserPool({ payload }) {
   try {
+    console.log('Is running');
     const user = yield call(postUserPool, { user_id: payload.userId, pool_id: payload.poolId });
+    console.log(user);
     yield put({ type: USER_POOL_SUCCESS, user });
   } catch (err) {
     put({ type: USER_POOL_FAIL, err });
