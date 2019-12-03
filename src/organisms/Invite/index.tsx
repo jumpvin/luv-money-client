@@ -7,6 +7,7 @@ import { popUpState } from '../../ducks/popUpState/popUpActions';
 const Invite = () => {
   const dispatch = useDispatch();
   const status = useSelector(state => state.invite);
+  const poolId = useSelector(state => state.getPool.pool.poolSettingsInfo[0].id);
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
 
@@ -17,14 +18,15 @@ const Invite = () => {
       dispatch(popUpState('none'));
     }
   }, [status])
-
+console.log('info', poolId)
   const onSubmit = () => {
     firebase.auth().fetchSignInMethodsForEmail(email)
    .then(providers => {
     if (providers.length === 0) {
-      dispatch(triggerInvite({ dest:email, name }));
+      dispatch(triggerInvite({ dest:email, name, poolId }));
     } else {
       // Send the user a message.
+      dispatch(triggerInvite({ dest:email, name, poolId }));
     }
   });
 }
