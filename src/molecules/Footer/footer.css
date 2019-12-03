@@ -50,16 +50,7 @@ footer a:nth-child(3) {
 }
 
 .active :first-child{
-  fill:#2c377790;
-}
-.active :second-child{
-  fill:#2c377790;
+  fill:#2c377795;
 }
 
-.active :fourth-child{
-  stroke:#2c377790;
-}
-.active :fifth-child{
-  stroke:#2c377790;
-}
 
