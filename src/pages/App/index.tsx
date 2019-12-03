@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { triggerGetPool } from '../../ducks/getPool/getPoolActions';
 import { triggerAddUser } from '../../ducks/addUser/addUserActions';
@@ -12,21 +12,25 @@ import { ReactComponent as Spinner } from '../../assests/svg-loaders/hearts.svg'
 const App = () => {
   const dispatch = useDispatch();
   const pool = useSelector(state => state.getPool.pool);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
-      if (user){
+      if (user) {
+        setLoading(false);
         console.log('is running');
         //Once everything is set up uncoment dispatch below and delete current dispatch
         dispatch(triggerGetPool({ uid: user.uid }));
         //dispatch(triggerGetPool({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
+      } else {
+        setLoading(false)
       };
     }); 
   }, []);
 
   useEffect(() => {
     const user = firebase.auth().currentUser;
-    if(user && user!.metadata!.lastSignInTime === user!.metadata!.creationTime && !pool) {
+    if(user && user!.metadata!.lastSignInTime !== user!.metadata!.creationTime && !pool) {
       dispatch(triggerAddUser({uid: user!.uid, name: user!.displayName, email: user!.email, photourl: user!.photoURL}));
       dispatch(triggerAddPool({
         admin_id: user!.uid, 
@@ -42,14 +46,13 @@ const App = () => {
     };
   }, [pool])
   
-{/* <Spinner className="spinner" /> */}
 console.log(pool);
   return (
-    // {loading ? <Spinner className="spinner" />}
     <div className="app">
-      {/* {loading ? <Spinner className="spinner"/> : */}
-        {Object.keys(pool).length > 0
-            ? <Main /> : <SignIn />}
+      {loading ? <Spinner className="spinner" /> :
+          Object.keys(pool).length > 0 && firebase.auth().currentUser && !loading
+            ? <Main /> : firebase.auth().currentUser && !Object.keys(pool).length ? <Spinner className="spinner" /> : <SignIn />
+        }
     </div>
   );
 };

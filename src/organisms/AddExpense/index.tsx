@@ -5,6 +5,7 @@ import { popUpState } from '../../ducks/popUpState/popUpActions';
 import { useSelector } from 'react-redux';
 import { triggerNewExpense } from '../../ducks/newExpense/newExpenseActions'
 import { triggerGetBE } from '../../ducks/getPool/getPoolActions'
+import TextInput from '../../atoms/TextInput'
 
 
 const AddExpense = () => {
@@ -66,7 +67,7 @@ console.log(rule);
           <h1>Add Expense</h1>
         </div>
         <div>
-         Title: <input required  name='title' type='string' value={expenseName} onChange={handleExpenseNameChange} />
+         <TextInput required  name='Title' type='string' value={expenseName} onChange={handleExpenseNameChange} />
         </div>
         <div>
         Amount: <input required name='amount' type='number' value={amount} onChange={handleAmountChange} />
