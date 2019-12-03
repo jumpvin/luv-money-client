@@ -28,8 +28,22 @@ const EditRule = ({data}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(triggerEditRule({id: data.id, name:rule, amounts:tempVal}));
-    setRule('');
+    const updatedRule = { id: data.id, name: rule, amounts: tempVal };
+    console.log(updatedRule);
+    const sum: Number = Number(Object.values(tempVal).reduce((a, b) => { return Number(a) + Number(b) }, 0));
+    
+    if (rule == '') {
+      alert ('please provide a rule name')
+    } else if (rule == 'new') {
+      alert ('rule name cannot be new')
+    } else if (sum !== 100) {
+      alert('sum should be equal to 100')
+    } else if ( sum == 100) {
+      await dispatch(triggerEditRule(updatedRule));
+      setRule('');
+      setTimeout(()=>dispatch(popUpState('none')),10)
+    }
+    
   }
 
   const dispatch = useDispatch();
@@ -48,8 +62,12 @@ const EditRule = ({data}) => {
           handle={handleFormInputs}
           rule={data.rule}
           />
-          ))}
-      <button type='submit' onClick={() => setTimeout(()=>dispatch(popUpState('none')),10)}>Update</button>
+        // <div>
+        //   <div>{user.name}</div>
+        //   <input type='number' name={user.name} value={rule} onChange={handleChange}></input>%
+        // </div>
+      ))}
+      <button type='submit' onClick={handleSubmit}>Update</button>
       </form>
       
     </div>

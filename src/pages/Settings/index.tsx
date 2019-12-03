@@ -4,7 +4,8 @@ import firebase from 'firebase';
 import './style.css';
 import {useDispatch,useSelector} from 'react-redux';
 import { getPoolSuccess } from '../../ducks/getPool/getPoolActions';
-import Card  from '../../molecules/Card/index';
+import Card from '../../molecules/Card/index';
+import { popUpState } from '../../ducks/popUpState/popUpActions';
 
 const Settings = () => {
 
@@ -19,7 +20,7 @@ const Settings = () => {
   }
 
   const handlePaymentMethod = () => {
-    
+    dispatch(popUpState('paymentMethods'))
   }
 
     return (
