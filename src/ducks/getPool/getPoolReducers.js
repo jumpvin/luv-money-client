@@ -26,9 +26,7 @@ const getPool = (state = { pool: {}, isLoading: true }, action) => {
             action.updatedRule,
             ...state.pool.poolRuleSettingsInfo,
           ],
-        },
-        balanceInfo:
-      [action.updatedPayment, ...state.pool.balanceInfo],
+        }
       };  
     case ADD_PAYMENT:
       return {
@@ -37,6 +35,8 @@ const getPool = (state = { pool: {}, isLoading: true }, action) => {
           ...state.pool, 
           balanceInfo: action.pool.balanceInfo, poolInfo: action.pool.poolInfo,
         },
+        balanceInfo:
+      [action.updatedPayment, ...state.pool.balanceInfo],
       };
     default:
       return state;

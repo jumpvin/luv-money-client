@@ -51,7 +51,9 @@ const Payment = () => {
         <SmallOweInfo
         key={user.id}
         amount={userPoolBalance(user.id)}
-        path={user.photourl}/>
+        path={user.photourl}
+        onClick={()=>dispatch(popUpState('message'))}
+        />
       </Card>
       ))
       }

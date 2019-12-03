@@ -42,7 +42,7 @@ const MakePaymentCard = () => {
   <div className='make-payment' >
     <MakePaymentInfo pool={pool} amount={balanceInfo[0][1]} />
     <form onSubmit = {handleSubmit}>
-        <input onChange ={(e) => handleChange(e)} type='text' name='amount' value={payment} id='does it work'></input>
+        <input onChange ={(e) => handleChange(e)} type='text' name='amount' value={payment}></input>
         <button type='submit' value='Submit'>Submit</button>
     </form>
   </div>

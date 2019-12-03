@@ -1,5 +1,7 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
-import { postPool } from '../../services/api';
+import {
+  postPool, getUser, getOnePool, postUserPool,
+} from '../../services/api';
 
 import {
   TRIGGER_ADD_POOL,
@@ -10,6 +12,9 @@ import {
 function* sagaAddPool({ payload }) {
   try {
     const pool = yield call(postPool, payload);
+    const userId = yield call(getUser, { uid: payload.admin_id });
+    const poolId = yield call(getOnePool, { admin_id: payload.admin_id });
+    yield call(postUserPool, { user_id: userId, pool_id: poolId });
     yield put({ type: ADD_POOL_SUCCESS, pool });
   } catch (err) {
     put({ type: ADD_POOL_FAIL, err });

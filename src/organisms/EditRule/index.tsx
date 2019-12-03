@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { triggerEditRule } from '../../ducks/editRule/editRuleActions';
 import './style.css';
@@ -8,8 +8,9 @@ import get from 'lodash.get'
 
 const EditRule = ({data}) => {
 
-  const {userInfo} = useSelector(state => ({
-    userInfo: state.getPool.pool.userInfo
+  const {userInfo, ruleInfo} = useSelector(state => ({
+    userInfo: state.getPool.pool.userInfo,
+    ruleInfo: state.getPool.pool.poolRuleSettingsInfo
   }))
 
 
@@ -51,7 +52,7 @@ const EditRule = ({data}) => {
   return (
     <div>
       <form onSubmit = {handleSubmit}>
-      <h1>EDIT AN EXISTING RULE</h1>
+      <h1>Edit an existing rule.</h1>
       Name <input onChange={handleChange} value={data.name} type='text'></input>
       {userInfo.map((user) => (
         <RuleMember 

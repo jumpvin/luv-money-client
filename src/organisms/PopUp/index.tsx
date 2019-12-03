@@ -13,6 +13,7 @@ import Invite from '../../organisms/Invite';
 import MakePaymentBlock from '../MakePaymentBlock';
 import AddExpense from '../AddExpense';
 import PaymentMethods from '../Payment Methods'
+// import Messages from '../../atoms/Messages'
 
 interface PopUpParams {
   parent: string;
@@ -32,7 +33,8 @@ const PopUp = ({ parent, handleClose }: RouteComponentProps<PopUpParams>) => {
     statement: <StatementCard data={popUpData}/>,
     payment: <Payment/>,
     makePayment: <MakePaymentBlock/>,
-    message: 'Message',
+    newPayment:'',
+    // message: <Messages/> ,
     invite: <Invite />,
     paymentMethods: <PaymentMethods/>,
     none: 'None',
