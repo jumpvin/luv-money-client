@@ -42,9 +42,11 @@ const sendInvite = async (args) => {
 
 const postUser = (payload) => api('post', '/auth/signup', '', payload);
 
-const newPayment = (payload) => {
+const newPayment = (payload) => api('post', '/payment', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
+
+const newMessage = (payload) => {
   console.log(payload);
-  return api('post', '/payment', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
+  return api('post', '/messages', { pool_id: 'y4Ac7s3VPddxkAnUOo5HA977d7x4' }, payload);
 };
 
 const postPool = (payload) => api('post', '/pool', '', payload);
@@ -65,4 +67,5 @@ export {
   postUser,
   postUserPool,
   newPayment,
+  newMessage,
 };

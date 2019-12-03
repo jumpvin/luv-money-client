@@ -9,14 +9,16 @@ interface SmallOweInfoParams {
   amount: number; 
   path: string;
   onClick: any;
+  receiverId: number;
 }
 
-const SmallOweInfo = ({amount, path, onClick }: RouteComponentProps<SmallOweInfoParams>) => (
+const SmallOweInfo = ({amount, path, onClick, receiverId }: RouteComponentProps<SmallOweInfoParams>) => (
   <div className='small-owe-info'>
       <div className={amount < 0 ? `small-owe-amount`: `small-owe-amount small-owe-positive`}>
         {`$${Math.abs(amount)}`}
       </div>
       <UserFavicon path={path} />
+      <div>{receiverId}</div>
       <div className='actions'>
         <button onClick={onClick}>Send a Message</button>
       </div>

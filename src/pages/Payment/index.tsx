@@ -53,6 +53,7 @@ const Payment = () => {
         amount={userPoolBalance(user.id)}
         path={user.photourl}
         onClick={()=>dispatch(popUpState('message'))}
+        receiverId={user.id}
         />
       </Card>
       ))
