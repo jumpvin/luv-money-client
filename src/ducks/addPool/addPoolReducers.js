@@ -1,9 +1,9 @@
 import { ADD_POOL_SUCCESS } from './addPoolActions';
 
-const addPool = (state = { pool: {} }, action) => {
+const addPool = (state = { addPool: {} }, action) => {
   switch (action.type) {
     case ADD_POOL_SUCCESS:
-      return { ...state, pool: action.pool };
+      return { ...state, addPool: action.addPool };
     default:
       return state;
   }

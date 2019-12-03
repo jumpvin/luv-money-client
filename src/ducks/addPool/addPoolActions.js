@@ -7,9 +7,9 @@ const triggerAddPool = (payload) => ({
   payload,
 });
 
-const addPoolSuccess = (pool) => ({
+const addPoolSuccess = (addPool) => ({
   type: ADD_POOL_SUCCESS,
-  pool,
+  addPool,
 });
 
 const addPoolFail = (err) => ({
