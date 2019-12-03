@@ -18,8 +18,8 @@ const App = () => {
       if (user){
         console.log('is running');
         //Once everything is set up uncoment dispatch below and delete current dispatch
-        //dispatch(triggerGetPool({ uid: user.uid }));
-        dispatch(triggerGetPool({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
+        dispatch(triggerGetPool({ uid: user.uid }));
+        //dispatch(triggerGetPool({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
       };
     }); 
   }, []);

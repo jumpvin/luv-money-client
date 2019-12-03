@@ -22,7 +22,7 @@ const AddExpense = () => {
 
   const dispatch = useDispatch();
   const [selectedDate, setSelectedDate] = useState('');
-  const [rule, setRule] = useState(poolRuleSettingsInfo[0].id);
+  const [rule, setRule] = useState(poolRuleSettingsInfo[0]? poolRuleSettingsInfo[0].id: '');
   const [expenseName, setExpenseName] = useState('');
   const [amount, setAmount] = useState('');
 
@@ -43,7 +43,7 @@ const AddExpense = () => {
       setRule(event.target.value);
   };
  
-
+console.log(rule);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const expense = { id: '1', pool_expense_id: rule, user_id: userInfo[0].id, name: expenseName, date: selectedDate, amount: amount };
