@@ -2,18 +2,18 @@ import React from 'react';
 import Header from '../../molecules/Header';
 import firebase from 'firebase';
 import './style.css';
-import {useDispatch,useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getPoolSuccess } from '../../ducks/getPool/getPoolActions';
 import Card from '../../molecules/Card/index';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
 
-const Settings = () => {
-
+const Settings = ({match}) => {
+console.log('match is', match.params);
   const pool = useSelector(state => state.getPool.pool.userInfo[0]);
   const url = pool.photourl;
 
   const dispatch = useDispatch();
-
+console.log(pool);
   const handleSignOut = async () => {
     await dispatch(getPoolSuccess({}))
     await firebase.auth().signOut()
@@ -50,7 +50,16 @@ const Settings = () => {
             </Card>
           <div className='sign-out'>
             <button type='button' className='sign-out-btn' onClick={handleSignOut}>Sign-Out</button>
-          </div>   
+          </div>
+          {
+            match.params ? 
+              <div className='add-pool'>
+                <button
+                 onClick={() => dispatch({ userId: pool.id, poolId: match.params }) }
+                > Join Pool </button>
+              </div>
+            :''
+          }   
         </div>
       </div>
   )
