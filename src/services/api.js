@@ -42,7 +42,7 @@ const sendInvite = async (args) => {
 
 const postUser = (payload) => api('post', '/auth/signup', '', payload);
 
-const newMessage = (payload) => {
+const newMessage = async (payload) => {
   console.log(payload);
   return api('post', '/messages', { pool_id: await user() }, payload);
 };
