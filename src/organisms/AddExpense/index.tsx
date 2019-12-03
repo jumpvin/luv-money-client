@@ -30,7 +30,7 @@ const AddExpense = () => {
 
   const dispatch = useDispatch();
   const [selectedDate, setSelectedDate] = useState('');
-  const [rule, setRule] = useState('');
+  const [rule, setRule] = useState(poolRuleSettingsInfo[0].id);
   const [expenseName, setExpenseName] = useState('');
   const [amount, setAmount] = useState('');
 
@@ -54,7 +54,7 @@ const AddExpense = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const expense = { id: '1', pool_expense_id: rule, user_id: '1', name: expenseName, date: selectedDate, amount: amount };
+    const expense = { id: '1', pool_expense_id: rule, user_id: userInfo[0].id, name: expenseName, date: selectedDate, amount: amount };
     if (expenseName == '' || amount == '' || selectedDate == '') {
       alert('Please fill all details')
     } else if (amount < '0') {
@@ -64,9 +64,9 @@ const AddExpense = () => {
     }
   }
 
-  useEffect(()=>{dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[newExpenses]);
+  useEffect(()=>{dispatch(triggerGetBE())},[newExpenses]);
 
-
+console.log(rule);
   return (
     <div className='form'>
       <form>
@@ -84,8 +84,8 @@ const AddExpense = () => {
         </div>
         <div>
         <select value={rule} onChange={handleRuleChange}>
-              {poolRuleSettingsInfo.map(rule => 
-                <option key={rule.id} value={rule.id}>{rule.name}</option>
+              {poolRuleSettingsInfo.map( rule =>               
+              <option key={rule.id} value={rule.id}>{rule.name}</option>
               )}
             <option value="new" >+Add new rule</option>
         </select>
