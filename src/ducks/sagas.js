@@ -10,6 +10,7 @@ import watchAddUser from './addUser/addUserSagas';
 import watchSubmitPayment from './submitPayment/submitPaymentSagas';
 import watchAddPool from './addPool/addPoolSagas';
 import watchNewMessage from './newMessage/newMessageSagas';
+import watchUserPool from './addUserPool/userPoolSagas';
 
 
 export default function* startForman() {
@@ -26,5 +27,6 @@ export default function* startForman() {
     watchSubmitPayment(),
     watchAddPool(),
     watchNewMessage(),
+    watchUserPool(),
   ]);
 }

@@ -1,13 +1,5 @@
 import React, { useState, useEffect }from 'react';
 import './style.css';
-import TextField from '@material-ui/core/TextField';
-import { KeyboardDatePicker, MuiPickersUtilsProvider, } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import Button from '@material-ui/core/Button';
 import { useDispatch } from 'react-redux';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
 import { useSelector } from 'react-redux';
@@ -23,14 +15,14 @@ const AddExpense = () => {
       balanceInfo: state.getPool.pool.balanceInfo,
       poolInfo: state.getPool.pool,
       poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo,
-      newExpenses: state.newExpense.expense
+      newExpenses: state.newExpense.expense,
     })
   );
   
 
   const dispatch = useDispatch();
   const [selectedDate, setSelectedDate] = useState('');
-  const [rule, setRule] = useState('');
+  const [rule, setRule] = useState(poolRuleSettingsInfo[0]? poolRuleSettingsInfo[0].id: '');
   const [expenseName, setExpenseName] = useState('');
   const [amount, setAmount] = useState('');
 
@@ -51,10 +43,10 @@ const AddExpense = () => {
       setRule(event.target.value);
   };
  
-
+console.log(rule);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const expense = { id: '1', pool_expense_id: rule, user_id: '1', name: expenseName, date: selectedDate, amount: amount };
+    const expense = { id: 1, statement_id: (parseInt(poolInfo.poolSettingsInfo[0].next_statement||poolInfo.poolSettingsInfo[0].current_statement)), pool_expense_id: parseInt(rule), user_id: userInfo[0].id, name: expenseName, date: selectedDate, amount: amount };
     if (expenseName == '' || amount == '' || selectedDate == '') {
       alert('Please fill all details')
     } else if (amount < '0') {
@@ -64,9 +56,9 @@ const AddExpense = () => {
     }
   }
 
-  useEffect(()=>{dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[newExpenses]);
+  useEffect(()=>{dispatch(triggerGetBE())},[newExpenses]);
 
-
+console.log(rule);
   return (
     <div className='form'>
       <form>
@@ -84,8 +76,8 @@ const AddExpense = () => {
         </div>
         <div>
         <select value={rule} onChange={handleRuleChange}>
-              {poolRuleSettingsInfo.map(rule => 
-                <option key={rule.id} value={rule.id}>{rule.name}</option>
+              {poolRuleSettingsInfo.map( rule =>               
+              <option key={rule.id} value={rule.id}>{rule.name}</option>
               )}
             <option value="new" >+Add new rule</option>
         </select>

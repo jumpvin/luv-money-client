@@ -22,7 +22,7 @@ const Dashboard = () => {
 
 let amount =-user;
 members.forEach(el=>amount+=el[1]);
-
+console.log('stet ', members);
   return (
     <div className='dashboard hold-column'>
       <Header>
@@ -31,7 +31,7 @@ members.forEach(el=>amount+=el[1]);
           amount={Math.abs(amount)}
         />
       </Header>
-      <StatementHeader statement={statement}/>
+      {statement.length > 0 ? <StatementHeader statement={statement}/>: ''}
       { members.length > 0?
       <OweCard />:
       <Card addClass='one-member'>

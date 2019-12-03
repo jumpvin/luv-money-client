@@ -18,7 +18,6 @@ const SmallOweInfo = ({amount, path, onClick, receiverId }: RouteComponentProps<
         {`$${Math.abs(amount)}`}
       </div>
       <UserFavicon path={path} />
-      <div>{receiverId}</div>
       <div className='actions'>
         <button onClick={onClick}>Send a Message</button>
       </div>
