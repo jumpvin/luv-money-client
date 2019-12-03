@@ -12,6 +12,7 @@ import EditRule from '../EditRule';
 import Invite from '../../organisms/Invite';
 import MakePaymentBlock from '../MakePaymentBlock';
 import AddExpense from '../AddExpense';
+import PaymentMethods from '../Payment Methods'
 
 interface PopUpParams {
   parent: string;
@@ -31,9 +32,9 @@ const PopUp = ({ parent, handleClose }: RouteComponentProps<PopUpParams>) => {
     statement: <StatementCard data={popUpData}/>,
     payment: <Payment/>,
     makePayment: <MakePaymentBlock/>,
-    newPayment:'',
     message: 'Message',
     invite: <Invite />,
+    paymentMethods: <PaymentMethods/>,
     none: 'None',
   }
   

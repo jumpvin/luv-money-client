@@ -1,13 +1,5 @@
 import React, { useState, useEffect }from 'react';
 import './style.css';
-import TextField from '@material-ui/core/TextField';
-import { KeyboardDatePicker, MuiPickersUtilsProvider, } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import Button from '@material-ui/core/Button';
 import { useDispatch } from 'react-redux';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
 import { useSelector } from 'react-redux';
