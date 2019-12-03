@@ -8,9 +8,9 @@ import {popUpState} from '../../ducks/popUpState/popUpActions'
 
 const AddRule = () => {
 
-  const {userInfo, poolRuleSettingsInfo} = useSelector(state => ({
+  const {userInfo, poolSettingsInfo} = useSelector(state => ({
     userInfo: state.getPool.pool.userInfo,
-    poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo
+    poolSettingsInfo: state.getPool.pool.poolSettingsInfo
   }))
 
   const [rule, setRule] = useState('');
@@ -27,7 +27,7 @@ const AddRule = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedRule = { id: '', pool_id: poolRuleSettingsInfo[0].pool_id, name: rule, rule: tempVal };
+    const updatedRule = { id: '', pool_id: poolSettingsInfo[0].id, name: rule, rule: tempVal };
     const sum: Number = Number(Object.values(tempVal).reduce((a, b) => { return Number(a) + Number(b) },0));
 
     if (rule == '') {
@@ -45,7 +45,6 @@ const AddRule = () => {
     }
 
   }
-
   const dispatch = useDispatch();
 
   return (

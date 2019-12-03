@@ -2,6 +2,18 @@ footer {
   position: fixed;
   display: flex;
   bottom: 0;
+  justify-content: center;
+  width:100%;
+  max-width:550px;
+  align-items: center;
+  height:50px;
+  /* box-shadow: 30px 20px 90px black; */
+  /* box-shadow: 0px -2px 5px #7882c9 ;
+  border-top-right-radius: 10%;
+  border-top-left-radius: 10%; */
+  border-top:solid #7882c9;
+  border-top-width: thin;
+
 }
 
 footer a {
@@ -13,12 +25,41 @@ footer a {
 
 footer svg {
   width: 45px;
+  height:30px;
 }
 
 footer a:nth-child(3) svg{
   width: 55px;
+  height:55px;
   margin-bottom: 1rem;
   position: absolute;
   margin: auto;
-  top: -5px;
+  /* top: -50px; */
 }
+
+footer a:nth-child(3) {
+  width: 55px;
+  height:55px;
+  margin-bottom: 1rem;
+  position: relative;
+  top: -25px;
+}
+
+.footer-bg{
+  background-color: white;
+}
+
+.active :first-child{
+  fill:#2c377790;
+}
+.active :second-child{
+  fill:#2c377790;
+}
+
+.active :fourth-child{
+  stroke:#2c377790;
+}
+.active :fifth-child{
+  stroke:#2c377790;
+}
+

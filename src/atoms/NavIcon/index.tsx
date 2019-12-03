@@ -6,10 +6,11 @@ import './nav-icon.css';
 interface NavIconParams {
   path: string; 
   children: any;
+  activeClassName: string;
 }
 
-const NavIcon = ({ path, children }: RouteComponentProps<NavIconParams>) => (
-  <NavLink exact={true} to={path} >
+const NavIcon = ({ path, children, activeClassName}: RouteComponentProps<NavIconParams>) => (
+  <NavLink exact={true} to={path} activeClassName={activeClassName}>
     {children}
   </NavLink>
 );
