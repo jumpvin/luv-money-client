@@ -22,12 +22,10 @@ const Dashboard = () => {
   })
 );
 
-let amount = 0;
-if (balances!=[]){
-let amount = -balances.find(el => el[0]===thisUser.id)||0;
-members.forEach(el=>amount+=el[1]);
-amount -= thisUser[1];
-};
+let totalAmount;
+(balances)?totalAmount = balances.find(el => el[0]===thisUser.id):totalAmount = [0,0];
+let amount = totalAmount[1];
+
 
   return (
     <div className='dashboard hold-column'>

@@ -10,7 +10,7 @@ interface OweInfoParams {
 const OweInfo = ({ who, amount }: RouteComponentProps<OweInfoParams>) => (
   <div className='owe-info'>
       <div className='owe-who'> 
-        { amount < 0 ? `You owe ${who}`: `${who} owes You`}
+        { amount < 0 ? `${who} is owed`: `${who} owes`}
       </div>
       <div className={amount < 0 ? `owe-amount`: `owe-amount owe-positive`}>
         {`$${Math.abs(amount||0)}`}

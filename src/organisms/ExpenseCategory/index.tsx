@@ -21,7 +21,7 @@ const ExpsenseCategory = ({ category, expenses }: RouteComponentProps<ExpenseCat
 
     return total;
   };
-
+  
   return (
     <div className='expense-category hold-row'>
       <Card addClass ='expense'>
