@@ -5,5 +5,5 @@ const user = async () => firebase.auth().currentUser.uid;
 
 export {
   token,
-  user,
+  user
 };
