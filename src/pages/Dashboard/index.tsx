@@ -12,7 +12,7 @@ const Dashboard = () => {
   const { isLoading, name, user, members, statement } = 
   useSelector( state => ({ 
     isLoading: state.getPool.isLoading,
-    name: state.getPool.pool.userInfo[0].name,
+    name: state.getPool.pool.thisUserInfo[0].name,
     members: state.getPool.pool.balanceInfo,
     statement: state.getPool.pool.statementInfo,
     user: state.getPool.pool.balanceInfo.length > 0 ? state.getPool.pool.balanceInfo[0][1] : 0,

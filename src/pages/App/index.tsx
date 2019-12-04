@@ -27,7 +27,7 @@ const App = () => {
   useEffect(() => {
     const user = firebase.auth().currentUser;
     if(user && user!.metadata!.lastSignInTime === user!.metadata!.creationTime && !pool) {
-      dispatch(triggerAddUser({uid: user!.uid, name: user!.displayName, email: user!.email, photourl: user!.photoURL}));
+      dispatch(triggerAddUser({uid: user!.uid, name: user!.displayName, email: user!.email, photourl: user.photoURL ? user!.photoURL: 'https://picsum.photos/200'}));
       dispatch(triggerAddPool({
         admin_id: user!.uid, 
         name: 'New Pool',
