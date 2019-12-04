@@ -30,8 +30,9 @@ const MakePaymentCard = () => {
   }
 
   const handleSubmit = async (e) => {
+    console.log(e.target.form.input.value)
     e.preventDefault();
-    console.log(newStatements, 'this is the statement page')
+    
     const updatedPayment={ updated_by_user:balanceInfo[0][0], date: new Date(),payment:payment, pool_id:poolRuleSettingsInfo[0].pool_id};
     await dispatch(triggerSubmitPayment(updatedPayment));
     setPayment('');
@@ -40,7 +41,7 @@ const MakePaymentCard = () => {
 
   return (
   <div className='make-payment' >
-    <MakePaymentInfo pool={pool} amount={balanceInfo[0][1]} />
+    <MakePaymentInfo pool={pool} amount={balanceInfo.length <= 0 ? 0 : balanceInfo[0][1]} />
     <form onSubmit = {handleSubmit}>
         <input onChange ={(e) => handleChange(e)} type='text' name='amount' value={payment}></input>
         <button type='submit' value='Submit'>Submit</button>

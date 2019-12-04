@@ -7,6 +7,7 @@ import WelcomeHeader from '../../atoms/WelcomeHeader';
 import OweCardList from '../../organisms/OweCardList';
 import StatementHeader from '../../organisms/StatementHeader';
 import Card from '../../molecules/Card';
+import PaymentIcon from '../../atoms/PaymentIcon/Index';
 
 const Dashboard = () => {
   const { isLoading, thisUser, user, members, balances, statement } = 
@@ -35,6 +36,7 @@ amount -= thisUser[1];
           name={firstName(thisUser.name)}
           amount={Math.abs(amount)}
         />
+        <PaymentIcon></PaymentIcon>
       </Header>
       {statement.length > 0 ? <StatementHeader statement={statement}/>: ''}
       { members.length > 1?

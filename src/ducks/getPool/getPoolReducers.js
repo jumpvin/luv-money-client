@@ -47,12 +47,14 @@ const getPool = (state = { pool: {}, isLoading: true }, action) => {
         ...state,
         pool: {
           ...state.pool,
-          poolMessageInfo: [
-            action.newMessage,
-            ...state.pool.poolMessageInfo,
-          ],
+          poolMessageInfo: action.pool.poolMessageInfo,
         },
+        poolMessageInfo: [
+          action.newMessage,
+          ...state.pool.poolMessageInfo,
+        ],
       };
+
     default:
       return state;
   }

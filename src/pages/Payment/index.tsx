@@ -11,13 +11,14 @@ import StatementInfo from '../../atoms/StatementInfo'
 const Payment = () => {
   const dispatch = useDispatch();
 
-  const { isLoading, userInfo, balanceInfo,poolInfo, path, pool, amount } = 
+  const { isLoading, userInfo, balanceInfo,poolInfo, path, pool, amount, thisUser } = 
     useSelector( state => ({ 
       isLoading: state.getPool.isLoading,
       userInfo: state.getPool.pool.userInfo,
       balanceInfo: state.getPool.pool.balanceInfo,
       poolInfo: state.getPool.pool,
-      all: state.getPool
+      all: state.getPool,
+      thisUser: state.getPool.pool.thisUserInfo,
     })
   );
 
@@ -37,7 +38,7 @@ const Payment = () => {
         <Card> 
           <StatementInfo 
             key= {user.id} 
-            amount={balanceInfo[0][1]} />
+            amount={(balanceInfo.length <= 0) ? 0 : balanceInfo[0][1]} />
         </Card> :null
         ))
       }
@@ -46,7 +47,7 @@ const Payment = () => {
     {
         isLoading ? 'Please Wait':
       userInfo.map((user, index) => (
-      index === 0 ? null :
+        user.id!==thisUser[0].id?
       <Card>
         <SmallOweInfo
         key={user.id}
@@ -56,6 +57,7 @@ const Payment = () => {
         receiverId={user.id}
         />
       </Card>
+      : ''
       ))
       }
     </div>
