@@ -31,7 +31,8 @@ const AddExpense = () => {
     setSelectedDate(e.target.value);
   };
 
-  const handleExpenseNameChange = ({target}) => {
+  const handleExpenseNameChange = ({ target }) => {
+    console.log('expense',target.value);
     setExpenseName(target.value);
   };
 
@@ -47,7 +48,8 @@ const AddExpense = () => {
 console.log(rule);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const expense = { id: 1, statement_id: (parseInt(poolInfo.poolSettingsInfo[0].next_statement||poolInfo.poolSettingsInfo[0].current_statement)), pool_expense_id: parseInt(rule), user_id: userInfo[0].id, name: expenseName, date: selectedDate, amount: amount };
+    const expense = { id: 1, statement_id: (parseInt(poolInfo.poolSettingsInfo[0].next_statement || poolInfo.poolSettingsInfo[0].current_statement)), pool_expense_id: parseInt(rule), user_id: userInfo[0].id, name: expenseName, date: selectedDate, amount: amount };
+    console.log(expense);
     if (expenseName == '' || amount == '' || selectedDate == '') {
       alert('Please fill all details')
     } else if (amount < '0') {
