@@ -8,6 +8,7 @@ import firebase from 'firebase';
 import SignIn from '../SignIn/index'
 import Main from '../../organisms/Main';
 import { ReactComponent as Spinner } from '../../assests/svg-loaders/hearts.svg';
+import { async } from 'q';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,10 +23,7 @@ const App = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         setLoading(false);
-        console.log('is running');
-        //Once everything is set up uncoment dispatch below and delete current dispatch
         dispatch(triggerGetPool({ uid: user.uid }));
-        //dispatch(triggerGetPool({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }));
       } else {
         setLoading(false)
       };
@@ -35,9 +33,16 @@ const App = () => {
   useEffect(() => {
     const user = firebase.auth().currentUser;
     console.log(user);
+    console.log(pool);
     if(user && user!.metadata!.lastSignInTime === user!.metadata!.creationTime && !pool) {
-      dispatch(triggerAddUser({uid: user!.uid, name: user!.displayName, email: user!.email, photourl: user.photoURL ? user!.photoURL: 'https://picsum.photos/200'}));
-      dispatch(triggerAddPool({
+      createUserAndPool(user);
+    };
+  }, [pool])
+
+  const createUserAndPool = async(user) => {
+    console.log('is running')
+    await dispatch(triggerAddUser({uid: user!.uid, name: user!.displayName, email: user!.email, photourl: user!.photoURL||'https://picsum.photos/200'}));
+      await dispatch(triggerAddPool({
         admin_id: user!.uid,
         name: 'New Pool',
         frequency: 'Monthly',
@@ -47,11 +52,9 @@ const App = () => {
         grace_period: '5 days'
       })
       );
-      dispatch(triggerGetPool({ uid: user.uid }));
-    };
-  }, [pool])
-  
-  console.log(pool);
+      await dispatch(triggerGetPool({ uid: user.uid }));
+  }
+
   return (
   <div>
     {

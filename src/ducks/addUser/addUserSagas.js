@@ -11,6 +11,7 @@ function* sagaAddUser({ payload }) {
   try {
     const user = yield call(postUser, payload);
     yield put({ type: ADD_USER_SUCCESS, user });
+    return;
   } catch (err) {
     put({ type: ADD_USER_FAIL, err });
   }

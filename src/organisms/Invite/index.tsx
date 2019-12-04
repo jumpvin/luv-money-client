@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import firebase from 'firebase';
 import { useDispatch, useSelector } from 'react-redux';
-import { triggerInvite } from '../../ducks/invite/inviteActions';
+import { triggerInvite, inviteSuccess } from '../../ducks/invite/inviteActions';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
 
 const Invite = () => {
@@ -16,6 +16,7 @@ const Invite = () => {
       setName('');
       setEmail('');
       dispatch(popUpState('none'));
+      dispatch(inviteSuccess(''));
     }
   }, [status])
 console.log('info', poolId)
