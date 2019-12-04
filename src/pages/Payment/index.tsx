@@ -39,12 +39,12 @@ const Payment = () => {
       {
         isLoading ? 'Please Wait':
       userInfo.map((user, index) => (
-      index === 0 ? 
+        user.id===thisUser[0].id?
         <Card> 
           <StatementInfo 
             key= {user.id} 
-            amount={(balanceInfo.length <= 0) ? 0 : balanceInfo[0][1]} />
-        </Card> :null
+            amount={userPoolBalance(user.id)} />
+        </Card> : null
         ))
       }
     </div>
