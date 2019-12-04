@@ -22,6 +22,7 @@ function* sagaGetPool({ userId }) {
     yield put({ type: GET_POOL_SUCCESS, pool });
     isLoading = false;
     yield put({ type: GET_POOL_LOADING, isLoading });
+    return;
   } catch (err) {
     put({ type: GET_POOL_FAIL, err });
   }
