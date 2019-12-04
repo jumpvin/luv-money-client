@@ -24,13 +24,9 @@ const Dashboard = () => {
 );
 
 let totalAmount;
-(balances)?totalAmount = balances.find(el => el[0]===thisUser.id):totalAmount = [0,0];
-<<<<<<< HEAD
+(balances)?totalAmount = balances.find(el => el[0]=== thisUser.id):totalAmount = [0,0];
 let amount = 0//totalAmount[1];
-=======
-let amount=0;
 // (balances)?amount = totalAmount[1]||0:0;
->>>>>>> 824091522b32777cc857ffe318693e60f0070014
 
 
   return (

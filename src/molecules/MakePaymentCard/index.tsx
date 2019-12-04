@@ -72,7 +72,7 @@ const MakePaymentCard = () => {
   
   return (
   <div className='make-payment' >
-<!--     <MakePaymentInfo pool={pool} amount={balanceInfo.length <= 0 ? 0 : balanceInfo[0][1]} /> -->
+    <MakePaymentInfo pool={pool} amount={balanceInfo.length <= 0 ? 0 : balanceInfo[0][1]} /> -->
     {
         isLoading ? 'Please Wait':
       userInfo.map((user, index) => (
