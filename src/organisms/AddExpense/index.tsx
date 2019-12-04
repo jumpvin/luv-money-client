@@ -18,6 +18,7 @@ const AddExpense = () => {
       poolInfo: state.getPool.pool,
       poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo,
       newExpenses: state.newExpense.expense,
+      thisUserInfo: state.getPool.pool.thisUserInfo,
     })
   );
   
@@ -27,26 +28,30 @@ const AddExpense = () => {
   const [rule, setRule] = useState(poolRuleSettingsInfo[0]? poolRuleSettingsInfo[0].id: '');
   const [expenseName, setExpenseName] = useState('');
   const [amount, setAmount] = useState('');
+  const [added, setAdded] = useState(false);
 
   const handleDateChange = e => {
     setSelectedDate(e.target.value);
+    setAdded(false);
   };
 
   const handleExpenseNameChange = ({ target }) => {
     console.log('expense',target.value);
     setExpenseName(target.value);
+    setAdded(false);
   };
 
   const handleAmountChange = ({target}) => {
     setAmount(target.value);
+    setAdded(false);
   };
 
   const handleRuleChange = event => {
     event.target.value === 'new' ? dispatch(popUpState('newRule')) :
       setRule(event.target.value);
+      setAdded(false);
   };
  
-console.log(rule);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const expense = { id: 1, statement_id: (parseInt(poolInfo.poolSettingsInfo[0].next_statement || poolInfo.poolSettingsInfo[0].current_statement)), pool_expense_id: parseInt(rule), user_id: thisUserInfo[0].id, name: expenseName, date: selectedDate, amount: amount };
@@ -57,12 +62,15 @@ console.log(rule);
       alert ('please enter a positive amount')
     } else {
       await dispatch(triggerNewExpense(expense));
+      setSelectedDate('');
+      setAmount('');
+      setExpenseName('');
+      setAdded(true);
     }
   }
 
   useEffect(()=>{dispatch(triggerGetBE())},[newExpenses]);
 
-console.log(rule);
   return (
     <div className='form'>
       <form>
@@ -87,7 +95,9 @@ console.log(rule);
         </select>
         </div>
         <div>
-        <button onClick = {handleSubmit}>Submit</button>
+          <button onClick={handleSubmit}>Submit</button>
+          {added ?
+            <div>Expense Added!</div> : ''}
         </div>
       </form>
     </div>
