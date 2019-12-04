@@ -12,14 +12,14 @@ import Select from '../../atoms/Select';
 
 const AddExpense = () => {
 
-  const { userInfo, balanceInfo,poolInfo, poolRuleSettingsInfo, newExpenses, thisUserInfo } = 
+  const { thisUserInfo, userInfo, balanceInfo, poolInfo, poolRuleSettingsInfo, newExpenses } = 
     useSelector( state => ({ 
+      thisUserInfo: state.getPool.pool.thisUserInfo,
       userInfo: state.getPool.pool.userInfo,
       balanceInfo: state.getPool.pool.balanceInfo,
       poolInfo: state.getPool.pool,
       poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo,
-      newExpenses: state.newExpense.expense,
-      thisUserInfo: state.getPool.pool.thisUserInfo,
+      newExpenses: state.newExpense.expense
     })
   );
   

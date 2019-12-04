@@ -40,7 +40,7 @@ const AddRule = () => {
   
     } else if ( sum == 100) {
       await dispatch(triggerNewRule(updatedRule));
-      dispatch({ type: 'ADD_RULE', updatedRule });
+      await dispatch({ type: 'ADD_RULE', updatedRule });
       setRule('');
       setTimeout(()=>dispatch(popUpState('none')),10)
     }
