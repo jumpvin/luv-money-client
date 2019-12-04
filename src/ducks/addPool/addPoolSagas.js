@@ -19,8 +19,8 @@ function* sagaAddPool({ payload }) {
     yield call(postUserPool, { user_id: userId, pool_id: poolId });
     yield put({ type: ADD_POOL_SUCCESS, addPool });
     const pool = yield call(getPool, { uid: payload.admin_id });
-    console.log('pool ', pool);
     yield put({ type: GET_POOL_SUCCESS, pool });
+    return;
   } catch (err) {
     put({ type: ADD_POOL_FAIL, err });
   }
