@@ -4,6 +4,7 @@ import {
   ADD_RULE,
   GET_BE_SUCCESS,
   ADD_PAYMENT,
+  ADD_MESSAGE,
 } from './getPoolActions';
 
 const getPool = (state = { pool: {}, isLoading: true }, action) => {
@@ -39,6 +40,21 @@ const getPool = (state = { pool: {}, isLoading: true }, action) => {
         balanceInfo:
       [action.updatedPayment, ...state.pool.balanceInfo],
       };
+
+    case ADD_MESSAGE:
+      return {
+        // console.log('this is the state', state),
+        ...state,
+        pool: {
+          ...state.pool,
+          poolMessageInfo: action.pool.poolMessageInfo,
+        },
+        poolMessageInfo: [
+          action.newMessage,
+          ...state.pool.poolMessageInfo,
+        ],
+      };
+
     default:
       return state;
   }

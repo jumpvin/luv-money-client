@@ -12,7 +12,7 @@ import { triggerGetBE } from '../../ducks/getPool/getPoolActions';
 
 const MakePaymentCard = () => {
 
-  const { newStatements, isLoading, userInfo, balanceInfo,poolInfo, path, pool, amount, poolRuleSettingsInfo } = 
+  const { newStatements, isLoading, userInfo, balanceInfo,poolInfo, path, pool, amount, poolRuleSettingsInfo, messageInfo, all, thisUser } = 
   useSelector( state => ({ 
     isLoading: state.getPool.isLoading,
     userInfo: state.getPool.pool.userInfo,
@@ -20,6 +20,8 @@ const MakePaymentCard = () => {
     poolInfo: state.getPool.pool,
     all: state.getPool,
     poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo, 
+    messageInfo: state.getPool.pool.messageInfo,
+    thisUser: state.getPool.pool.thisUserInfo,
   })
   );  
   const dispatch = useDispatch();
@@ -31,16 +33,24 @@ const MakePaymentCard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newStatements, 'this is the statement page')
-    const updatedPayment={ updated_by_user:balanceInfo[0][0], date: new Date(),payment:payment, pool_id:poolRuleSettingsInfo[0].pool_id};
+    const updatedPayment={ updated_by_user:thisUser[0].id, date: new Date(),payment:payment, pool_id:poolRuleSettingsInfo[0].pool_id};
     await dispatch(triggerSubmitPayment(updatedPayment));
     setPayment('');
   };
-  useEffect(()=>{console.log('dispatch is working?');dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[balanceInfo]);
-
+  const userPoolBalance = (userId) => {
+    for(let i = 0; i< balanceInfo.length; i++) {
+      if ( userId === balanceInfo[i][0]) return balanceInfo[i][1];
+    }
+  };
+  // useEffect(()=>{console.log('dispatch is working?');dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[balanceInfo]);
+  
   return (
   <div className='make-payment' >
-    <MakePaymentInfo pool={pool} amount={balanceInfo[0][1]} />
+    {
+        isLoading ? 'Please Wait':
+      userInfo.map((user, index) => (
+        user.id===thisUser[0].id?
+    <MakePaymentInfo pool={pool} amount={userPoolBalance(user.id)} />: null))}
     <form onSubmit = {handleSubmit}>
         <input onChange ={(e) => handleChange(e)} type='text' name='amount' value={payment}></input>
         <button type='submit' value='Submit'>Submit</button>

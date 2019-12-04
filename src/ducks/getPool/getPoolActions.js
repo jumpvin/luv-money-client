@@ -7,6 +7,7 @@ const ADD_RULE = 'ADD_RULE';
 const GET_BE_SUCCESS = 'GET_BE_SUCCESS';
 const GET_BE_FAIL = 'GET_BE_FAIL';
 const ADD_PAYMENT = 'ADD_PAYMENT';
+const ADD_MESSAGE = 'ADD_MESSAGE';
 
 const triggerGetPool = (userId) => ({
   type: TRIGGER_GET_POOL,
@@ -53,6 +54,11 @@ const addPayment = (newPayment) => ({
   newPayment,
 });
 
+const addMessage = (newMessage) => ({
+  type: ADD_MESSAGE,
+  newMessage,
+});
+
 
 export {
   TRIGGER_GET_POOL,
@@ -64,6 +70,8 @@ export {
   GET_BE_FAIL,
   ADD_RULE,
   ADD_PAYMENT,
+  ADD_MESSAGE,
+  addMessage,
   addPayment,
   addRule,
   triggerGetPool,

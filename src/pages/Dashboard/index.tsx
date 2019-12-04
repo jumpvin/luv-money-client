@@ -7,6 +7,7 @@ import WelcomeHeader from '../../atoms/WelcomeHeader';
 import OweCardList from '../../organisms/OweCardList';
 import StatementHeader from '../../organisms/StatementHeader';
 import Card from '../../molecules/Card';
+import PaymentIcon from '../../atoms/PaymentIcon/Index';
 
 const Dashboard = () => {
   const { isLoading, thisUser, user, members, balances, statement } = 
@@ -16,6 +17,8 @@ const Dashboard = () => {
     members: state.getPool.pool.userInfo,
     balances: state.getPool.pool.balanceInfo,
     statement: state.getPool.pool.statementInfo,
+    user: state.getPool.pool.balanceInfo.length > 0 ? state.getPool.pool.balanceInfo[0][1] : 0,
+    // members: state.getPool.pool.balanceInfo
   })
 );
 
@@ -31,6 +34,7 @@ let amount = totalAmount[1];
           name={firstName(thisUser.name)}
           amount={Math.abs(amount)}
         />
+        <PaymentIcon/>
       </Header>
       {statement.length > 0 ? <StatementHeader statement={statement}/>: ''}
       { members.length > 1?
