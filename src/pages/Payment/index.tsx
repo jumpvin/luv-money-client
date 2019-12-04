@@ -39,7 +39,7 @@ const Payment = () => {
       {
         isLoading ? 'Please Wait':
       userInfo.map((user, index) => (
-      index === 0 ? 
+        user.id===thisUser[0].id?
         <Card> 
           <StatementInfo 
             key= {user.id} 

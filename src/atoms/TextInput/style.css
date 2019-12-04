@@ -18,19 +18,32 @@
   position:relative; 
   margin-bottom:45px; 
 }
+
+.ruleCard .group {
+  display: flex;
+  flex-flow: column;
+  margin-left: 2rem;
+  max-width: 200px;
+}
+
 .group input 				{
   font-size:18px;
   padding:10px 10px 10px 5px;
   display:block;
   width:300px;
   border:none;
-  border-bottom:1px solid #757575;
+  border-bottom:1px solid #2c3c77;
+  box-sizing: border-box;
+}
+
+.ruleCard .group input {
+  width: 100%;
 }
 .group input:focus 		{ outline:none; }
 
 /* LABEL ======================================= */
 .group label 				 {
-  color:#999; 
+  color:rgba(44, 60, 119, .75);
   font-size:18px;
   font-weight:normal;
   position:absolute;
@@ -46,18 +59,19 @@
 .group input:focus ~ label, .group input:valid ~ label 		{
   top:-20px;
   font-size:14px;
-  color:#5264AE;
+  color:#2c3c77;
 }
 
 /* BOTTOM BARS ================================= */
 .bar 	{ position:relative; display:block; width:300px; }
+.ruleCard .group .bar { width: 100%;}
 .bar:before, .bar:after 	{
   content:'';
   height:2px; 
   width:0;
   bottom:1px; 
   position:absolute;
-  background:#5264AE; 
+  background:#2c3c77; 
   transition:0.2s ease all; 
   -moz-transition:0.2s ease all; 
   -webkit-transition:0.2s ease all;
@@ -70,7 +84,7 @@
 }
 
 /* active state */
-.group input:focus ~ .bar:before, .group input:focus ~ .bar:after {
+.group input:focus ~ .bar:before, .group input:focus ~ .bar:after, .group select:focus ~ .bar:before, .group select:focus ~ .bar:after{
   width:50%;
 }
 
@@ -94,14 +108,14 @@
 
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
-	from { background:#5264AE; }
+	from { background:#2c3c77; }
   to 	{ width:0; background:transparent; }
 }
 @-moz-keyframes inputHighlighter {
-	from { background:#5264AE; }
+	from { background:#2c3c77; }
   to 	{ width:0; background:transparent; }
 }
 @keyframes inputHighlighter {
-	from { background:#5264AE; }
+	from { background:#2c3c77; }
   to 	{ width:0; background:transparent; }
 }

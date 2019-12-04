@@ -1,7 +1,29 @@
-.form{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items:center;
-  width:80%;
+.form form {
+  margin-top: 3rem;
+}
+
+.submit {
+  font-size: 18px;
+  text-decoration: none;
+  background-color: #ea6666;
+  border: none;
+  color: white;
+  padding: 13px 35px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 1.5rem;
+  margin-top: 5vh;
+}
+
+.pop-up-title {
+  font-weight: 600;
+  color: #2c3c77;
+  font-size: 20px;
+  margin-bottom: 2rem;
+}
+
+.expense-message {
+  position: absolute;
+  color: #97bb4f;
+  font-size: 18px;
 }

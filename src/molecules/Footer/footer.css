@@ -2,7 +2,7 @@ footer {
   position: fixed;
   display: flex;
   bottom: 0;
-  justify-content: center;
+  justify-content: space-evenly;
   width:100%;
   max-width:550px;
   align-items: center;
@@ -19,7 +19,7 @@ footer {
 footer a {
   text-decoration: none;
   color: blue;
-  margin: 1rem;
+  /* margin: 1rem; */
   width: 45px;
 }
 
@@ -33,7 +33,6 @@ footer a:nth-child(3) svg{
   height:55px;
   margin-bottom: 1rem;
   position: absolute;
-  margin: auto;
   /* top: -50px; */
 }
 
@@ -42,7 +41,7 @@ footer a:nth-child(3) {
   height:55px;
   margin-bottom: 1rem;
   position: relative;
-  top: -25px;
+  top: -20px;
 }
 
 .footer-bg{
