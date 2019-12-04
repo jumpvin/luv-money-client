@@ -10,3 +10,12 @@
   
 }
 
+#bg{
+  background-color:#EA6666 ;
+}
+
+.login-txt{
+  color:white;
+  font-family:'Open Sans', sans-serif;
+  size:72px;
+}

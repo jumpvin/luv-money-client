@@ -9,7 +9,7 @@ interface NavIconParams {
   activeClassName: string;
 }
 
-const NavIcon = ({ path, children, activeClassName}: RouteComponentProps<NavIconParams>) => (
+const NavIcon = ({ path, children, activeClassName }: RouteComponentProps<NavIconParams>) =>  (
   <NavLink exact={true} to={path} activeClassName={activeClassName}>
     {children}
   </NavLink>
