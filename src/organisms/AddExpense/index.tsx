@@ -10,8 +10,9 @@ import TextInput from '../../atoms/TextInput'
 
 const AddExpense = () => {
 
-  const { userInfo, balanceInfo,poolInfo, poolRuleSettingsInfo, newExpenses, thisUserInfo } = 
+  const { thisUserInfo, userInfo, balanceInfo, poolInfo, poolRuleSettingsInfo, newExpenses } = 
     useSelector( state => ({ 
+      thisUserInfo: state.getPool.pool.thisUserInfo,
       userInfo: state.getPool.pool.userInfo,
       balanceInfo: state.getPool.pool.balanceInfo,
       poolInfo: state.getPool.pool,
