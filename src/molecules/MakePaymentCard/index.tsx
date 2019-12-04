@@ -37,11 +37,20 @@ const MakePaymentCard = () => {
     await dispatch(triggerSubmitPayment(updatedPayment));
     setPayment('');
   };
+  const userPoolBalance = (userId) => {
+    for(let i = 0; i< balanceInfo.length; i++) {
+      if ( userId === balanceInfo[i][0]) return balanceInfo[i][1];
+    }
+  };
   // useEffect(()=>{console.log('dispatch is working?');dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[balanceInfo]);
   
   return (
   <div className='make-payment' >
-    <MakePaymentInfo pool={pool} amount={balanceInfo.length <= 0 ? 0 : balanceInfo[0][1]} />
+    {
+        isLoading ? 'Please Wait':
+      userInfo.map((user, index) => (
+        user.id===thisUser[0].id?
+    <MakePaymentInfo pool={pool} amount={userPoolBalance(user.id)} />: null))}
     <form onSubmit = {handleSubmit}>
         <input onChange ={(e) => handleChange(e)} type='text' name='amount' value={payment}></input>
         <button type='submit' value='Submit'>Submit</button>
