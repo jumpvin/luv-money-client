@@ -34,6 +34,9 @@ const editRule = async (payload) => api('put', '/rule', { pool_id: await user() 
 
 const newExpense = async (payload) => api('post', '/expense', { pool_id: await user() }, payload);
 
+const newMessage = async (payload) => api('post', '/messages', { pool_id: await user() }, payload);
+
+const newPayment = async (payload) => api('post', '/payment', { pool_id: await user() }, payload);
 
 const sendInvite = async (args) => {
   const res = await axios.get('https://us-central1-sendinvite-b6bba.cloudfunctions.net/sendMail', { params: args });
@@ -42,14 +45,6 @@ const sendInvite = async (args) => {
 
 const postUser = (payload) => api('post', '/auth/signup', '', payload);
 
-const newMessage = async (payload) => {
-  console.log(payload);
-  return api('post', '/messages', { pool_id: await user() }, payload);
-};
-const newPayment = async (payload) => {
-  console.log(payload);
-  return api('post', '/payment', { pool_id: await user() }, payload);
-};
 
 const postPool = (payload) => api('post', '/pool', '', payload);
 const postUserPool = (payload) => api('post', '/user-pool', '', payload);

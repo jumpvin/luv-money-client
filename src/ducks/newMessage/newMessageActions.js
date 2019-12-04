@@ -14,9 +14,9 @@ const newMessageLoading = (isLoading) => ({
   isLoading,
 });
 
-const newMessageSuccess = (message) => ({
+const newMessageSuccess = (updatedMessage) => ({
   type: NEW_MESSAGE_SUCCESS,
-  message,
+  updatedMessage,
 });
 
 const newMessageFail = (err) => ({

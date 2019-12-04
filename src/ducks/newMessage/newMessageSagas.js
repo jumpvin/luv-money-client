@@ -10,13 +10,14 @@ import {
 
 function* sagaNewMessage({ updatedMessage }) {
   try {
+    // console.log(updatedMessage);
+    // let isLoading = true;
+    // yield put({ type: NEW_MESSAGE_LOADING, isLoading });
+    // const message = yield call(newMessage, updatedMessage);
     console.log(updatedMessage);
-    let isLoading = true;
-    yield put({ type: NEW_MESSAGE_LOADING, isLoading });
-    const message = yield call(newMessage, updatedMessage);
-    yield put({ type: NEW_MESSAGE_SUCCESS, message });
-    isLoading = false;
-    yield put({ type: NEW_MESSAGE_LOADING, isLoading });
+    yield put({ type: NEW_MESSAGE_SUCCESS, updatedMessage });
+    // isLoading = false;
+    // yield put({ type: NEW_MESSAGE_LOADING, isLoading });
   } catch (err) {
     put({ type: NEW_MESSAGE_FAIL, err });
   }

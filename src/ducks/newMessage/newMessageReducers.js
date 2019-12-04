@@ -1,11 +1,9 @@
-import { NEW_MESSAGE_SUCCESS, NEW_MESSAGE_LOADING, UPDATE_MESSAGES_STATE } from './newMessageActions';
+import { NEW_MESSAGE_SUCCESS, NEW_MESSAGE_LOADING } from './newMessageActions';
 
-const newMessage = (state = { newMessages: [], isLoading: true }, action) => {
+const newMessage = (state = { updatedMessage: [] }, action) => {
   switch (action.type) {
-    case UPDATE_MESSAGES_STATE:
-      return { ...state, newMessages: [action.state] };
     case NEW_MESSAGE_SUCCESS:
-      return { ...state, newMessages: [...action.message] };
+      return { ...state, updatedMessage: [...action.updatedMessage] };
     case NEW_MESSAGE_LOADING:
       return { ...state, isLoading: action.isLoading };
     default:

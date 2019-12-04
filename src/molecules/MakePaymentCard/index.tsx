@@ -8,6 +8,8 @@ import poolSettings from '../../ducks/updateSettings/settingsReducers';
 import { now } from 'moment';
 import { triggerSubmitPayment } from '../../ducks/submitPayment/submitPaymentActions';
 import { triggerGetBE } from '../../ducks/getPool/getPoolActions';
+import { triggerNewExpense } from '../../ducks/newExpense/newExpenseActions'
+
 
 
 const MakePaymentCard = () => {
@@ -26,17 +28,41 @@ const MakePaymentCard = () => {
   );  
   const dispatch = useDispatch();
   const [payment, setPayment] = useState('');
+  const [expenseName, setExpenseName] = useState('');
+  const [added, setAdded] = useState(false);
+
+
 
   const handleChange = (e) => {
     setPayment(e.target.value);
   }
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const updatedPayment={ updated_by_user:thisUser[0].id, date: new Date(),payment:payment, pool_id:poolRuleSettingsInfo[0].pool_id};
+  //   await dispatch(triggerSubmitPayment(updatedPayment));
+  //   setPayment('');
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedPayment={ updated_by_user:thisUser[0].id, date: new Date(),payment:payment, pool_id:poolRuleSettingsInfo[0].pool_id};
-    await dispatch(triggerSubmitPayment(updatedPayment));
-    setPayment('');
-  };
+    // poolRuleSettingsInfo.forEach((pool) => {
+      
+    // })
+    const expense = { id: 1, statement_id: (parseInt(poolInfo.poolSettingsInfo[0].next_statement || poolInfo.poolSettingsInfo[0].current_statement)), pool_expense_id: 11, user_id: thisUser[0].id, name: 'Payment', date: new Date, amount: payment };
+    console.log(expense);
+    if (amount == '') {
+      alert('Please fill all details')
+    } else if (amount < '0') {
+      alert ('please enter a positive amount')
+    } else {
+      await dispatch(triggerNewExpense(expense));
+      setPayment('');
+      setExpenseName('');
+      setAdded(true);
+    }
+  }
+
   const userPoolBalance = (userId) => {
     for(let i = 0; i< balanceInfo.length; i++) {
       if ( userId === balanceInfo[i][0]) return balanceInfo[i][1];

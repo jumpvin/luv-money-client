@@ -43,16 +43,14 @@ const getPool = (state = { pool: {}, isLoading: true }, action) => {
 
     case ADD_MESSAGE:
       return {
-        // console.log('this is the state', state),
         ...state,
         pool: {
           ...state.pool,
-          poolMessageInfo: action.pool.poolMessageInfo,
+          messageInfo: [
+            action.updatedMessage,
+            ...state.pool.messageInfo,
+          ],
         },
-        poolMessageInfo: [
-          action.newMessage,
-          ...state.pool.poolMessageInfo,
-        ],
       };
 
     default:
