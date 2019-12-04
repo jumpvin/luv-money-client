@@ -10,7 +10,7 @@ import { popUpState } from '../../ducks/popUpState/popUpActions';
 
 const Settings = ({match}) => {
 console.log('match is', match.params);
-  const pool = useSelector(state => state.getPool.pool.userInfo[0]);
+  const pool = useSelector(state => state.getPool.pool.thisUserInfo[0]);
   const url = pool.photourl;
 
   const dispatch = useDispatch();
