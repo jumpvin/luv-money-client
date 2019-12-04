@@ -5,6 +5,7 @@ import './style.css';
 import RuleMember from '../../molecules/RuleMember';
 import {popUpState} from '../../ducks/popUpState/popUpActions'
 import get from 'lodash.get'
+import TextInput from '../../atoms/TextInput';
 
 const EditRule = ({data}) => {
 
@@ -52,8 +53,9 @@ const EditRule = ({data}) => {
   return (
     <div>
       <form onSubmit = {handleSubmit}>
-      <h1>Edit an existing rule.</h1>
-      Name <input onChange={handleChange} value={data.name} type='text'></input>
+      <div className='pop-up-title'>Edit an existing rule.</div>
+      {console.log(data)}
+      <TextInput required  name='Pool Name' type='text' value={data.name} onChange={handleChange} />
       {userInfo.map((user) => (
         <RuleMember 
           name={user.name}

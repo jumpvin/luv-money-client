@@ -4,6 +4,7 @@ import { triggerNewRule } from '../../ducks/newRule/newRuleActions';
 import './style.css';
 import RuleMember from '../../molecules/RuleMember';
 import {popUpState} from '../../ducks/popUpState/popUpActions'
+import TextInput from '../../atoms/TextInput';
 
 
 const AddRule = () => {
@@ -16,8 +17,8 @@ const AddRule = () => {
   const [rule, setRule] = useState('');
   const [tempVal, setTempVal] = useState({});
   
-  const handleFormInputs = (e) => {
-    const updated = Object.assign(tempVal, { [e.target.id]: e.target.value });
+  const handleFormInputs = (id, value) => {
+    const updated = Object.assign(tempVal, { [id]: value });
     setTempVal(updated);    
   }
 
@@ -29,7 +30,7 @@ const AddRule = () => {
     e.preventDefault();
     const updatedRule = { id: '', pool_id: poolSettingsInfo[0].id, name: rule, rule: tempVal };
     const sum: Number = Number(Object.values(tempVal).reduce((a, b) => { return Number(a) + Number(b) },0));
-
+    console.log(sum);
     if (rule == '') {
       alert ('please provide a rule name')
     } else if (rule == 'new') {
@@ -48,19 +49,20 @@ const AddRule = () => {
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <form >
-      <h1>Create a new rule</h1>
-      Name <input required onChange={handleChange} value={rule} type='text'></input>
+    <div className='hold-column'>
+      <form className='hold-column'>
+      <div className='pop-up-title'>Create a new rule</div >
+      <TextInput required  name='Pool Name' type='text' value={rule} onChange={handleChange} />
       {userInfo.map((user) => (
         <RuleMember 
+          key={user.id}
           name={user.name}
           id={user.id}
           photo={user.photourl}
           handle={handleFormInputs}
           />
       ))}
-      <button type='submit' 
+      <button className='submit' type='submit' 
       onClick={handleSubmit}
       
       >Submit</button>

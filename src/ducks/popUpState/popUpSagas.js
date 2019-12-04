@@ -6,16 +6,16 @@ import {
   FETCH_SUCCESS,
 } from './popUpActions';
 
-function* saga_Pop_Up_Fetch({data}) {
+function* sagaPopUpFetch({ data }) {
   try {
     const fetch = yield call(popUpFetch, data);
     yield put({ type: FETCH_SUCCESS, fetch });
   } catch (err) {
-    console.log('err')
+    console.log('err');
   }
 }
 function* watchPopUpFetch() {
-  yield takeLatest(TRIGGER_POP_UP_FETCH, saga_Pop_Up_Fetch);
+  yield takeLatest(TRIGGER_POP_UP_FETCH, sagaPopUpFetch);
 }
 
 export default watchPopUpFetch;
