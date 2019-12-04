@@ -10,8 +10,9 @@ import TextInput from '../../atoms/TextInput'
 
 const AddExpense = () => {
 
-  const { userInfo, balanceInfo,poolInfo, poolRuleSettingsInfo, newExpenses } = 
+  const { thisUserInfo, userInfo, balanceInfo, poolInfo, poolRuleSettingsInfo, newExpenses } = 
     useSelector( state => ({ 
+      thisUserInfo: state.getPool.pool.thisUserInfo,
       userInfo: state.getPool.pool.userInfo,
       balanceInfo: state.getPool.pool.balanceInfo,
       poolInfo: state.getPool.pool,
@@ -48,7 +49,7 @@ const AddExpense = () => {
 console.log(rule);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const expense = { id: 1, statement_id: (parseInt(poolInfo.poolSettingsInfo[0].next_statement || poolInfo.poolSettingsInfo[0].current_statement)), pool_expense_id: parseInt(rule), user_id: userInfo[0].id, name: expenseName, date: selectedDate, amount: amount };
+    const expense = { id: 1, statement_id: (parseInt(poolInfo.poolSettingsInfo[0].next_statement || poolInfo.poolSettingsInfo[0].current_statement)), pool_expense_id: parseInt(rule), user_id: thisUserInfo[0].id, name: expenseName, date: selectedDate, amount: amount };
     console.log(expense);
     if (expenseName == '' || amount == '' || selectedDate == '') {
       alert('Please fill all details')
