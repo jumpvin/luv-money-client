@@ -18,7 +18,6 @@ const AddExpense = () => {
       poolInfo: state.getPool.pool,
       poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo,
       newExpenses: state.newExpense.expense,
-      thisUserInfo: state.getPool.pool.thisUserInfo,
     })
   );
   
