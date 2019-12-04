@@ -2,6 +2,7 @@ import { put, call, takeLatest } from 'redux-saga/effects';
 import { getPool, getBE } from '../../services/api';
 import { NEW_EXPENSE_SUCCESS } from '../newExpense/newExpenseActions';
 import { SUBMIT_PAYMENT_SUCCESS } from '../submitPayment/submitPaymentActions';
+import { NEW_MESSAGE_SUCCESS } from '../newMessage/newMessageActions';
 
 import {
   TRIGGER_GET_POOL,
@@ -39,6 +40,7 @@ function* watchGetPool() {
   yield takeLatest(TRIGGER_GET_POOL, sagaGetPool);
   yield takeLatest(NEW_EXPENSE_SUCCESS, sagaGetBE);
   yield takeLatest(SUBMIT_PAYMENT_SUCCESS, sagaGetBE);
+  yield takeLatest(NEW_MESSAGE_SUCCESS, sagaGetBE);
 }
 function* watchGetBE() {
   yield takeLatest(TRIGGER_GET_BE, sagaGetBE);

@@ -42,6 +42,10 @@ const sendInvite = async (args) => {
 
 const postUser = (payload) => api('post', '/auth/signup', '', payload);
 
+const newMessage = async (payload) => {
+  console.log(payload);
+  return api('post', '/messages', { pool_id: await user() }, payload);
+};
 const newPayment = async (payload) => {
   console.log(payload);
   return api('post', '/payment', { pool_id: await user() }, payload);
@@ -65,4 +69,5 @@ export {
   postUser,
   postUserPool,
   newPayment,
+  newMessage,
 };

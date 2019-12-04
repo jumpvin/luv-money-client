@@ -9,6 +9,7 @@ import addUser from './addUser/addUserReducers';
 import newExpense from './newExpense/newExpenseReducers';
 import submitPayment from './submitPayment/submitPaymentReducers';
 import addPool from './addPool/addPoolReducers';
+import newMessage from './newMessage/newMessageReducers';
 import userPool from './addUserPool/userPoolReducers';
 
 const reducers = combineReducers({
@@ -22,6 +23,7 @@ const reducers = combineReducers({
   addUser,
   submitPayment,
   addPool,
+  newMessage,
   userPool,
 });
 
