@@ -12,7 +12,7 @@ import { triggerGetBE } from '../../ducks/getPool/getPoolActions';
 
 const MakePaymentCard = () => {
 
-  const { newStatements, isLoading, userInfo, balanceInfo,poolInfo, path, pool, amount, poolRuleSettingsInfo } = 
+  const { newStatements, isLoading, userInfo, balanceInfo,poolInfo, path, pool, amount, poolRuleSettingsInfo, messageInfo, all, thisUser } = 
   useSelector( state => ({ 
     isLoading: state.getPool.isLoading,
     userInfo: state.getPool.pool.userInfo,
@@ -20,6 +20,8 @@ const MakePaymentCard = () => {
     poolInfo: state.getPool.pool,
     all: state.getPool,
     poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo, 
+    messageInfo: state.getPool.pool.messageInfo,
+    thisUser: state.getPool.pool.thisUserInfo,
   })
   );  
   const dispatch = useDispatch();
@@ -30,15 +32,13 @@ const MakePaymentCard = () => {
   }
 
   const handleSubmit = async (e) => {
-    console.log(e.target.form.input.value)
     e.preventDefault();
-    
-    const updatedPayment={ updated_by_user:balanceInfo[0][0], date: new Date(),payment:payment, pool_id:poolRuleSettingsInfo[0].pool_id};
+    const updatedPayment={ updated_by_user:thisUser[0].id, date: new Date(),payment:payment, pool_id:poolRuleSettingsInfo[0].pool_id};
     await dispatch(triggerSubmitPayment(updatedPayment));
     setPayment('');
   };
-  useEffect(()=>{console.log('dispatch is working?');dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[balanceInfo]);
-
+  // useEffect(()=>{console.log('dispatch is working?');dispatch(triggerGetBE({ uid: 'y4Ac7s3VPddxkAnUOo5HA977d7x6' }))},[balanceInfo]);
+  
   return (
   <div className='make-payment' >
     <MakePaymentInfo pool={pool} amount={balanceInfo.length <= 0 ? 0 : balanceInfo[0][1]} />

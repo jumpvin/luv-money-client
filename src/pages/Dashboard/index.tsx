@@ -34,7 +34,7 @@ let amount = totalAmount[1];
           name={firstName(thisUser.name)}
           amount={Math.abs(amount)}
         />
-        <PaymentIcon></PaymentIcon>
+        <PaymentIcon/>
       </Header>
       {statement.length > 0 ? <StatementHeader statement={statement}/>: ''}
       { members.length > 1?

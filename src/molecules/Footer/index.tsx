@@ -10,7 +10,6 @@ import { ReactComponent as PoolSettings } from '../../assests/icons/pool-setting
 
 import { useDispatch } from 'react-redux';
 import { popUpState } from '../../ducks/popUpState/popUpActions'
-import PaymentIcon from '../../atoms/PaymentIcon/Index';
 
 
 const Footer = () => {
@@ -24,7 +23,6 @@ const Footer = () => {
       <NavIcon path='/expense-details' activeClassName='active'>
         <ExpenseDetails />
       </NavIcon>
-      {/* <PaymentIcon> */}
       <NavIcon path='expense' activeClassName="">
       <AddExpense />
       </NavIcon>
