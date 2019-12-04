@@ -10,13 +10,14 @@ import Card from '../../molecules/Card';
 import PaymentIcon from '../../atoms/PaymentIcon/Index';
 
 const Dashboard = () => {
-  const { isLoading, thisUser, user, members, balances, statement } = 
+  const { isLoading, thisUser, user, members, balances, settings, statement } = 
   useSelector( state => ({ 
     isLoading: state.getPool.isLoading,
     thisUser: state.getPool.pool.thisUserInfo[0],
     members: state.getPool.pool.userInfo,
     balances: state.getPool.pool.balanceInfo,
     statement: state.getPool.pool.statementInfo,
+    settings: state.getPool.pool.poolSettingsInfo,
     user: state.getPool.pool.balanceInfo.length > 0 ? state.getPool.pool.balanceInfo[0][1] : 0,
     // members: state.getPool.pool.balanceInfo
   })
@@ -24,7 +25,8 @@ const Dashboard = () => {
 
 let totalAmount;
 (balances)?totalAmount = balances.find(el => el[0]===thisUser.id):totalAmount = [0,0];
-let amount = totalAmount[1];
+let amount=0;
+// (balances)?amount = totalAmount[1]||0:0;
 
 
   return (
@@ -36,7 +38,7 @@ let amount = totalAmount[1];
         />
         <PaymentIcon/>
       </Header>
-      {statement.length > 0 ? <StatementHeader statement={statement}/>: ''}
+      {settings.length > 0 ? <StatementHeader balance={amount} info={settings}/>: ''}
       { members.length > 1?
       <OweCardList />:
       <Card addClass='one-member'>

@@ -12,9 +12,6 @@ const WelcomeHeader = ({name, amount}: RouteComponentProps<WelcomHeaderParams>) 
     <div>
       {`Welcome Back ${name}!`}
     </div>
-    <div>
-      { amount > 0 ? `You are owed $${amount}` : `You owe $${amount}`}
-    </div>
   </div>
 );
 

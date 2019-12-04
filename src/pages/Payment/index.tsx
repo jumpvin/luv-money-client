@@ -43,8 +43,8 @@ const Payment = () => {
         <Card> 
           <StatementInfo 
             key= {user.id} 
-            amount={userPoolBalance(user.id)} />
-        </Card> : null
+            amount={(balanceInfo.length <= 0) ? 0 : balanceInfo[0][1]} />
+        </Card> :null
         ))
       }
     </div>
