@@ -19,8 +19,9 @@ const Dashboard = () => {
   })
 );
 
-let totalAmount = balances.find(el => el[0]===thisUser.id);
-let amount = totalAmount[1]||0;
+let totalAmount;
+(balances)?totalAmount = balances.find(el => el[0]===thisUser.id):totalAmount = [0,0];
+let amount = totalAmount[1];
 
 
   return (
