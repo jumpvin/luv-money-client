@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import './footer.css';
 import NavIcon from '../../atoms/NavIcon';
 import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
@@ -14,7 +14,6 @@ import PaymentIcon from '../../atoms/PaymentIcon/Index';
 
 
 const Footer = () => {
-  // const { selected, setSelected } = useState('');
   
   return(
 
@@ -22,17 +21,17 @@ const Footer = () => {
       <NavIcon path='/' activeClassName='active'>
         <Dashboard/>
       </NavIcon>
-      <NavIcon path='/expense-details'>
+      <NavIcon path='/expense-details' activeClassName='active'>
         <ExpenseDetails />
       </NavIcon>
       {/* <PaymentIcon> */}
-      <NavIcon path='expense'>
+      <NavIcon path='expense' activeClassName="">
       <AddExpense />
       </NavIcon>
-      <NavIcon path='/pool-settings' >
+      <NavIcon path='/pool-settings' activeClassName='active'>
         <PoolSettings />
       </NavIcon>
-      <NavIcon path='/settings' >
+      <NavIcon path='/settings' activeClassName='active'>
         <UserSettings />
       </NavIcon>
     </footer>
