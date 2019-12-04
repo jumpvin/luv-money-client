@@ -1,8 +1,9 @@
 header {
   width: 100%;
   min-height: 60px;
-  background-color: aquamarine;
+  background-color: #ea6666;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }

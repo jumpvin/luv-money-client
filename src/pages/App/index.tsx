@@ -40,6 +40,7 @@ const App = () => {
   }, [pool])
 
   const createUserAndPool = async(user) => {
+    console.log('is running')
     await dispatch(triggerAddUser({uid: user!.uid, name: user!.displayName, email: user!.email, photourl: user!.photoURL||'https://picsum.photos/200'}));
       await dispatch(triggerAddPool({
         admin_id: user!.uid,
