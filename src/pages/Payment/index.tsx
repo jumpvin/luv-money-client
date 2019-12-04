@@ -1,6 +1,7 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import { popUpState } from '../../ducks/popUpState/popUpActions'
 import './payment.css';
 import SmallOweInfo from '../../molecules/SmallOweInfo';
@@ -10,18 +11,22 @@ import StatementInfo from '../../atoms/StatementInfo'
 
 const Payment = () => {
   const dispatch = useDispatch();
-
+  let history = useHistory();
+  
   const { isLoading, userInfo, balanceInfo,poolInfo, path, pool, amount, thisUser } = 
-    useSelector( state => ({ 
-      isLoading: state.getPool.isLoading,
-      userInfo: state.getPool.pool.userInfo,
-      balanceInfo: state.getPool.pool.balanceInfo,
-      poolInfo: state.getPool.pool,
-      all: state.getPool,
-      thisUser: state.getPool.pool.thisUserInfo,
-    })
+  useSelector( state => ({ 
+    isLoading: state.getPool.isLoading,
+    userInfo: state.getPool.pool.userInfo,
+    balanceInfo: state.getPool.pool.balanceInfo,
+    poolInfo: state.getPool.pool,
+    all: state.getPool,
+    thisUser: state.getPool.pool.thisUserInfo,
+  })
   );
-
+  const onClick =(value)=>{
+    dispatch(popUpState('message'));
+    history.push(`/message/${value}`)
+}
   const userPoolBalance = (userId) => {
     for(let i = 0; i< balanceInfo.length; i++) {
       if ( userId === balanceInfo[i][0]) return balanceInfo[i][1];
@@ -53,7 +58,7 @@ const Payment = () => {
         key={user.id}
         amount={userPoolBalance(user.id)}
         path={user.photourl}
-        onClick={()=>dispatch(popUpState('message'))}
+        onClick={({target})=>{onClick(target.value)} }
         receiverId={user.id}
         />
       </Card>
@@ -65,6 +70,8 @@ const Payment = () => {
   </div>
   )
 };
+
+
 
 export default Payment;
 

@@ -16,12 +16,13 @@ const PoolSettings = () => {
 
   const dispatch = useDispatch();
 
-  const {poolSettingsInfo, userInfo, poolRuleSettingsInfo, statementInfo} = 
+  const {poolSettingsInfo, userInfo, poolRuleSettingsInfo, statementInfo, messageInfo} = 
     useSelector (state => ({
       poolSettingsInfo: state.getPool.pool.poolSettingsInfo,
       userInfo: state.getPool.pool.userInfo,
       poolRuleSettingsInfo: state.getPool.pool.poolRuleSettingsInfo,
-      statementInfo: state.getPool.pool.statementInfo
+      statementInfo: state.getPool.pool.statementInfo,
+      messageInfo: state.getPool.pool.messageInfo
     })
   );
   
@@ -90,6 +91,21 @@ const PoolSettings = () => {
           dispatch(triggerPopUpFetch({id:userInfo[0].id, statement_id:statement.id,
           type: 'statement'}));
           dispatch(popUpState('statement'))
+          }}>View</button>
+      </div>
+      )) : ''}
+    </div>
+    </Card>
+    <Card addClass='settingsGroup'>
+    <div className='left'>
+      <div className='settingsTitle'>Messages</div>
+      {messageInfo ? messageInfo.map((message) => (
+      <div className='settingsItem'>
+        <div>{moment(message.message_date).format("MMM Do YYYY")}</div>
+        <button onClick={ () => {
+          dispatch(triggerPopUpFetch({id:userInfo[0].id, message_id:message.id,
+          type: 'message'}));
+          dispatch(popUpState('message'))
           }}>View</button>
       </div>
       )) : ''}
