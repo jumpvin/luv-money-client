@@ -2,6 +2,7 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useSelector } from "react-redux";
 import { RouteComponentProps } from "react-router-dom";
 import "./settings-item.css";
+import TextInput from '../../atoms/TextInput';
 import UserFavicon from "../../atoms/UserFavicon";
 import Card from "../Card";
 import { userInfo } from "os";
@@ -29,8 +30,13 @@ const RuleMember = ({
   const [percent, setPercent] = useState(rule);
 
   const handleChange = e => {
-    setPercent(e.target.value);
-    handle(e);
+    if (e.target.value > 100 || e.target.value < 0) {
+      e.target.value = '';
+      alert("Enter valid percentage");
+    } else {
+      setPercent(e.target.value);
+      handle(id, e.target.value);
+    }
   };
 
   useEffect(() => {
@@ -50,11 +56,12 @@ const RuleMember = ({
     }
   }
   return (
-  <Card className='ruleCard'>
+  <div className='ruleCard'>
     <UserFavicon path={photo}/>
-    {name}
-    <input type='number' min='0' max='100' placeholder="value" required id={id} value={percent} onChange={handleChange} onKeyUp={handleinput} />
-  </Card>
+    {/* {name} */}
+    {/* <input type='number' min='0' max='100' placeholder="value" required id={id} value={percent} onChange={handleChange} onKeyUp={handleinput} /> */}
+    <TextInput required  name={name} type='text' value={percent} onChange={handleChange} />
+  </div>
 )};
 
 export default RuleMember;

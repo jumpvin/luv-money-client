@@ -7,6 +7,7 @@ import { getPoolSuccess } from '../../ducks/getPool/getPoolActions';
 import { triggerUserPool } from '../../ducks/addUserPool/userPoolActions';
 import Card from '../../molecules/Card/index';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
+import Button from '../../atoms/Button'
 
 const Settings = ({match}) => {
 console.log('match is', match.params);
@@ -27,15 +28,16 @@ console.log(pool);
     return (
       <div className='hold-column'>
         <Header>
-          <h1>Settings</h1>
+          Settings
         </Header>
+        
         <div className='settings'>
           <div className='user-img'>
             <img src={url}/>
           </div>
           <div className='not'>
             <div>
-              <h4>Notifications</h4>
+              Notfications
             </div>
             <div>
               <label className="switch">
@@ -44,13 +46,12 @@ console.log(pool);
               </label>
             </div>
           </div>
-            <Card addClass='payment-methods'>
-              <h4>Payment Methods</h4>
-              <p>Paypal</p>
-              <button type='button' onClick={handlePaymentMethod}>Add Payment Method</button>
-            </Card>
+          <div className='payment-methods'>
+            <div>Payment Methods</div>
+            <button type='button' onClick={handlePaymentMethod}>Add Payment Method</button>
+          </div>
           <div className='sign-out'>
-            <button type='button' className='sign-out-btn' onClick={handleSignOut}>Sign-Out</button>
+            <Button type='button' className='sign-out-btn' onClick={handleSignOut}>Sign-Out</Button>
           </div>
           {
             Object.keys(match.params).length  ? 

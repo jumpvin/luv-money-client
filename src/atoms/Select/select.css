@@ -1,0 +1,11 @@
+.group select {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #2c3c77;
+  background-color: white;
+  outline: none;
+  margin: 0;
+}

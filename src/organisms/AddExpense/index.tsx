@@ -3,9 +3,11 @@ import './style.css';
 import { useDispatch } from 'react-redux';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
 import { useSelector } from 'react-redux';
-import { triggerNewExpense } from '../../ducks/newExpense/newExpenseActions'
-import { triggerGetBE } from '../../ducks/getPool/getPoolActions'
-import TextInput from '../../atoms/TextInput'
+import { triggerNewExpense } from '../../ducks/newExpense/newExpenseActions';
+import { triggerGetBE } from '../../ducks/getPool/getPoolActions';
+import Header from '../../molecules/Header';
+import TextInput from '../../atoms/TextInput';
+import Select from '../../atoms/Select';
 
 
 const AddExpense = () => {
@@ -71,32 +73,32 @@ const AddExpense = () => {
   useEffect(()=>{dispatch(triggerGetBE())},[newExpenses]);
 
   return (
-    <div className='form'>
+    <div className='form hold-column'>
+      <Header >
+        Add Expense
+      </Header>
       <form>
-        <div>
-          <h1>Add Expense</h1>
-        </div>
         <div>
          <TextInput required  name='Title' type='string' value={expenseName} onChange={handleExpenseNameChange} />
         </div>
         <div>
-        Amount: <input required name='amount' type='number' value={amount} onChange={handleAmountChange} />
+        <TextInput required  name='Amount' type='number' value={amount} onChange={handleAmountChange} />
         </div>
         <div>
-        Pick a date:<input type='date' value={selectedDate} onChange={handleDateChange} />
+        <TextInput required  name='' type='date' value={selectedDate} onChange={handleDateChange} />
         </div>
         <div>
-        <select value={rule} onChange={handleRuleChange}>
-              {poolRuleSettingsInfo.map( rule =>               
+          <Select value={rule} onChange={handleRuleChange}>
+          {poolRuleSettingsInfo.map( rule =>               
               <option key={rule.id} value={rule.id}>{rule.name}</option>
               )}
             <option value="new" >+Add new rule</option>
-        </select>
+          </Select>
         </div>
-        <div>
-          <button onClick={handleSubmit}>Submit</button>
+        <div className='hold-column'>
           {added ?
-            <div>Expense Added!</div> : ''}
+            <div className='expense-message'>Expense Added!</div> : ''}
+          <button className='submit' onClick={handleSubmit}>Submit</button>
         </div>
       </form>
     </div>
