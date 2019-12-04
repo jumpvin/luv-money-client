@@ -36,7 +36,7 @@ const PopUp = ({ parent, handleClose }: RouteComponentProps<PopUpParams>) => {
     newPayment:'',
     // message: <Messages/> ,
     invite: <Invite />,
-    paymentMethods: <PaymentMethods/>,
+    paymentMethods: <PaymentMethods />,
     none: 'None',
   }
   
