@@ -6,4 +6,7 @@ header {
   justify-content: center;
   align-items: center;
   color: white;
+  font-size: 20px;
+  position: fixed;
+  top: 0;
 }

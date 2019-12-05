@@ -60,7 +60,7 @@ const App = () => {
     {
       splash
         ? <div className = 'splashscreen'>< img src = { require('../../assests/images/profile.png') } className = "splash" alt = 'splash' ></img ></div >
-         : <div className="app">
+         : <div className="app hold-column">
             {loading ? <Spinner className="spinner" /> :
               Object.keys(pool).length > 0 && firebase.auth().currentUser && !loading
                 ? <Main /> : firebase.auth().currentUser && !Object.keys(pool).length ? <Spinner className="spinner" /> : <SignIn />
