@@ -4,7 +4,6 @@ import { RouteComponentProps } from 'react-router-dom';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
 import './pop-up.css';
 import Card from '../../molecules/Card';
-import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
 import AddRule from '../AddRule';
 import StatementCard from '../StatementCard';
 import Payment from '../../pages/Payment';

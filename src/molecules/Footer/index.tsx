@@ -1,7 +1,6 @@
 import React from 'react';
 import './footer.css';
 import NavIcon from '../../atoms/NavIcon';
-import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
 import { ReactComponent as UserSettings } from '../../assests/icons/user-settings.svg';
 import { ReactComponent as AddExpense } from '../../assests/icons/addexpense.svg';
 import { ReactComponent as ExpenseDetails } from '../../assests/icons/expense-details.svg';

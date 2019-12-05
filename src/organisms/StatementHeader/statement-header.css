@@ -17,3 +17,19 @@
   background-color: red;
   color: black;
 }
+
+.owe{
+  display:flex;
+  flex-direction:row;
+}
+
+.owe-text {
+  flex:8;
+}
+
+.owe-logo {
+  flex:1;
+  margin-bottom:15px;
+  margin-left:10px;
+}
+

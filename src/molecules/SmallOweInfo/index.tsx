@@ -2,7 +2,7 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import './small-owe-info.css';
 import UserFavicon from '../../atoms/UserFavicon';
-import LuvMoneyLogo from '../../atoms/LuvMoneyLogo';
+
 
 
 interface SmallOweInfoParams { 

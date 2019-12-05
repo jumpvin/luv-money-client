@@ -1,17 +1,23 @@
 .signup{
   width:100vw;
   height:100vh;
-  background: #fff
+  background: #fff;
+  background-color: red;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.logo{
-  width:80vw;
-  height:50vh;
+.logo-sign{
+  width:250px;
+  height:auto;
+  margin: 0;
+  padding-bottom:25px;
   
 }
 
 #bg{
-  background-color:#EA6666 ;
+  background-color:white ;
 }
 
 .login-txt{

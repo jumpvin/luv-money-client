@@ -46,8 +46,8 @@ const SignIn = () => {
 
   return (
   <div className="signup hold-column" id='bg'>
-    <Logo className="logo" />
-    <b className='login-txt'>Login</b>
+    <Logo className="logo-sign"/>
+    {/* <b className='login-txt'>Login</b> */}
     <div id="firebaseui-auth-container" />
     <div id="loader">Loading...</div>
   </div>)

@@ -1,7 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
-import LuvMoneyLogo from '../LuvMoneyLogo';
+import { ReactComponent as Logo } from '../../assests/logo/Luv Logo.svg';
+import './style.css';
+
 
 
 
@@ -10,7 +12,7 @@ function PaymentIcon () {
   const dispatch=useDispatch();
   return (
     <div onClick={()=>dispatch(popUpState('payment'))} >
-      <LuvMoneyLogo></LuvMoneyLogo>
+     <div className='logo'><Logo/></div>
     </div>
   )
   };

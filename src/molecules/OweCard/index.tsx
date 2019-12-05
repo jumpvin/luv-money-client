@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import './owe-card.css';
 import UserFavicon from '../../atoms/UserFavicon';
 import OweInfo from '../../atoms/OweInfo';
-import PaymentLogo from '../../molecules/PaymentLogo';
+
 import Card from '../Card';
 
 interface OweCardParams { 
