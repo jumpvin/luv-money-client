@@ -7,15 +7,11 @@ interface StatementInfoParams {
 }
 
 const StatementInfo = ({ amount }: RouteComponentProps<StatementInfoParams>) => (
-  <div className='statement-info-container'>
-      <h1>Settle Up Luver</h1>
+  <div className='statement-info-container hold-column'>
+      <div className='pop-up-title'> Settle Up</div>
       <div className= 'balance-container'>
-        <div className='statement-info-img-container'>
-          <img src={require('../../images/pink-card.png')} alt='debit-card-image'></img>
-        </div>
         <div className='balance-info'>
-          {amount}
-          <h5>Current Balance</h5>
+          Current Balance: <strong>{ Math.abs(amount) || 0 }</strong>
         </div>
       </div>
       <div className='payment-container'>

@@ -10,7 +10,7 @@ interface TextInputParams{
   
 }
 
-const TextInput = ({ type,name,value,onChange}: RouteComponentProps<TextInputParams>)=>{
+const TextInput = ({ type, name, value, onChange}: RouteComponentProps<TextInputParams>)=>{
   return (
     // <input type={type} className='input' name={name} value={value} required ></input>
 

@@ -19,8 +19,8 @@ const EditRule = ({data}) => {
   const [rule, setRule] = useState('');
   const [tempVal, setTempVal] = useState({});
   
-  const handleFormInputs = (e) => {
-    const updated = Object.assign(tempVal, {[e.target.id]: e.target.value});
+  const handleFormInputs = (id, value ) => {
+    const updated = Object.assign(tempVal, {[id]: value});
     setTempVal(updated);    
   }
 

@@ -10,13 +10,12 @@ interface MakePaymentInfoParams {
 
 const MakePaymentInfo = ({ pool, amount, path }: RouteComponentProps<MakePaymentInfoParams>) => (
   <div className='make-payment-info-container'>
-      <h3>Your payment's Due</h3>
+      <div className='pop-up-title'>Your payment's Due</div>
       <div className= 'balance-container'>
         <div className='make-payment-info-img-container'>
         </div>
-          <h5>Current Balance</h5>
         <div className='balance-info'>
-          {amount}
+          Current Balance: <strong>{amount || 0}</strong>
         </div>
       </div>
       <div className='payment-container'>

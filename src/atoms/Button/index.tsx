@@ -13,7 +13,7 @@ const Button = ({
   onClick, className,children
 }: RouteComponentProps<ButtonParams>) => (
 
-  <div className='button-main'>
+  <div className='button-main hold-column'>
       <button onClick={onClick} className={`button ${className}`}>{children}</button>
   </div>
 );

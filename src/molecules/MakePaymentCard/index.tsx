@@ -9,6 +9,8 @@ import { now } from 'moment';
 import { triggerSubmitPayment } from '../../ducks/submitPayment/submitPaymentActions';
 import { triggerGetBE } from '../../ducks/getPool/getPoolActions';
 import { triggerNewExpense } from '../../ducks/newExpense/newExpenseActions'
+import TextInput from '../../atoms/TextInput';
+import Button from '../../atoms/Button';
 
 
 
@@ -84,15 +86,14 @@ const MakePaymentCard = () => {
   
   return (
   <div className='make-payment' >
-    <MakePaymentInfo pool={pool} amount={balanceInfo.length <= 0 ? 0 : balanceInfo[0][1]} /> 
     {
         isLoading ? 'Please Wait':
       userInfo.map((user, index) => (
         user.id===thisUser[0].id?
     <MakePaymentInfo pool={pool} amount={userPoolBalance(user.id)} />: null))}
-    <form onSubmit = {handleSubmit}>
-        <input onChange ={(e) => handleChange(e)} type='text' name='amount' value={payment}></input>
-        <button type='submit' value='Submit'>Submit</button>
+    <form className='hold-column' onSubmit = {handleSubmit}>
+        <TextInput type='text' name='Amount' value={payment} onChange={(e) => handleChange(e)} />
+        <button type='submit' className='submit'>Submit</button>
     </form>
   </div>
   )

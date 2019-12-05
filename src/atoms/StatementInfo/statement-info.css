@@ -14,3 +14,13 @@
 .statement-card {
   display: flex
 }
+
+.balance-info {
+  margin-bottom: .5rem;
+  font-size: 18px;
+}
+
+.balance-info strong {
+  color: #ea6666;
+  
+}

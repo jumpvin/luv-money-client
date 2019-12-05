@@ -12,7 +12,7 @@ interface StatementHeaderParams {
 }
 
 const StatementHeader = ({ info, balance }: RouteComponentProps<StatementHeaderParams>) => (
-  <Card addClass='owe'>
+  <Card addClass='statement'>
     <div className='owe-text'>
       {(balance < 0) ? `You're owed $${-balance} ${moment(info[0].due_date).fromNow()}. While waiting, attach a message or send some love!` : `You owe $${balance} ${moment(info[0].due_date).fromNow()} - want to settle up now?`}
     </div>
