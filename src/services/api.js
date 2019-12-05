@@ -3,7 +3,7 @@ import { token, user } from './auth';
 
 const api = async (type, url, args, payload) => {
   const userToken = await token();
-  const res = await axios[type](`https://dcd0064c.ngrok.io${url}`, {
+  const res = await axios[type](`http://localhost:8000${url}`, {
     payload,
     params: args,
     headers: {

@@ -85,7 +85,7 @@ const AddExpense = () => {
         <TextInput required  name='Amount' type='number' value={amount} onChange={handleAmountChange} />
         </div>
         <div>
-        <TextInput required  name='' type='date' value={selectedDate} onChange={handleDateChange} />
+        <TextInput required  name='Date' type='date' value={selectedDate} onChange={handleDateChange} />
         </div>
         <div>
           <Select value={rule} onChange={handleRuleChange}>

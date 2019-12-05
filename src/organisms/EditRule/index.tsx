@@ -55,7 +55,7 @@ const EditRule = ({data}) => {
       <form onSubmit = {handleSubmit}>
       <div className='pop-up-title'>Edit an existing rule.</div>
       {console.log(data)}
-      <TextInput required  name='Pool Name' type='text' value={data.name} onChange={handleChange} />
+      <TextInput required  name='Rule Name' type='text' value={data.name} onChange={handleChange} />
       {userInfo.map((user) => (
         <RuleMember 
           name={user.name}

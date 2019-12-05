@@ -26,13 +26,13 @@
   flex-direction: row;
   justify-content: space-between;
   margin-top:5vh;
-  width:100%;
+  width:90%;
   max-width: 500px;
 }
 
 .sign-out{
   text-align: center;
-  margin-top: 50%;
+  margin-top: 25%;
 }
 
 .sign-out-btn{
@@ -42,11 +42,10 @@
 
 .payment-methods{
   display:flex;
-  width:100%;
+  width:90%;
   flex-direction: row;
-  align-items:space-around;
+  align-items:baseline;
   justify-content: space-between;
-  margin-top: 10%;
 }
 
 

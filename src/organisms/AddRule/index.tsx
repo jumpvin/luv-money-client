@@ -52,7 +52,7 @@ const AddRule = () => {
     <div className='hold-column'>
       <form className='hold-column'>
       <div className='pop-up-title'>Create a new rule</div >
-      <TextInput required  name='Pool Name' type='text' value={rule} onChange={handleChange} />
+      <TextInput required  name='Rule Name' type='text' value={rule} onChange={handleChange} />
       {userInfo.map((user) => (
         <RuleMember 
           key={user.id}

@@ -13,6 +13,28 @@
 } */
 
 
+input[type=date]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+  color: black !important;
+}
+
+input[type="date"]
+{
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    min-height: 2em;
+}
+
+select,option, input {
+  -webkit-appearance: none;
+}
+
+input, option,select{
+  border-radius: 0;
+}
+
 /* form starting stylings ------------------------------- */
 .group 			  { 
   position:relative; 

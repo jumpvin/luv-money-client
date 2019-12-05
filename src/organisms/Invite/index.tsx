@@ -3,6 +3,9 @@ import firebase from 'firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { triggerInvite, inviteSuccess } from '../../ducks/invite/inviteActions';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
+import TextInput from '../../atoms/TextInput';
+import Button from '../../atoms/Button';
+import './invite.css';
 
 const Invite = () => {
   const dispatch = useDispatch();
@@ -36,14 +39,12 @@ console.log('info', poolId)
   return (
     <div className='invite'>
       <div>
-        <label>Name</label>
-        <input type='text' value={name} onChange={(e) => setName(e.target.value)} />
+        <TextInput type='text'  name='Name' value={name} onChange={(e) => setName(e.target.value)} />
       </div>
       <div>
-        <label>Email</label>
-        <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+        <TextInput type='email' name='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
-      <button onClick={ onSubmit }>Invite</button>
+      <Button onClick={ onSubmit }>Invite</Button>
       <div>
         {status.res && status.res !== 'Sent' ? status.res: ''}
       </div>

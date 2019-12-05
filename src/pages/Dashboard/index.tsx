@@ -36,7 +36,6 @@ let amount = 0//totalAmount[1];
           name={firstName(thisUser.name)}
           amount={Math.abs(amount)}
         />
-        <PaymentIcon/>
       </Header>
       {settings.length > 0 ? <StatementHeader balance={amount} info={settings}/>: ''}
       { members.length > 1?
