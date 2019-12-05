@@ -33,6 +33,7 @@ const Payment = () => {
       if ( userId === balanceInfo[i][0]) return balanceInfo[i][1];
     }
   };
+  console.log(balanceInfo);
   return (
     <div>
     <div className='statement-card'>
@@ -42,7 +43,7 @@ const Payment = () => {
         user.id===thisUser[0].id?
           <StatementInfo 
             key= {user.id} 
-            amount={(balanceInfo.length <= 0) ? 0 : balanceInfo[0][1]} />  :null
+            amount={(balanceInfo.length <= 0) ? 0 : balanceInfo[1][1]} />  :null
         ))
       }
     </div>
