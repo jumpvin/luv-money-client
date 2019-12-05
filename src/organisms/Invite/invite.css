@@ -3,3 +3,7 @@
   flex-direction: column;
   align-items: center;
 }
+
+.invite .button {
+  background-color: #ea6666;
+}
