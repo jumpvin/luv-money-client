@@ -7,6 +7,7 @@ import './payment.css';
 import SmallOweInfo from '../../molecules/SmallOweInfo';
 import Card from '../../molecules/Card';
 import StatementInfo from '../../atoms/StatementInfo'
+import Button from '../../atoms/Button';
 
 
 const Payment = () => {
@@ -32,7 +33,6 @@ const Payment = () => {
       if ( userId === balanceInfo[i][0]) return balanceInfo[i][1];
     }
   };
-  console.log(poolInfo)
   return (
     <div>
     <div className='statement-card'>
@@ -40,11 +40,9 @@ const Payment = () => {
         isLoading ? 'Please Wait':
       userInfo.map((user, index) => (
         user.id===thisUser[0].id?
-        <Card> 
           <StatementInfo 
             key= {user.id} 
-            amount={(balanceInfo.length <= 0) ? 0 : balanceInfo[0][1]} />
-        </Card> :null
+            amount={(balanceInfo.length <= 0) ? 0 : balanceInfo[0][1]} />  :null
         ))
       }
     </div>
@@ -53,7 +51,6 @@ const Payment = () => {
         isLoading ? 'Please Wait':
       userInfo.map((user, index) => (
         user.id!==thisUser[0].id?
-      <Card>
         <SmallOweInfo
         key={user.id}
         amount={userPoolBalance(user.id)}
@@ -61,12 +58,11 @@ const Payment = () => {
         onClick={({target})=>{onClick(target.value)} }
         receiverId={user.id}
         />
-      </Card>
       : ''
       ))
       }
-    </div>
-        <button onClick={()=>dispatch(popUpState('makePayment'))}>Pay</button>       
+    </div>   
+        <Button onClick={()=>dispatch(popUpState('makePayment'))} className='submit'> Pay </Button>  
   </div>
   )
 };

@@ -16,6 +16,10 @@ button{
   outline:none;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 input[type=date]:required:invalid::-webkit-datetime-edit {
   color: transparent;
 }

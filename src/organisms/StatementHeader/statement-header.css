@@ -1,3 +1,14 @@
+.statement {
+  font-size: 18px;
+  color: #2c3c77;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.statement div {
+  margin-left: 10px;
+}
+
 .statementReady {
   background-color: black;
   color: white;
@@ -17,3 +28,4 @@
   background-color: red;
   color: black;
 }
+
