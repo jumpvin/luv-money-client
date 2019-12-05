@@ -56,7 +56,6 @@ const AddExpense = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const expense = { id: 1, statement_id: (parseInt(poolInfo.poolSettingsInfo[0].next_statement || poolInfo.poolSettingsInfo[0].current_statement)), pool_expense_id: parseInt(rule), user_id: thisUserInfo[0].id, name: expenseName, date: selectedDate, amount: amount };
-    console.log(expense);
     if (expenseName == '' || amount == '' || selectedDate == '') {
       alert('Please fill all details')
     } else if (amount < '0') {
@@ -71,6 +70,8 @@ const AddExpense = () => {
   }
 
   useEffect(()=>{dispatch(triggerGetBE())},[newExpenses]);
+
+  const payRegex = /Payment/;
 
   return (
     <div className='form hold-column'>
@@ -89,7 +90,7 @@ const AddExpense = () => {
         </div>
         <div>
           <Select value={rule} onChange={handleRuleChange}>
-          {poolRuleSettingsInfo.map( rule =>               
+          {poolRuleSettingsInfo.map( rule => 
               <option key={rule.id} value={rule.id}>{rule.name}</option>
               )}
             <option value="new" >+Add new rule</option>
