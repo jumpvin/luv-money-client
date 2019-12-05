@@ -48,7 +48,7 @@ console.log(pool);
           </div>
           <div className='payment-methods'>
             <div>Payment Methods</div>
-            <button type='button' onClick={handlePaymentMethod}>Add Payment Method</button>
+            <Button type='button' onClick={handlePaymentMethod}>Add</Button>
           </div>
           <div className='sign-out'>
             <Button type='button' className='sign-out-btn' onClick={handleSignOut}>Sign-Out</Button>

@@ -6,7 +6,8 @@ interface TextInputParams{
   type: string;
   name: string;
   value: string;
-  onChange():string;
+  onChange(): string;
+  
 }
 
 const TextInput = ({ type,name,value,onChange}: RouteComponentProps<TextInputParams>)=>{
