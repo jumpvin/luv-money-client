@@ -24,9 +24,9 @@ const Dashboard = () => {
 );
 
 let totalAmount;
-(balances)?totalAmount = balances.find(el => el[0]=== thisUser.id):totalAmount = [0,0];
-let amount = 0//totalAmount[1];
-// (balances)?amount = totalAmount[1]||0:0;
+(balances[0])?totalAmount = balances.find(el => el[0]=== thisUser.id):totalAmount = [0,0];
+let amount = 0;
+(balances[0])?amount = totalAmount[1]||0:amount=0;
 
 
   return (
@@ -36,6 +36,7 @@ let amount = 0//totalAmount[1];
           name={firstName(thisUser.name)}
           amount={Math.abs(amount)}
         />
+        
       </Header>
       {settings.length > 0 ? <StatementHeader balance={amount} info={settings}/>: ''}
       { members.length > 1?
