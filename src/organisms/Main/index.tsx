@@ -16,6 +16,7 @@ const Main = () => {
 
   return (
     <Router>
+      <div className='header'></div>
        {popUp === 'none' ? '' :<PopUp />}
       <Route exact path='/' component={Dashboard} />
       <Route exact path='/message/:receiverId' component={Dashboard} />

@@ -5,6 +5,11 @@ width: 100%;
 margin-bottom: 105px;
 }
 
+.header {
+  width: 100%;
+  height: 60px;
+}
+
 .spinner {
   display: flex;
   flex-direction: column;
