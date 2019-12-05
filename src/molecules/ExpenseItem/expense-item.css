@@ -6,9 +6,24 @@
   margin: .25rem;
 }
 
+.expense-username {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.expense-date {
+  width: 75px;
+  display: flex;
+  justify-content: center;
+}
+
 .expense-amount {
   color: #ea6666;
   font-weight: bold;
+  width: 45px;
+  display: flex;
+  justify-content: center;
 }
 
 .expense-item .user-favicon {
