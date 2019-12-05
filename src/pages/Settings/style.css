@@ -40,6 +40,11 @@
   color: white;
 }
 
+.join-pool{
+  background-color: #97bb4f;
+  color: white;
+}
+
 .payment-methods{
   display:flex;
   width:90%;

@@ -58,9 +58,13 @@ console.log(pool);
           {
             Object.keys(match.params).length  ? 
               <div className='add-pool'>
-                <button
-                 onClick={() => dispatch(triggerUserPool({ userId: pool.id, poolId: match.params.id })) }
-                > Join Pool </button>
+                <Button 
+                  type='button' 
+                  className='join-pool' 
+                  onClick={() => dispatch(triggerUserPool({ userId: pool.id, poolId: match.params.id }))}
+                >
+                    Join Pool
+                </Button>
               </div>
             :''
           }   
