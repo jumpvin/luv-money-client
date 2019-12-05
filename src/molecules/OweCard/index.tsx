@@ -14,9 +14,8 @@ interface OweCardParams {
 
 const OweCard = ({ path, who, amount }: RouteComponentProps<OweCardParams>) => (
   <Card addClass='owe' >
-    <UserFavicon path={path} />
-    <OweInfo who={who} amount={amount} />
-    <PaymentLogo />
+    <div className='icon'><UserFavicon path={path} /></div>
+    <div className='text'><OweInfo who={who} amount={amount} /></div>
   </Card>
 );
 
