@@ -7,7 +7,8 @@ import { getPoolSuccess } from '../../ducks/getPool/getPoolActions';
 import { triggerUserPool } from '../../ducks/addUserPool/userPoolActions';
 import Card from '../../molecules/Card/index';
 import { popUpState } from '../../ducks/popUpState/popUpActions';
-import Button from '../../atoms/Button'
+import Button from '../../atoms/Button';
+import AddButton from '../../atoms/AddButton';
 
 const Settings = ({match}) => {
 console.log('match is', match.params);
@@ -48,7 +49,8 @@ console.log(pool);
           </div>
           <div className='payment-methods'>
             <div>Payment Methods</div>
-            <Button type='button' onClick={handlePaymentMethod}>Add</Button>
+            {/* <Button type='button' onClick={handlePaymentMethod}>Add</Button> */}
+            <button className='addbutton' onClick={handlePaymentMethod}><AddButton></AddButton></button>
           </div>
           <div className='sign-out'>
             <Button type='button' className='sign-out-btn' onClick={handleSignOut}>Sign-Out</Button>

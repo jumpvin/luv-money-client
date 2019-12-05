@@ -12,10 +12,14 @@
   outline:none;
 } */
 
+button{
+  outline:none;
+}
 
 input[type=date]:required:invalid::-webkit-datetime-edit {
   color: transparent;
 }
+
 input[type=date]:focus::-webkit-datetime-edit {
   color: black !important;
 }
@@ -56,6 +60,7 @@ input, option,select{
   border:none;
   border-bottom:1px solid #2c3c77;
   box-sizing: border-box;
+  color:#2c3c77;
 }
 
 .ruleCard .group input {

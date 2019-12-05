@@ -6,6 +6,7 @@ import RuleMember from '../../molecules/RuleMember';
 import {popUpState} from '../../ducks/popUpState/popUpActions'
 import get from 'lodash.get'
 import TextInput from '../../atoms/TextInput';
+import Button from '../../atoms/Button';
 
 const EditRule = ({data}) => {
 
@@ -34,11 +35,11 @@ const EditRule = ({data}) => {
     const sum: Number = Number(Object.values(tempVal).reduce((a, b) => { return Number(a) + Number(b) }, 0));
     
     if (rule == '') {
-      alert ('please provide a rule name')
+      alert ('Please provide a rule name')
     } else if (rule == 'new') {
-      alert ('rule name cannot be new')
+      alert ('Rule name cannot be new')
     } else if (sum !== 100) {
-      alert('sum should be equal to 100')
+      alert('Sum should be equal to 100')
     } else if ( sum == 100) {
       await dispatch(triggerEditRule(updatedRule));
       setRule('');
@@ -51,9 +52,9 @@ const EditRule = ({data}) => {
 
   
   return (
-    <div>
-      <form onSubmit = {handleSubmit}>
-      <div className='pop-up-title'>Edit an existing rule.</div>
+    <div className='hold-column'>
+      <form onSubmit = {handleSubmit} className='hold-column'>
+      <div className='pop-up-title'>Edit An Existing Rule</div>
       {console.log(data)}
       <TextInput required  name='Rule Name' type='text' value={data.name} onChange={handleChange} />
       {userInfo.map((user) => (
@@ -69,7 +70,7 @@ const EditRule = ({data}) => {
         //   <input type='number' name={user.name} value={rule} onChange={handleChange}></input>%
         // </div>
       ))}
-      <button type='submit' onClick={handleSubmit}>Update</button>
+      <Button type='submit' onClick={handleSubmit} className='submit-button'>Update</Button>
       </form>
       
     </div>

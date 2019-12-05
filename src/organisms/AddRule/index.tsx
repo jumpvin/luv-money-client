@@ -32,11 +32,11 @@ const AddRule = () => {
     const sum: Number = Number(Object.values(tempVal).reduce((a, b) => { return Number(a) + Number(b) },0));
     console.log(sum);
     if (rule == '') {
-      alert ('please provide a rule name')
+      alert ('Please provide a rule name')
     } else if (rule == 'new') {
-      alert ('rule name cannot be new')
+      alert ('Rule name cannot be new')
     } else if (sum !== 100) {
-      alert('sum should be equal to 100')
+      alert('Sum should be equal to 100')
   
     } else if ( sum == 100) {
       await dispatch(triggerNewRule(updatedRule));
@@ -51,7 +51,7 @@ const AddRule = () => {
   return (
     <div className='hold-column'>
       <form className='hold-column'>
-      <div className='pop-up-title'>Create a new rule</div >
+      <div className='pop-up-title'>Create A New Rule</div >
       <TextInput required  name='Rule Name' type='text' value={rule} onChange={handleChange} />
       {userInfo.map((user) => (
         <RuleMember 

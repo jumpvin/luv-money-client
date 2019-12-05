@@ -113,3 +113,17 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.addbutton{
+  color: #97BB4F;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top:10%;
+    
+}
+
+.addbutton svg{
+  stroke-width:4;
+}
