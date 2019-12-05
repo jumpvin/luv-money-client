@@ -50,7 +50,19 @@ const MakePaymentCard = () => {
       
     // })
     const expense = { id: 1, statement_id: (parseInt(poolInfo.poolSettingsInfo[0].next_statement || poolInfo.poolSettingsInfo[0].current_statement)), pool_expense_id: 11, user_id: thisUser[0].id, name: 'Payment', date: new Date, amount: payment };
-    console.log(expense);
+    console.log(expense, 'Payment');
+    if (expense.user_id === 8) {
+      expense.pool_expense_id = 11;
+    }
+    if (expense.user_id === 7) {
+      expense.pool_expense_id = 10;
+    }
+    if (expense.user_id === 6) {
+      expense.pool_expense_id = 9;
+    }
+    if (expense.user_id === 5) {
+      expense.pool_expense_id = 8;
+    }
     if (amount == '') {
       alert('Please fill all details')
     } else if (amount < '0') {
