@@ -9,7 +9,7 @@ Luv Money is an app designed for couples and close friend groups allowing them t
 ## Screenshots
 
 <p align="center">
-  <div>![](./walkthrough2.gif)</div>
+  ![](./walkthrough2.gif)
 </p>
 
 
