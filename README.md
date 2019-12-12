@@ -1,3 +1,3 @@
 Welcome to Luv Money!
 
-![](./walkthrough.gif)
+![](./walkthrough2.gif)
