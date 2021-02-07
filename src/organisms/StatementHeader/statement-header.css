@@ -1,0 +1,46 @@
+.statement {
+  font-size: 18px;
+  color: #2c3c77;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.statement div {
+  margin-left: 10px;
+}
+
+.statementReady {
+  background-color: black;
+  color: white;
+}
+
+.statementEarly {
+  background-color: white;
+  color: black;
+}
+
+.statementSettled {
+  background-color: green;
+  color: white;
+}
+
+.statementOverdue {
+  background-color: red;
+  color: black;
+}
+
+.owe{
+  display:flex;
+  flex-direction:row;
+}
+
+.owe-text {
+  flex:8;
+}
+
+.owe-logo {
+  flex:1;
+  margin-bottom:15px;
+  margin-left:10px;
+}
+

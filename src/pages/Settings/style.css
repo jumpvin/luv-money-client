@@ -1,0 +1,134 @@
+.settings{
+  display:flex;
+  width:100%;
+  flex-direction: column;
+  align-items:center;
+  max-width:500px;
+}
+
+.user-img{
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  overflow:hidden;
+  margin-top:5vh;
+  width:15vh;
+  height:15vh;
+}
+
+.user-img img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.not{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top:5vh;
+  width:90%;
+  max-width: 500px;
+}
+
+.sign-out{
+  text-align: center;
+  margin-top: 25%;
+}
+
+.sign-out-btn{
+  background-color: #EA6666;
+  color: white;
+}
+
+.join-pool{
+  background-color: #97bb4f;
+  color: white;
+}
+
+.payment-methods{
+  display:flex;
+  width:90%;
+  flex-direction: row;
+  align-items:baseline;
+  justify-content: space-between;
+}
+
+
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 25px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(194, 190, 190);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #97BB4F;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #97BB4F;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.addbutton{
+  color: #97BB4F;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top:10%;
+    
+}
+
+.addbutton svg{
+  stroke-width:4;
+}

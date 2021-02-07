@@ -1,0 +1,21 @@
+.owe-info {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.owe-who {
+  font-size: 20px;
+  margin-bottom: .5rem;
+  color: #2c3c77;
+  text-align: center;
+}
+
+.owe-amount {
+  font-size: 30px;
+  color: #ea6666;
+  font-weight: bold;
+}
+
+.owe-positive {
+  color: #97bb4f;
+}

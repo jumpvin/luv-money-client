@@ -1,0 +1,36 @@
+.expense-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: .25rem;
+}
+
+.expense-username {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.expense-date {
+  width: 75px;
+  display: flex;
+  justify-content: center;
+}
+
+.expense-amount {
+  color: #ea6666;
+  font-weight: bold;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+}
+
+.expense-item .user-favicon {
+  height: 25px;
+}
+
+.expense-item .user-favicon img {
+  width: 25px;
+  height: 25px;
+}

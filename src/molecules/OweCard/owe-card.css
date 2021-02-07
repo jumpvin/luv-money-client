@@ -1,0 +1,13 @@
+.owe{
+  display:flex;
+  flex-flow: row;
+}
+
+.icon{
+  margin-left:35px;
+  flex:1;
+}
+
+.text{
+  flex:2;
+}

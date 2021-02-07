@@ -1,0 +1,152 @@
+/* .input{
+  border: 0;
+  border-bottom: 2px solid #2c3c77;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1rem;
+  height: 1rem;
+  text-align: center;
+  padding: 5%;
+  background: transparent;
+  color: #2c3c77;
+  outline:none;
+} */
+
+button{
+  outline:none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+
+input[type=date]:focus::-webkit-datetime-edit {
+  color: black !important;
+}
+
+input[type="date"]
+{
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    min-height: 2em;
+}
+
+select,option, input {
+  -webkit-appearance: none;
+}
+
+input, option,select{
+  border-radius: 0;
+}
+
+/* form starting stylings ------------------------------- */
+.group 			  { 
+  position:relative; 
+  margin-bottom:45px; 
+}
+
+.ruleCard .group {
+  display: flex;
+  flex-flow: column;
+  margin-left: 2rem;
+  max-width: 200px;
+}
+
+.group input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #2c3c77;
+  box-sizing: border-box;
+  color:#2c3c77;
+}
+
+.ruleCard .group input {
+  width: 100%;
+}
+.group input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+.group label 				 {
+  color:rgba(44, 60, 119, .75);
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+.group input:focus ~ label, .group input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#2c3c77;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.ruleCard .group .bar { width: 100%;}
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#2c3c77; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+.group input:focus ~ .bar:before, .group input:focus ~ .bar:after, .group select:focus ~ .bar:before, .group select:focus ~ .bar:after{
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+.group input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:#2c3c77; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#2c3c77; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#2c3c77; }
+  to 	{ width:0; background:transparent; }
+}

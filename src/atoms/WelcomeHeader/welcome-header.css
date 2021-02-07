@@ -1,0 +1,5 @@
+.welcome-header {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}

@@ -1,0 +1,27 @@
+.signup{
+  width:100vw;
+  height:100vh;
+  background: #fff;
+  background-color: red;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-sign{
+  width:250px;
+  height:auto;
+  margin: 0;
+  padding-bottom:25px;
+  
+}
+
+#bg{
+  background-color:white ;
+}
+
+.login-txt{
+  color:white;
+  font-family:'Open Sans', sans-serif;
+  size:72px;
+}

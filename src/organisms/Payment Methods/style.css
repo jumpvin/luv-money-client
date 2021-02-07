@@ -1,0 +1,22 @@
+.payment{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payment-link{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.img{
+  height:100px;
+  width:100px;
+}
+
+.img-long{
+  height:100px;
+  width:300px;
+}

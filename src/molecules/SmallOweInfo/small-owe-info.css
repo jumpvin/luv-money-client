@@ -1,0 +1,18 @@
+.small-owe-info {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin: .5rem;
+}
+.small-owe-who, .owe-what {
+  font-size: 18px;
+}
+
+.actions button {
+  color: #97bb4f;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: solid 1px;
+}

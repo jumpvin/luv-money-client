@@ -1,0 +1,41 @@
+.pop-up {
+  z-index: 1;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 300px;
+  flex-flow: column;
+  background-color: white;
+  justify-content: flex-start;
+  animation: 1s ease-out 0s 1 fadeIn;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translate(-50%, -110%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.close {
+  align-self: flex-end;
+  font-size: 22px;
+  background-color: #ea6666;
+  border-radius: 50%;
+  color: white;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.close:hover {
+  cursor: pointer;
+  opacity: .75;
+}
