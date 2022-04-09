@@ -9,7 +9,7 @@
     "firebase": "^7.5.0",
     "firebaseui": "^4.3.0",
     "lodash.get": "^4.4.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
